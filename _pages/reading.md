@@ -1,10 +1,7 @@
 ---
-permalink: /reading
+permalink: /reading/
 title: "Reading"
 author_profile: true
-redirect_from: 
-  - /reading/
-  - /reading.html
 ---
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
