@@ -11,4 +11,4 @@ Hello! My name is Adib Hasan. I am currently pursuing an MEng at MIT in Electric
 
 Before my MEng, I earned a bachelor's from MIT, double-majoring in Math and Computer Science. Post-graduation, I researched investment strategies for multi-million dollar crypto portfolios. 
 
-Beyond the professional side, my life is a thrilling void: I [cook](https://www.instagram.com/le.spicemaster/) food to delay the looming death from starvation, I enjoy the company of [dead philosophers](/reading/), and I compensate for my lack of personality by lifting [extremely heavy objects](/powerlifting/).
+Beyond work, I have an unremarkable life: I [cook](https://www.instagram.com/le.spicemaster/) food to delay the looming death from starvation, I enjoy the company of [dead philosophers](/reading/), and I compensate for my lack of personality by lifting [extremely heavy objects](/powerlifting/).
