@@ -1,10 +1,7 @@
 ---
-permalink: /books
+permalink: /books/
 title: "Books and Articles"
 author_profile: true
-redirect_from: 
-  - /books/
-  - /books.html
 ---
 # 2019
 Adib Hasan, Ahmed Zawad Chowdhury, and Joydeep Saha (2019). "Introduction to Combinatorics" ([Part 1](https://www.rokomari.com/book/180324/combinatorics-hatekhori-1st-part), [Part 2](https://www.rokomari.com/book/180324/combinatorics-hatekhori-2nd-part)).
