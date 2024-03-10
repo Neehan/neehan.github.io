@@ -1,6 +1,6 @@
 ---
 permalink: /powerlifting/
-title: "What is Powerlifting?"
+title: "What is Powerlifting"
 author_profile: true
 ---
 Powerlifting is a sport where people compete to lift insanely heavy weights. Most powerlifters are under the impression that a three-plate bench press makes them superior, but in reality, the general population couldn't care less.
@@ -9,11 +9,12 @@ Powerlifting is a sport where people compete to lift insanely heavy weights. Mos
     <img src="https://blog.priceplow.com/wp-content/uploads/cbum-olympia-stage.jpg" alt="CBum" width="500"/>
 </div>
 
-This man is not a powerlifter. He is a **bodybuilder** -- a distinct breed of gymrats with severe cases of [NPD](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). Powerlifters [look miserable](https://fitnessvolt.com/wp-content/uploads/2020/12/powerlifting-rules.jpg) and would only pose for deadlift PRs.
+This is not a powerlifter. This is a **bodybuilder** -- a distinct breed of gymrats with severe cases of [NPD](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). A powerlifter only poses for a deadlift PR and [they look miserable](https://fitnessvolt.com/wp-content/uploads/2020/12/powerlifting-rules.jpg).
 
 ## My Stats
+(Updated 2024/03)
 
-| Date    | Bench Press   | Squat     | Deadlift      |
-|:-------:|:-------------:|:---------:|:-------------:|
-| 2024/03 |235 lbs        | 335 lbs   | 395 lbs       |
-|---------|---------------|-----------|---------------|
+| Bench Press   | Squat     | Deadlift      |
+|:-------------:|:---------:|:-------------:|
+|235 lbs        | 335 lbs   | 395 lbs       |
+|---------------|-----------|---------------|
