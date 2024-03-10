@@ -18,4 +18,4 @@ This is not a powerlifter. This is a **bodybuilder** -- a distinct breed of gymr
 
 **Squat:** 335 lbs
 
-**Deadlift (Conventional):** 395 lbs
+**Deadlift:** 395 lbs
