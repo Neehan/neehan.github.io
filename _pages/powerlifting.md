@@ -9,13 +9,12 @@ Powerlifting is a sport where people compete to lift insanely heavy weights. Mos
     <img src="https://blog.priceplow.com/wp-content/uploads/cbum-olympia-stage.jpg" alt="CBum" width="500"/>
 </div>
 
-This is not a powerlifter. This is a **bodybuilder** -- a distinct breed of gymrats with severe cases of [NPD](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). A powerlifter would rather post a video of their deadlift PR instead of posing like that.
+This is not a powerlifter. This is a **bodybuilder** -- a distinct breed of gymrats with severe cases of [NPD](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). A powerlifter only poses for a deadlift PR and [they look miserable](https://fitnessvolt.com/wp-content/uploads/2020/12/powerlifting-rules.jpg).
 
 ## My Stats
 (Updated 2024/03)
 
-**Bench Press:** 235 lbs 
-
-**Squat:** 335 lbs
-
-**Deadlift:** 395 lbs
+| Bench Press   | Squat     | Deadlift      |
+|:-------------:|:---------:|:-------------:|
+|235 lbs        | 335 lbs   | 395 lbs       |
+|---------------|-----------|---------------|
