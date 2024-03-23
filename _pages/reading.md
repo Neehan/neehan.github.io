@@ -9,7 +9,8 @@ author_profile: true
 3. Beyond Good and Evil - Friedrich Nietzsche
 4. Lilua Batash - Humayun Ahmed
 5. Billy Budd - Herman Melville
-6. The Myth of Sisyphus and Other Essays - Albert Camus 
+6. The Myth of Sisyphus and Other Essays - Albert Camus
+7. A History of the U.S. Economy in the 20th Century - Timothy Taylor 
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
