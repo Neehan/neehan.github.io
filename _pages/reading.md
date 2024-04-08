@@ -11,7 +11,8 @@ author_profile: true
 5. Billy Budd - Herman Melville
 6. The Myth of Sisyphus and Other Essays - Albert Camus
 7. A History of the U.S. Economy in the 20th Century - Timothy Taylor
-8. A Confession - Leo Tolstoy  
+8. A Confession - Leo Tolstoy
+9. The Chekhov Collection of Short Stories - Anton Chekhov  
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
