@@ -13,7 +13,7 @@ author_profile: true
 7. A History of the U.S. Economy in the 20th Century - Timothy Taylor
 8. A Confession - Leo Tolstoy
 9. The Chekhov Collection of Short Stories - Anton Chekhov
-10. The Changing World Order: Why Nations Fail - Ray Dalio
+10. The Changing World Order: Why Nations Succeed and Fail - Ray Dalio
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
