@@ -16,7 +16,8 @@ author_profile: true
 10. The Changing World Order: Why Nations Succeed and Fail - Ray Dalio
 11. The Prophet - Kahlil Gibran
 12. Danger Zone: the Coming Conflict with China - Hal Brands and Michael Beckley
-13. Kheya - Rabindranath Tagore 
+13. Kheya - Rabindranath Tagore
+14. Candide - Voltaire 
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
