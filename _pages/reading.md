@@ -3,6 +3,8 @@ permalink: /reading/
 title: "Reading"
 author_profile: true
 ---
+They say reading books is like taking your brain to the gym. I read so many that now I have a six pack on my forehead. Here's how it happened:
+
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
 2. The Richest Man in Babylon - George S. Clason
