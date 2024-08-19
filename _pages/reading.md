@@ -21,6 +21,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 13. Kheya - Rabindranath Tagore
 14. Candide - Voltaire
 15. Will My Cat My Eyeballs - Caitlin Doughty
+16. Discipline and Punish - Michel Foucault 
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
