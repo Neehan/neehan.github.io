@@ -23,6 +23,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 15. Will My Cat My Eyeballs - Caitlin Doughty
 16. Discipline and Punish - Michel Foucault
 17. Nausea - Jean-Paul Sartre
+18. White Nights - Fyodor Dostoevsky
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
