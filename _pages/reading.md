@@ -24,6 +24,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 16. Discipline and Punish - Michel Foucault
 17. Nausea - Jean-Paul Sartre
 18. White Nights - Fyodor Dostoevsky
+19. The Master and Margarita - Mikhail Bulgakov
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
