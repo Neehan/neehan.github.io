@@ -11,7 +11,7 @@ author_profile: true
 
 **Adib Hasan**, Mardaviz Roozbehani, & Munther Dahleh. (2024). WeatherFormer: A Pretrained Encoder Model for Learning Robust Weather Representations from Small Datasets. [https://arxiv.org/abs/2405.17455](https://arxiv.org/abs/2405.17455)
 
-**Adib Hasan**, Ileana Rugina, & Alex Wang. (2024). Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning. [https://arxiv.org/abs/2401.10862](https://arxiv.org/abs/2401.10862)
+**Adib Hasan**, Ileana Rugina, & Alex Wang. (2024). *Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning*. In *Proceedings of the 7th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP 2024)*, co-located with *EMNLP 2024*, Miami, USA. [https://arxiv.org/abs/2401.10862](https://arxiv.org/abs/2401.10862)
 
 **Adib Hasan**, Po-Chien Chung, & Wayne Hayes. (2017). Graphettes: Constant-time determination of graphlet and orbit identity including (possibly disconnected) graphlets up to size 8. *PLoS ONE*. [https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181570](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181570)
 
