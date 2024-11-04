@@ -26,6 +26,8 @@ They say reading books is like taking your brain to the gym. I read so many that
 18. White Nights - Fyodor Dostoevsky
 19. The Master and Margarita - Mikhail Bulgakov
 20. Water Margin - Shi Nai'an
+21. Sapiens - Yuval Noah Harari
+22. Homo Deus - Yuval Noah Harari
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
