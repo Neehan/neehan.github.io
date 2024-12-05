@@ -28,6 +28,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 20. Water Margin - Shi Nai'an
 21. Sapiens - Yuval Noah Harari
 22. Homo Deus - Yuval Noah Harari
+23. How Fascism Works - Jason Stanley
 
 # 2023
 1. Rhythm of War - Brandon Sanderson
