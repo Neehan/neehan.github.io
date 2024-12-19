@@ -19,7 +19,7 @@ Each talk is allocated 30 minutes, including Q&A.
 3. [A Strategic Approach to Digital SAT Reading and Writing](https://docs.google.com/presentation/d/1NA_5PGw_mrt-PgzKkpoZSkOEkzdOOamxLJ85yOurUUI/edit#slide=id.p) - Prottay Roy Chowdhury
 4. Break: 10 mins
 5. [Essays and Recommendation Letters](https://drive.google.com/drive/folders/1VM_CMhB8UFqHeGDtZ-MSXRIQipcsFGfS) - Sreoshi Hossain
-6. Extracurricular Activities - Nafis Saadiq
+6. [Extracurricular Activities for US College Admission](https://docs.google.com/presentation/d/1AOo_Tl1VybBTw7uVOKhUGUFOcMycOQGI_Cu9vYTGjSQ/edit?usp=sharing) - Nafis Saadiq Bhuiyan
 7. Scholarships and Financial Aid - Navid Haider
 
 ## Important Information
