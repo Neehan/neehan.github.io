@@ -20,7 +20,7 @@ Each talk is allocated 30 minutes, including Q&A.
 4. Break: 10 mins
 5. [Essays and Recommendation Letters](https://drive.google.com/drive/folders/1VM_CMhB8UFqHeGDtZ-MSXRIQipcsFGfS) - Sreoshi Hossain
 6. [Extracurricular Activities for US College Admission](https://docs.google.com/presentation/d/1AOo_Tl1VybBTw7uVOKhUGUFOcMycOQGI_Cu9vYTGjSQ/edit?usp=sharing) - Nafis Saadiq Bhuiyan
-7. Scholarships and Financial Aid - Navid Haider
+7. [Financial Aid and Scholarships](https://docs.google.com/presentation/d/1Bky0QyVaBOJy0gmrD4vSWEkJfYqHYkpj/edit?usp=sharing&ouid=117674254524220801281&rtpof=true&sd=true) - Navid Haider
 
 ## Important Information
 - The seminar will focus exclusively on the undergraduate admission process to the US. It will NOT cover graduate admissions.
