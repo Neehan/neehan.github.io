@@ -7,6 +7,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 
 # 2025
 1. How the World Works - Noam Chomsky
+2. Thuggee - Sripantha
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
