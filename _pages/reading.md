@@ -9,6 +9,7 @@ They say reading books is like taking your brain to the gym. I read so many that
 1. How the World Works - Noam Chomsky
 2. Thuggee - Sripantha
 3. Violence and the Sacred - René Girard
+4. Letters to Milena - Franz Kafka
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
