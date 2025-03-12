@@ -3,7 +3,9 @@ permalink: /reading/
 title: "Reading"
 author_profile: true
 ---
-They say reading books is like taking your brain to the gym. I read so many that now I have a six-pack on my forehead. Here's how it happened:
+They say reading books is like taking your brain to the gym. I have been at it for so long that now I have a six-pack on my forehead :)) 
+
+Here is what I am currently reading:
 
 # 2025
 1. How the World Works - Noam Chomsky
