@@ -12,7 +12,8 @@ Here is what I am currently reading:
 2. Thuggee - Sripantha
 3. Violence and the Sacred - René Girard
 4. Letters to Milena - Franz Kafka
-5. Lifespan - David Sinclair 
+5. Lifespan - David Sinclair
+6. Master and Man - Leo Tolstoy 
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
