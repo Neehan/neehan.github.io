@@ -7,8 +7,12 @@ redirect_from:
   - /about.html
 ---
 
-Hello! My name is Adib Hasan. I am currently pursuing an MEng at MIT in Electrical Engineering and Computer Science, where I have the privilege of being advised by [Dr. Mardaviz Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munzer Dahleh](https://idss.mit.edu/staff/munther-dahleh/). My thesis is about learning latent weather representations from small datasets using transformer models. I also work on making transformer models to be smaller and safer.
+I'm Adib Hasan, a research engineer at a stealth startup, where I build large retrieval-augmented generation (RAG) systems and optimize LLM inference for speed and scale.
 
-Before my MEng, I earned a bachelor's from MIT, double-majoring in Math and Computer Science. Post-graduation, I researched investment strategies for multi-million dollar crypto portfolios. You can check my [LinkedIn profile](https://linkedin.com/in/adib-hasan) for details regarding my past professional experiences.
+Previously, I earned my MEng in Electrical Engineering and Computer Science from MIT, advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). My thesis explored how to learn latent weather representations from small datasets using transformer-based architectures—think pretraining an LLM, but for weather.
 
-Beyond work, I lead an unremarkable life: I [cook](https://www.instagram.com/le.spicemaster/) food to delay the looming death from starvation, I enjoy the company of [dead philosophers](/reading/), and I stroke my fragile ego by lifting [extremely heavy objects](/powerlifting/).
+Before my MEng, I completed a double major in Mathematics and Computer Science at MIT. Between my undergrad and MEng, I worked on investment strategies for multi-million dollar crypto portfolios.
+
+You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
+
+Outside of work, I cook to avoid starvation ([proof](https://www.instagram.com/le.spicemaster/)), read [dead philosophers](/reading/), and lift [heavy objects](/powerlifting/) to maintain the illusion of control.
