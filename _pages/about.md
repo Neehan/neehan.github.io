@@ -11,7 +11,7 @@ My name is Adib Hasan. I am a research engineer at a stealth startup, where I bu
 
 Previously, I earned my MEng in Electrical Engineering and Computer Science from MIT, advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). My thesis explored how to learn latent weather representations from small datasets using transformer-based architectures—think pretraining an LLM, but for weather.
 
-Before my MEng, I completed a double major in Mathematics and Computer Science at MIT. Between my undergrad and MEng, I worked on investment strategies for multi-million dollar crypto portfolios.
+Before my MEng, I completed a double major in Mathematics and Computer Science at MIT and worked as a quant researcher for 2 years managing multi-million dollar crypto portfolios.
 
 You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
 
