@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm Adib Hasan, a research engineer at a stealth startup, where I build large retrieval-augmented generation (RAG) systems and optimize LLM inference for speed and scale.
+My name is Adib Hasan. I am a research engineer at a stealth startup, where I build large retrieval-augmented generation (RAG) systems for AI agents and optimize LLM inference for speed and scale.
 
 Previously, I earned my MEng in Electrical Engineering and Computer Science from MIT, advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). My thesis explored how to learn latent weather representations from small datasets using transformer-based architectures—think pretraining an LLM, but for weather.
 
