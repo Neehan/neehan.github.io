@@ -5,7 +5,7 @@ permalink: /lessons/
 author_profile: true
 ---
 
-They say failures are valuable only if you learn from them. Over the years, I've failed countless times, made many embarrassing mistakes at work, learning valuable lessons the hard way. I keep a running list of these lessons and revisit them whenever I have to take major life-decisions. This list isn't complete or absolute—it's a continuous reflection of my perspective evolves as I navigate through life.
+They say failures are valuable only if you learn from them. Over the years, I've failed countless times, made many embarrassing mistakes at work, learning valuable lessons the hard way. I keep a running list of these lessons and revisit them whenever I have to take major life-decisions. This list isn't complete or absolute—it's a continuous reflection of my perspective as I navigate through life.
 
 ## Work Principles
 
