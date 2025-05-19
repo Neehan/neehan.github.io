@@ -1,13 +1,13 @@
 ---
 layout: archive
-title: "Principles"
-permalink: /principles/
+title: "Lessons"
+permalink: /lessons/
 author_profile: true
 ---
 
-## Work Principles
+## Work Lessons
 1. Do not reinvent the wheel -- build the cart instead.
 2. Do not micromanage and do not let yourself be micromanaged.
 
-## Life Principles
+## Life Lessons
 1. Life is short and time is currency.
