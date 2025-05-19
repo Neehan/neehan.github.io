@@ -19,3 +19,4 @@ They say failures are valuable only if you learn from them. Over the years, I've
 2. Accept that you will have shortcomings. Take full responsibility for your actions and own the outcomes.
 3. The pursuit of dreams gives life its meaning.
 4. Attachment is the root of all suffering. (See [Four Noble Truths](https://en.wikipedia.org/wiki/Four_Noble_Truths))
+5. Kindness costs little, yields much.
