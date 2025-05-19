@@ -3,15 +3,15 @@ main:
   
   - title: "Research"
     url: /research/
+  
+  - title: "Lessons"
+    url: /lessons/
 
   - title: "Writing"
     url: /writing/
 
   - title: "Reading"
-    url: /reading/
-    
-  - title: "Principles"
-    url: /principles/  
+    url: /reading/  
   
   - title: "Portfolio"
     url: /portfolio/
