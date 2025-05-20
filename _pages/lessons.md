@@ -18,6 +18,6 @@ They say failures are valuable only if you learn from them. Over the years, I've
 
 1. Life is short; time is your most valuable currency.
 2. Accept that you will have shortcomings. Take full responsibility for your actions and own the outcomes.
-3. The pursuit of dreams gives life its meaning.
+3. In the grand scheme of things, your existence is utterly meaningless. Only the pursuit of dreams gives life its meaning. (See [existentialism](https://en.wikipedia.org/wiki/Existentialism))
 4. Attachment is the cause of all suffering. (See [Four Noble Truths](https://en.wikipedia.org/wiki/Four_Noble_Truths))
 5. Kindness costs little, yields much.
