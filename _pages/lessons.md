@@ -9,7 +9,7 @@ They say failures are valuable only if you learn from them. Over the years, I've
 
 ## Work Principles
 
-1. Don't reinvent the wheel—build the cart instead. Leverage human or AI expertise to identify existing solutions and focus on integration.
+1. Don't reinvent the wheel—build the cart instead. Ask the best human (or AI) expert to identify existing solutions before building anything.
 2. Never micromanage, and never allow yourself to be micromanaged.
 3. Be aware of your blind spots and hire people who complement your weaknesses.
 4. People think and work differently. Create a space for them to explain their perspectives.
