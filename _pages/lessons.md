@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Lessons"
+title: "Life Lessons"
 permalink: /lessons/
 author_profile: true
 ---
