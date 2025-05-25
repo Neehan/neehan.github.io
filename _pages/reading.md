@@ -13,7 +13,8 @@ Here is what I am currently reading:
 3. Violence and the Sacred - René Girard
 4. Letters to Milena - Franz Kafka
 5. Lifespan - David Sinclair
-6. Master and Man - Leo Tolstoy 
+6. Master and Man - Leo Tolstoy
+7. The Demon-Haunted World - Carl Sagan
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
