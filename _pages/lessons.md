@@ -24,5 +24,5 @@ Here is a running list of lessons that I have learned over the years from making
 
 ## Machine Learning
 1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html) (not Adam)** with learning rate between 1e-4 and 1e-3 and a linear warm-up. 
-2. Scale your learning rate along with batch size: [_lr ~ sqrt(batch size)_](https://arxiv.org/pdf/1705.08741). **Note:** for small batch size like 32, 64 etc, linear scaling often leads to [better results](https://arxiv.org/pdf/1404.5997).
+2. When training with large batches, for example, during pre-training, scale your learning rate as: [_lr ~ sqrt(batch size)](https://arxiv.org/pdf/1705.08741). For small batch size like 32, 64 etc, linear scaling may work [better](https://arxiv.org/pdf/1404.5997). 
 3. Larger models require more data and computational resources but not linearly. Your model might be [undertrained](https://arxiv.org/pdf/2001.08361) for its size.
