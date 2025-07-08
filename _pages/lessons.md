@@ -5,7 +5,7 @@ permalink: /lessons/
 author_profile: true
 ---
 
-They say failures are valuable only if you learn from them. Over the years, I've failed countless times, made many embarrassing mistakes at work, learning valuable lessons the hard way. I keep a running list of these lessons and revisit them whenever I have to take major life-decisions. This list isn't complete or absolute—it's a continuous reflection of my perspective as I navigate through life.
+Here is a running list of lessons that I have learned over the years from making embarrassing mistakes. This list isn't complete, as I always surprise myself by discovering new ways to fail.
 
 ## Work Principles
 
@@ -18,6 +18,11 @@ They say failures are valuable only if you learn from them. Over the years, I've
 
 1. Life is short; time is your most valuable currency.
 2. Accept that you will have shortcomings. Take full responsibility for your actions and own the outcomes.
-3. In the grand scheme of things, your existence is utterly meaningless. Only the pursuit of dreams gives life its meaning. (See [existentialism](https://en.wikipedia.org/wiki/Existentialism))
-4. Attachment is the cause of all suffering. (See [Four Noble Truths](https://en.wikipedia.org/wiki/Four_Noble_Truths))
+3. In the grand scheme of things, your existence is utterly meaningless. Only the pursuit of dreams gives life its [meaning](https://en.wikipedia.org/wiki/Existentialism). 
+4. Attachment is the cause of all [suffering](https://en.wikipedia.org/wiki/Four_Noble_Truths).
 5. Kindness costs little, yields much.
+
+## Machine Learning Training
+1. When in doublt, always start with **AdamW** with learning rate between 1e-4 and 1e-3 and a linear warm-up.
+2. Scale your learning rate along with batch size: [_lr ~ sqrt(batch size)_](https://arxiv.org/pdf/1705.08741). **Note:** for small batch size like 32, 64 etc, linear scaling often leads to [better results](https://arxiv.org/pdf/1404.5997).
+3. Larger models require more data and computational resources but not linearly. Your model might be [undertrained](https://arxiv.org/pdf/2001.08361) for its size.
