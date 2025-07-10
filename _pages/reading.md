@@ -16,7 +16,8 @@ Here is what I am currently reading:
 6. Master and Man - Leo Tolstoy
 7. The Demon-Haunted World - Carl Sagan
 8. Rich Dad Poor Dad - Robert Kiyosaki
-9. No Longet Human - Osamu Dazai
+9. No Longer Human - Osamu Dazai
+10. The Setting Sun - Osamu Dazai
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
