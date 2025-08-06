@@ -6,10 +6,10 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">Here is a list of the mediocre research papers I have published so far. You can also find my them on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">Here is a list of research papers I’ve published—nothing groundbreaking, but I’ve learned a lot through them. They’re also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
-**Adib Hasan**, Mardaviz Roozbehani, & Munther Dahleh. (2024). WeatherFormer: A Pretrained Encoder Model for Learning Robust Weather Representations from Small Datasets. [(arXiv)](https://arxiv.org/abs/2405.17455)
+**Adib Hasan**, Mardaviz Roozbehani, & Munther Dahleh. (2025). VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting [(arXiv)](https://arxiv.org/abs/2508.03589)
 
 **Adib Hasan**, Ileana Rugina, & Alex Wang. (2024). *Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning*. In *Proceedings of the 7th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP*, co-located with *EMNLP 2024*, Miami, USA. [(arXiv)](https://arxiv.org/abs/2401.10862)
 
