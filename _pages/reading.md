@@ -18,7 +18,8 @@ Here is what I am currently reading:
 8. Rich Dad Poor Dad - Robert Kiyosaki
 9. No Longer Human - Osamu Dazai
 10. The Setting Sun - Osamu Dazai
-11. Notes from the Underground - Fyodor Dostoyevsky 
+11. Notes from the Underground - Fyodor Dostoyevsky
+12. The Stranger - Albert Camus
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
