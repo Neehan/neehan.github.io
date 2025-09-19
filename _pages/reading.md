@@ -21,6 +21,8 @@ Here is what I am currently reading:
 11. Notes from the Underground - Fyodor Dostoyevsky
 12. The Stranger - Albert Camus
 13. 13 Bankers: the Wall Street Takeover and the Next Financial Meltdown - Simon Johnson and James Kwak
+14. The Wisdom of Life - Arthur Schopenhauer
+15. Surzodeeghol Bari - Abu Ishaq
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
