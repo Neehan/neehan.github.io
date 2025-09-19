@@ -5,7 +5,7 @@ permalink: /lessons/
 author_profile: true
 ---
 
-Here is a running list of lessons that I have learned over the years from making embarrassing mistakes. This list isn't complete, as I always surprise myself by discovering new ways to fail.
+Here is a running list of lessons that I have learned over the years from my mistakes. This list isn't complete, as I am very capable at finding more spectacular ways to fail.
 
 ## Work Principles
 
