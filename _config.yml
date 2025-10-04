@@ -58,7 +58,7 @@ author:
   lastfm: # Username
   linkedin: adib-hasan
   mastodon: # URL
-  medium: # URL
+  medium: "https://medium.com/@adib.moves"
   pinterest: # Username
   soundcloud: # Username
   steam: # Username
@@ -73,6 +73,12 @@ author:
   zhihu: # URL
 
 # Site Settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+
+
 teaser: # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs: false # true, false (default)
 words_per_minute: 160
