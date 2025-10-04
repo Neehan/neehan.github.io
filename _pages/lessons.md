@@ -23,7 +23,7 @@ Here is a running list of lessons that I have learned over the years from my mis
 5. Kindness costs little, yields much.
 
 ## Machine Learning
-1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)** with learning rate between $[10^{-4}, 10^{-3}]$ and a linear warm-up. 
+1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)** with learning rate between $[10^{-4}, 10^{-3}]$ and a linear warm-up. If VRAM-bound, test out your idea with [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html) first. 
 2. When training with large batches, for example, during pre-training, scale your learning rate as: [$\mathrm{lr} \sim \sqrt{\mathrm{batch\ size}}$](https://arxiv.org/pdf/1705.08741). For small batch size like 32, 64 etc, linear scaling may work [better](https://arxiv.org/pdf/1404.5997). 
 3. Larger models require more data and computational resources but not linearly. Your model might be [undertrained](https://arxiv.org/pdf/2001.08361) for its size.
 4. Floating-point precision varies with magnitude, so final result varies with order of operations, ie. $(a + b) + c \neq a + (b + c)$. This makes many algorithms [non-deterministic](https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/) on GPU. For example, as of 2025, [there is no deterministic kernel for `torch.cumsum`](https://github.com/pytorch/pytorch/issues/89492).
