@@ -8,10 +8,48 @@ author_profile: true
 {% include base_path %}
 {% include group-by-array collection=site.blog field="tags" %}
 
-{% for tag in group_names %}
-{% assign posts = group_items[forloop.index0] %}
-<h2 id="{{ tag | slugify }}" class="archive__subtitle">{{ tag }}</h2>
-{% for post in posts %}
-{% include archive-single.html %}
-{% endfor %}
-{% endfor %}
+<div id="tag-content">
+  {% for tag in group_names %}
+  {% assign posts = group_items[forloop.index0] %}
+  <div class="tag-section" data-tag="{{ tag | slugify }}">
+    <h2 id="{{ tag | slugify }}" class="archive__subtitle">{{ tag }}</h2>
+    {% for post in posts %}
+    {% include archive-single.html %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  (function () {
+    function filterTags() {
+      var hash = window.location.hash.substring(1);
+      var sections = document.querySelectorAll('.tag-section');
+
+      if (!hash) {
+        // No hash, show all tags
+        sections.forEach(function (section) {
+          section.style.display = 'block';
+        });
+        return;
+      }
+
+      // Hide all sections first
+      sections.forEach(function (section) {
+        section.style.display = 'none';
+      });
+
+      // Show only the matching tag section
+      var targetSection = document.querySelector('.tag-section[data-tag="' + hash + '"]');
+      if (targetSection) {
+        targetSection.style.display = 'block';
+      }
+    }
+
+    // Filter on page load
+    filterTags();
+
+    // Filter when hash changes
+    window.addEventListener('hashchange', filterTags);
+  })();
+</script>
