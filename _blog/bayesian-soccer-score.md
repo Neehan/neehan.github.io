@@ -183,7 +183,7 @@ Total configurations: \\(400 \times 200 \times 200 = 16\\) million.
 
 **See the [Colab notebook](https://colab.research.google.com/drive/1b-o\_ACHLYiweYk\_Ynp\_qxcWvZ2Am7-At) for full derivations, model fitting code, and visualizations.**
 
-I fit separate models for Argentina and Australia using historical match data from [eloratings.net](http://eloratings.net). Posterior inference was performed over a discretized parameter space of 400 × 40000 = 16 million configurations, with \\(\sigma\\) fixed at 0.05.
+I fit separate models for Argentina and Australia using historical match data from [eloratings.net](http://eloratings.net). Posterior inference was performed over a discretized parameter space of 400 × 200 × 200 = 16 million configurations, with \\(\sigma\\) fixed at 0.05.
 
 **Key findings:**
 - Argentina's inferred \\(\alpha\_1\\) (ELO coefficient) was large and positive, confirming rating differentials strongly predict outcomes
