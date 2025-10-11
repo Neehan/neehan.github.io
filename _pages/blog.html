@@ -3,11 +3,35 @@ layout: archive
 title: "Blog"
 permalink: /blog/
 author_profile: true
+pagination:
+  enabled: true
+  collection: blog
 ---
 
 {% include base_path %}
 
+{% assign posts_sorted = site.blog | sort: 'date' | reverse %}
 
-{% for post in site.blog %}
+{% if paginator %}
+  {% assign posts_to_show = paginator.posts %}
+{% else %}
+  {% assign posts_to_show = posts_sorted %}
+{% endif %}
+
+{% for post in posts_to_show %}
   {% include archive-single.html %}
 {% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">&laquo; Newer</a>
+  {% endif %}
+
+  <span class="page_number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older &raquo;</a>
+  {% endif %}
+</nav>
+{% endif %}
