@@ -168,31 +168,12 @@ Discretize the parameter space: \\(\iota\_n \in \\{\iota^{(1)}, \ldots, \iota^{(
 
 $$
 \begin{align}
-\log Q_0(\iota_0, \boldsymbol{\alpha}) &= \log P(\iota_0) + \log P(\boldsymbol{\alpha}) \tag{1}
-\end{align}
-$$
-
-$$
-\begin{align}
-\log P(\iota_n \mid \iota_{n-1}, \sigma) &= -\frac{1}{2}\log(2\pi \sigma^2) - \frac{(\iota_n - \iota_{n-1})^2}{2\sigma^2} \tag{2}
-\end{align}
-$$
-
-$$
-\begin{align}
-\lambda_{n-1} &= \exp(\iota_{n-1} + \boldsymbol{\alpha}^\top \mathbf{x}_{n-1}) \tag{3}
-\end{align}
-$$
-
-$$
-\begin{align}
-\log P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) &= g_{n-1} \log \lambda_{n-1} - \lambda_{n-1} - \sum_{k=1}^{g_{n-1}} \log k \tag{4}
-\end{align}
-$$
-
-$$
-\begin{align}
-\log Q_n(\iota_n, \boldsymbol{\alpha}) &= \text{logsumexp}_{\iota_{n-1}} \Big[ \log P(\iota_n \mid \iota_{n-1}, \sigma) + \log P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) + \log Q_{n-1}(\iota_{n-1}, \boldsymbol{\alpha}) \Big] \tag{5}
+\log Q_0(\iota_0, \boldsymbol{\alpha}) &= \log P(\iota_0) + \log P(\boldsymbol{\alpha}) \tag{1}\\
+\log P(\iota_n \mid \iota_{n-1}, \sigma) &= -\frac{1}{2}\log(2\pi \sigma^2) - \frac{(\iota_n - \iota_{n-1})^2}{2\sigma^2} \tag{2}\\
+\lambda_{n-1} &= \exp(\iota_{n-1} + \boldsymbol{\alpha}^\top \mathbf{x}_{n-1}) \tag{3}\\
+\log P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) &= g_{n-1} \log \lambda_{n-1} - \lambda_{n-1} - \log(g_{n-1}!) \tag{4}\\
+\log Q_n(\iota_n, \boldsymbol{\alpha}) &= \text{logsumexp}_{\iota_{n-1}} \Big[ \log P(\iota_n \mid \iota_{n-1}, \sigma) \nonumber\\
+&\quad + \log P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) + \log Q_{n-1}(\iota_{n-1}, \boldsymbol{\alpha}) \Big] \tag{5}
 \end{align}
 $$
 
