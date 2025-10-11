@@ -1,7 +1,7 @@
 ---
 title: "ML Augmented Binary Heap"
 excerpt: "We sped-up binary heap operations 55% using ML."
-collection: portfolio
+collection: blog
 date: 2019-05-01
 ---
 

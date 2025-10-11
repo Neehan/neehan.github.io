@@ -1,7 +1,7 @@
 ---
 title: "LaTeXbangla - Bangla in LaTeX"
 excerpt: "A package for seemless integration of Bangla fonts in large LaTeX projects."
-collection: portfolio
+collection: blog
 date: 2016-10-01
 ---
 
