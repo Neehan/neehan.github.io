@@ -13,11 +13,11 @@ Applied to agricultural yield forecasting, VITA achieves \\(R^2 = 0.726\\) on ex
 
 ## Problem Setup: Feature Asymmetry in Weather Forecasting
 
-Let \\(\mathbf{x} \in \mathbb{R}^{T \times 6}\\) denote basic weather features (temperature, precipitation) observed over \\(T = 364\\) weeks, and \\(\mathbf{z}^\star \in \mathbb{R}^{T \times 31}\\) denote detailed satellite weather available only during pretraining. Each sequence includes year and spatial coordinates.
+Let \\(\mathbf{x} \in \mathbb{R}^{T \times 6}\\) denote basic weather features (temperature, precipitation) observed over \\(T = 364\\) weeks, and \\(\mathbf{z}^\star \in \mathbb{R}^{T \times 31}\\) denote detailed satellite weather (radiation flux, surface albedo, cloud cover, wind speed, etc) available only during pretraining. Each sequence includes year and spatial coordinates.
 
 **Datasets**
 
-Consider \\( D\_w = \{(\mathbf{x}\_i, \mathbf{z}^\star\_i)\}\_{i=1}^{N\_w}\\) and \\(D\_y = \{(\mathbf{x}\_j, y\_j, \mathbf{y}^{\text{past}}\_j)\}\_{j=1}^{N\_y}\\) to pre-training and fine-tuning datasets, respectively, where \\(x\\) is the basic weather variables (such as, temperature), \\(z\\) is detailed weather features, (such as radiation flux, surface albedo, cloud cover, etc), \\(y\\) is crop yield and \\(\mathbf{y}^{\text{past}}\\) contains six years of historical yields (capturing soil quality and management practices).
+Consider \\( D\_w = \{(\mathbf{x}\_i, \mathbf{z}^\star\_i)\}\_{i=1}^{N\_w}\\) and \\(D\_y = \{(\mathbf{x}\_j, y\_j, \mathbf{y}^{\text{past}}\_j)\}\_{j=1}^{N\_y}\\) to pre-training and fine-tuning datasets, respectively, where \\(y\\) is crop yield and \\(\mathbf{y}^{\text{past}}\\) contains six years of historical yields (capturing soil quality and management practices).
 
 **The asymmetry:** We have \\((\mathbf{x}, \mathbf{z}^\star)\\) pairs during pretraining but only \\(\mathbf{x}\\) at deployment. How do we learn representations from \\(\mathbf{x}\\) that generalize to downstream tasks?
 
