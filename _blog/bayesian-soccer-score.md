@@ -63,9 +63,31 @@ P(\lambda_n \mid g_n, g_{n-1},\ldots) &\propto P(g_n\mid\lambda_n) \cdot P(\lamb
 
 $$
 
-The drift term \\(\lambda\_n \sim \mathcal{N}(\lambda\_{n-1}, \sigma^2)\\) accounts for temporal changes in team quality due to lineup adjustments, player form, and experience accumulation. The posterior update can be computed numerically or via MCMC sampling.
+The drift term \\(\lambda\_n \sim \mathcal{N}(\lambda\_{n-1}, \sigma^2)\\) accounts for temporal changes in team quality due to lineup adjustments, player form, and experience accumulation.
 
-For example, suppose Argentina scores 2 goals in match 1. Our posterior for \\(\lambda\\) concentrates around 2. In match 2, they score 1 goal; the posterior shifts left. In match 3, they score 3 goals; it shifts right, but with narrower variance as we accumulate more observations.
+**Bayesian update mechanics:** To compute the posterior after observing \\(g\_n\\), we marginalize over the previous state:
+
+$$
+\begin{align}
+P(\lambda_n \mid g_{n-1}, \ldots) &= \int_{\lambda_{n-1}} P(\lambda_n \mid \lambda_{n-1}) P(\lambda_{n-1} \mid g_{n-1}, \ldots) \, d\lambda_{n-1}
+\end{align}
+$$
+
+After observing \\(g\_n\\):
+
+$$
+P(\lambda_n \mid g_n, g_{n-1}, \ldots) \propto P(g_n \mid \lambda_n) \cdot P(\lambda_n \mid g_{n-1}, \ldots)
+$$
+
+Expanding the prior recursively:
+
+$$
+P(\lambda_n \mid g_{n-1}, \ldots) \propto \int_{\lambda_{n-1}} P(\lambda_n \mid \lambda_{n-1}) P(g_{n-1} \mid \lambda_{n-1}) P(\lambda_{n-1} \mid g_{n-2}, \ldots) \, d\lambda_{n-1}
+$$
+
+This integral can be computed numerically or via MCMC sampling.
+
+**Example trajectory:** Argentina scores 2 goals in match 1 → posterior for \\(\lambda\\) concentrates around 2. Match 2: 1 goal → posterior shifts left. Match 3: 3 goals → shifts right, but with narrower variance as observations accumulate.
 
 ## Full Model: Variable Opposition
 
@@ -104,10 +126,34 @@ g_n &\sim \text{Poisson}(\lambda_n)
 
 $$
 
-Prior specification rationale:
+**Prior specification rationale:**
 - **Coefficient prior** \\(\mathcal{N}(0, 2^2)\\): Appears weakly informative, but the exponential link function amplifies the effect. A coefficient two standard deviations from zero scales \\(\lambda\_n\\) by a factor in \\([e^{-4}, e^4] \approx [0.02, 54.6]\\).
 - **Drift variance** \\(\text{Gamma}(0.5, 1)\\): Mean and variance of 0.5 reflect the expectation of gradual evolution in team strength between consecutive matches.
 - **Initial strength** \\(\mathcal{N}(0.4, 0.7^2)\\): World Cup matches average 2.8 goals total, suggesting approximately 1.4 goals per team. Setting \\(\iota\_0 \approx \log(1.4) \approx 0.34\\) with moderate uncertainty.
+
+## Bayesian Inference
+
+The posterior update for \\(\iota\_n, \boldsymbol{\alpha}, \sigma\\) after observing match outcomes proceeds sequentially. To compute the prior before match \\(n\\), we marginalize over the previous latent state:
+
+$$
+P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, \ldots) = \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, \ldots) \, d\iota_{n-1}
+$$
+
+After observing \\(g\_n\\), we apply Bayes' rule:
+
+$$
+P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_n, g_{n-1}, \ldots) \propto P(g_n \mid \iota_n, \boldsymbol{\alpha}) \, P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, \ldots)
+$$
+
+where \\(P(g\_n \mid \iota\_n, \boldsymbol{\alpha})\\) is the Poisson likelihood with \\(\lambda\_n = \exp(\iota\_n + \boldsymbol{\alpha}^\top \mathbf{x}\_n)\\).
+
+The joint posterior at match \\(n-1\\) can be expanded recursively:
+
+$$
+P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, \ldots) \propto P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{n-2}, \ldots)
+$$
+
+This recursion continues back to the base case with priors \\(P(\boldsymbol{\alpha})\\), \\(P(\sigma)\\), and \\(P(\iota\_0)\\). The integral over \\(\iota\_{n-1}\\) is computed numerically on a discretized grid. For computational tractability, I discretize the parameter space into 200 × 200 × 400 = 16 million configurations and compute unnormalized posterior probabilities for each.
 
 ## Results
 
