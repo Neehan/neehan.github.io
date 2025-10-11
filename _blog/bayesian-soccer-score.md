@@ -162,38 +162,55 @@ $$
 
 **Implementation in log space:**
 
-Discretize the parameter space: \\(\iota\_n \in \\{\iota^{(1)}, \ldots, \iota^{(200)}\\}\\), \\(\boldsymbol{\alpha} \in \\{\boldsymbol{\alpha}^{(1)}, \ldots, \boldsymbol{\alpha}^{(200)}\\}\\), \\(\sigma \in \\{\sigma^{(1)}, \ldots, \sigma^{(400)}\\}\\).
+Discretize the parameter space: \\(\iota\_n \in \\{\iota^{(1)}, \ldots, \iota^{(400)}\\}\\) (400 points in \\([-4, 4]\\)), \\(\boldsymbol{\alpha} = (\alpha\_1, \alpha\_2) \in \\{(\alpha\_1^{(j)}, \alpha\_2^{(j)})\\}\_{j=1}^{40000}\\) (200 × 200 grid in \\([-4, 4]^2\\)). Fix \\(\sigma = 0.05\\).
 
 **Algorithm:**
 
-1. **Base case** (\\(n=0\\)):
-   $$
-   \log Q_0(\iota^{(i)}) = \log P(\iota^{(i)}) + \log P(\boldsymbol{\alpha}^{(j)}) + \log P(\sigma^{(k)})
-   $$
-   for all \\(i, j, k\\).
+$$
+\begin{align}
+\text{Initialize: } \quad \log Q_0(\iota^{(i)}, \boldsymbol{\alpha}^{(j)}) &= \log P(\iota^{(i)}) + \log P(\boldsymbol{\alpha}^{(j)}) \quad \forall i,j \tag{1}
+\end{align}
+$$
 
-2. **For \\(n = 1, 2, \ldots, N\\):**
+$$
+\begin{align}
+\text{For } n &= 1, 2, \ldots, N: \tag{2}
+\end{align}
+$$
 
-   Compute \\(\log Q\_n(\iota^{(i)})\\) by marginalizing over \\(\iota\_{n-1}\\):
-   $$
-   \log Q_n(\iota^{(i)}) = \text{logsumexp}_{i'} \left[ \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma^{(k)}) + \log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) + \log Q_{n-1}(\iota^{(i')}) \right]
-   $$
-   where
-   $$
-   \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma^{(k)}) = -\frac{1}{2}\log(2\pi (\sigma^{(k)})^2) - \frac{(\iota^{(i)} - \iota^{(i')})^2}{2(\sigma^{(k)})^2}
-   $$
-   and
-   $$
-   \log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) = g_{n-1} \log \lambda_{n-1} - \lambda_{n-1} - \log(g_{n-1}!), \quad \lambda_{n-1} = \exp(\iota^{(i')} + \boldsymbol{\alpha}^{(j)\top} \mathbf{x}_{n-1})
-   $$
+$$
+\begin{align}
+\log Q_n(\iota^{(i)}, \boldsymbol{\alpha}^{(j)}) &= \text{logsumexp}_{i'} \Big[ \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma) \tag{3}\\
+&\quad + \log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) \nonumber\\
+&\quad + \log Q_{n-1}(\iota^{(i')}, \boldsymbol{\alpha}^{(j)}) \Big] \nonumber
+\end{align}
+$$
 
-Total configurations: \\(200 \times 200 \times 400 = 16\\) million.
+$$
+\begin{align}
+\text{where} \quad \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma) &= -\frac{1}{2}\log(2\pi \sigma^2) - \frac{(\iota^{(i)} - \iota^{(i')})^2}{2\sigma^2} \tag{4}
+\end{align}
+$$
+
+$$
+\begin{align}
+\lambda_{n-1} &= \exp(\iota^{(i')} + \boldsymbol{\alpha}^{(j)\top} \mathbf{x}_{n-1}) \tag{5}
+\end{align}
+$$
+
+$$
+\begin{align}
+\log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) &= g_{n-1} \log \lambda_{n-1} - \lambda_{n-1} - \log(g_{n-1}!) \tag{6}
+\end{align}
+$$
+
+Total configurations: \\(400 \times 40000 = 16\\) million.
 
 ## Results
 
 **See the [Colab notebook](https://colab.research.google.com/drive/1b-o\_ACHLYiweYk\_Ynp\_qxcWvZ2Am7-At) for full derivations, model fitting code, and visualizations.**
 
-I fit separate models for Argentina and Australia using historical match data from [eloratings.net](http://eloratings.net). Posterior inference was performed over a discretized parameter space of 200 × 200 × 400 = 16 million configurations.
+I fit separate models for Argentina and Australia using historical match data from [eloratings.net](http://eloratings.net). Posterior inference was performed over a discretized parameter space of 400 × 40000 = 16 million configurations, with \\(\sigma\\) fixed at 0.05.
 
 **Key findings:**
 - Argentina's inferred \\(\alpha\_1\\) (ELO coefficient) was large and positive, confirming rating differentials strongly predict outcomes
