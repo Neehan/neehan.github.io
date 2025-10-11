@@ -133,66 +133,62 @@ $$
 
 ## Bayesian Inference
 
-The full sequential update equations are:
+Let \\(Q\_n(\iota\_n, \boldsymbol{\alpha}, \sigma) := P(\iota\_n, \boldsymbol{\alpha}, \sigma \mid g\_{0:n-1})\\) denote the posterior before match \\(n\\).
+
+The sequential update unfolds as:
 
 $$
 \begin{align}
-P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, g_{n-2}, \ldots) &= \int_{\iota_{n-1}} P(\iota_n, \boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, g_{n-2}, \ldots) \, d\iota_{n-1}\\
-&= \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, g_{n-2}, \ldots) \, d\iota_{n-1}\\
-&\propto \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{n-2}, \ldots) \, d\iota_{n-1}
+Q_n(\iota_n, \boldsymbol{\alpha}, \sigma) &= \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{0:n-1}) \, d\iota_{n-1}\\
+&\propto \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, Q_{n-1}(\iota_{n-1}, \boldsymbol{\alpha}, \sigma) \, d\iota_{n-1}
 \end{align}
 $$
 
-**Concrete examples for first few matches:**
+**Concrete examples:**
 
 $$
-P(\iota_1, \boldsymbol{\alpha}, \sigma \mid g_0) \propto \int_{\iota_0} P(\iota_1 \mid \iota_0, \sigma) \cdot P(g_0 \mid \iota_0, \boldsymbol{\alpha}) \cdot P(\iota_0) \cdot P(\boldsymbol{\alpha}) \cdot P(\sigma) \, d\iota_0
+Q_1(\iota_1, \boldsymbol{\alpha}, \sigma) \propto \int_{\iota_0} P(\iota_1 \mid \iota_0, \sigma) \cdot P(g_0 \mid \iota_0, \boldsymbol{\alpha}) \cdot P(\iota_0) \cdot P(\boldsymbol{\alpha}) \cdot P(\sigma) \, d\iota_0
 $$
 
 $$
-P(\iota_2, \boldsymbol{\alpha}, \sigma \mid g_1, g_0) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot P(\iota_1, \boldsymbol{\alpha}, \sigma \mid g_0) \, d\iota_1
+Q_2(\iota_2, \boldsymbol{\alpha}, \sigma) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot Q_1(\iota_1, \boldsymbol{\alpha}, \sigma) \, d\iota_1
 $$
 
 **Implementation in log space:**
 
-To avoid numerical underflow, all computations are performed in log space. Let \\(\Theta = (\iota, \boldsymbol{\alpha}, \sigma)\\) denote the parameter vector. We discretize the parameter space into a grid with \\(M\\) configurations.
+Discretize the parameter space: \\(\iota\_n \in \\{\iota^{(1)}, \ldots, \iota^{(200)}\\}\\), \\(\boldsymbol{\alpha} \in \\{\boldsymbol{\alpha}^{(1)}, \ldots, \boldsymbol{\alpha}^{(200)}\\}\\), \\(\sigma \in \\{\sigma^{(1)}, \ldots, \sigma^{(400)}\\}\\).
+
+Let \\(q\_n[i, j, k] := \log Q\_n(\iota^{(i)}, \boldsymbol{\alpha}^{(j)}, \sigma^{(k)})\\).
 
 **Algorithm:**
 
-1. **Initialize** (match 0):
+1. **Initialize** (\\(n=0\\)):
    $$
-   \log P(\Theta_0^{(i)}) = \log P(\iota_0^{(i)}) + \log P(\boldsymbol{\alpha}^{(i)}) + \log P(\sigma^{(i)}), \quad i = 1, \ldots, M
-   $$
-
-2. **Posterior update after match 0**:
-   $$
-   \log P(\Theta_0^{(i)} \mid g_0) = \log P(g_0 \mid \Theta_0^{(i)}) + \log P(\Theta_0^{(i)}) - Z_0
-   $$
-   where \\(Z_0 = \text{logsumexp}_i[\log P(g_0 \mid \Theta_0^{(i)}) + \log P(\Theta_0^{(i)})]\\) and
-   $$
-   \log P(g_0 \mid \Theta_0^{(i)}) = g_0 \log \lambda_0^{(i)} - \lambda_0^{(i)} - \log(g_0!), \quad \lambda_0^{(i)} = \exp(\iota_0^{(i)} + \boldsymbol{\alpha}^{(i)\top} \mathbf{x}_0)
+   q_0[i, j, k] = \log P(\iota^{(i)}) + \log P(\boldsymbol{\alpha}^{(j)}) + \log P(\sigma^{(k)})
    $$
 
-3. **For \\(n = 1, 2, \ldots, N\\) (where \\(N\\) is total number of matches):**
+2. **For \\(n = 0, 1, 2, \ldots, N-1\\):**
 
-   **(a) Prediction** (marginalize over \\(\iota\_{n-1}\\)):
-
-   For each configuration \\((\iota\_n^{(j)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)})\\):
+   **(a) Posterior update** after observing \\(g\_n\\):
    $$
-   \log P(\iota_n^{(j)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)} \mid g_{0:n-1}) = \text{logsumexp}_{\iota_{n-1}^{(i)}} \left[ \log P(\iota_n^{(j)} \mid \iota_{n-1}^{(i)}, \sigma^{(l)}) + \log P(\iota_{n-1}^{(i)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)} \mid g_{0:n-1}) \right]
+   q_n[i, j, k] \leftarrow q_n[i, j, k] + \log P(g_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)}) - Z_n
    $$
    where
    $$
-   \log P(\iota_n^{(j)} \mid \iota_{n-1}^{(i)}, \sigma^{(l)}) = -\frac{1}{2}\log(2\pi (\sigma^{(l)})^2) - \frac{(\iota_n^{(j)} - \iota_{n-1}^{(i)})^2}{2(\sigma^{(l)})^2}
+   \log P(g_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)}) = g_n \log \lambda_n - \lambda_n - \log(g_n!), \quad \lambda_n = \exp(\iota^{(i)} + \boldsymbol{\alpha}^{(j)\top} \mathbf{x}_n)
+   $$
+   and \\(Z\_n = \text{logsumexp}\_{i,j,k}[q\_n[i, j, k] + \log P(g\_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)})]\\)
+
+   **(b) Prediction** for match \\(n+1\\) (marginalize over \\(\iota\_n\\)):
+   $$
+   q_{n+1}[i', j, k] = \text{logsumexp}_i \left[ \log P(\iota^{(i')} \mid \iota^{(i)}, \sigma^{(k)}) + q_n[i, j, k] \right]
+   $$
+   where
+   $$
+   \log P(\iota^{(i')} \mid \iota^{(i)}, \sigma^{(k)}) = -\frac{1}{2}\log(2\pi (\sigma^{(k)})^2) - \frac{(\iota^{(i')} - \iota^{(i)})^2}{2(\sigma^{(k)})^2}
    $$
 
-   **(b) Posterior update** after observing \\(g_n\\):
-   $$
-   \log P(\Theta_n^{(i)} \mid g_{0:n}) = \log P(g_n \mid \Theta_n^{(i)}) + \log P(\Theta_n^{(i)} \mid g_{0:n-1}) - Z_n
-   $$
-   where \\(Z_n = \text{logsumexp}_i[\log P(g_n \mid \Theta_n^{(i)}) + \log P(\Theta_n^{(i)} \mid g_{0:n-1})]\\)
-
-The discretization uses 200 values for \\(\iota\_n\\), 200 values for each \\(\alpha\_i\\), and 400 values for \\(\sigma\\), yielding \\(M = 200 \times 200 \times 400 = 16\\) million configurations.
+Total configurations: \\(200 \times 200 \times 400 = 16\\) million.
 
 ## Results
 
