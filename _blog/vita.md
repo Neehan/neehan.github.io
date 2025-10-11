@@ -27,12 +27,12 @@ VITA employs a transformer encoder that maps 364-week weather sequences into lat
 
 $$
 \begin{align}
-\mathbf{x}\_{\text{input}} &= \text{concat}(\mathbf{x}\_{\text{weather}}, \text{year}, \text{coordinates}) \tag{1}\\
-\mathbf{h}\_{\text{weather}} &= E\_\phi\big(\text{LinearProj}(\mathbf{x}\_{\text{input}}) + \text{PosEmbed}(\cdot)\big) \tag{2}\\
-[\boldsymbol{\mu}, \log \boldsymbol{\sigma}^2] &= \text{LinearProj}\_{\mu,\sigma^2}(\mathbf{h}\_{\text{weather}}) \tag{3}\\
-\mathbf{z}\_t &= \boldsymbol{\mu}\_t + \boldsymbol{\sigma}\_t \odot \boldsymbol{\epsilon}\_t, \quad \boldsymbol{\epsilon}\_t \sim \mathcal{N}(0, I) \tag{4}\\
-\mathbf{z}\_{\text{agg}} &= \sum\_{k=1}^{364} \alpha\_k \mathbf{z}\_k, \quad \alpha\_k = \text{softmax}\big(\text{MLP}\_a(\mathbf{z}\_k)\big) \tag{5}\\
-\hat{y} &= \text{MLP}\_y\big([\mathbf{z}\_{\text{agg}}, \mathbf{y}^{\text{past}}]\big) \tag{6}
+\mathbf{x}_{\text{input}} &= \text{concat}(\mathbf{x}_{\text{weather}}, \text{year}, \text{coordinates}) \tag{1}\\
+\mathbf{h}_{\text{weather}} &= E_\phi\big(\text{LinearProj}(\mathbf{x}_{\text{input}}) + \text{PosEmbed}(\cdot)\big) \tag{2}\\
+[\boldsymbol{\mu}, \log \boldsymbol{\sigma}^2] &= \text{LinearProj}_{\mu,\sigma^2}(\mathbf{h}_{\text{weather}}) \tag{3}\\
+\mathbf{z}_t &= \boldsymbol{\mu}_t + \boldsymbol{\sigma}_t \odot \boldsymbol{\epsilon}_t, \quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0, I) \tag{4}\\
+\mathbf{z}_{\text{agg}} &= \sum_{k=1}^{364} \alpha_k \mathbf{z}_k, \quad \alpha_k = \text{softmax}\big(\text{MLP}_a(\mathbf{z}_k)\big) \tag{5}\\
+\hat{y} &= \text{MLP}_y\big([\mathbf{z}_{\text{agg}}, \mathbf{y}^{\text{past}}]\big) \tag{6}
 \end{align}
 $$
 
