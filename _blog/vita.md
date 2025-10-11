@@ -120,7 +120,7 @@ We evaluate on the five most extreme weather years across U.S. Corn Belt countie
 | Model | Mean \\(R^2\\) | Corn | Soybean |
 |-------|---------|------|---------|
 | **VITA-Sinusoidal** | **0.726** | **0.729±0.008** | 0.**722±0.005** |
-| T-BERT (MSE; VITA architecture) | 0.677 | 0.660 ± 0.041 | 0.693 ± 0.011 |
+| T-BERT (MSE; VITA arch.) | 0.677 | 0.660 ± 0.041 | 0.693 ± 0.011 |
 | SimMTM | 0.665 | 0.642 ± 0.028 | 0.687 ± 0.018 |
 | Chronos-Bolt-tiny | 0.573 | 0.525 ± 0.015 | 0.621 ± 0.017 |
 
