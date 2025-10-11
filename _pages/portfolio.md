@@ -5,7 +5,7 @@ author_profile: true
 ---
 
 ## Software and Packages
-* **Bayesian Soccer Score Predictor (2022)**: A bayesian model with a Gaussian random walk to predict 2022 soccer match outcomes. ([blogpost](/blog/bayesian-soccer-score/), [Medium post](https://medium.com/@notadib/i-looked-into-16-million-futures-and-saw-argentina-win-against-australia-in-11-million-of-them-c336574ae574))
+* **Bayesian Soccer Score Predictor (2022)**: Predicting FIFA World Cup 2022 match outcomes using Bayesian inference on Poisson processes. ([blogpost](/blog/bayesian-soccer-score/))
 * **ML Augmented Binary Heap (2019)**: We sped-up classic binary heap operations 55% using a small logistic regression predictor to predict future heap operations. ([blogpost](/blog/ml-augmented-heap/), [Medium post](https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6))
 * **LaTeXbangla (2016)**: A package for seamless integration of Bangla fonts in large LaTeX projects. ([blogpost](/blog/latexbangla/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
 
