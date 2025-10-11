@@ -45,7 +45,7 @@ Notice that the architecture does not require input reconstruction (ie a decoder
 Given \\((\mathbf{x}, \mathbf{z}^\star)\\) pairs, train the encoder to output a distribution over detailed weather from basic inputs:
 
 $$
-\mathcal{L}\_{\text{pre}} = -\mathbb{E}\_{(\mathbf{x}, \mathbf{z}^\star) \sim D\_w}\big[\log q\_\phi(\mathbf{z}^\star \mid \mathbf{x})\big] + \alpha \, \text{KL}\big[q\_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p\_\theta(\mathbf{z})\big]
+\mathcal{L}_{\text{pre}} = -\mathbb{E}_{(\mathbf{x}, \mathbf{z}^\star) \sim D_w}\big[\log q_\phi(\mathbf{z}^\star \mid \mathbf{x})\big] + \alpha \, \text{KL}\big[q_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p_\theta(\mathbf{z})\big]
 $$
 
 **First term (variational likelihood):** Fit \\(q\_\phi\\) to predict observed detailed weather \\(\mathbf{z}^\star\\). Since \\(q\_\phi\\) is Gaussian, this is simply \\(\frac{1}{2\sigma^2} \|\mathbf{z}^\star - \boldsymbol{\mu}\_\phi(\mathbf{x})\|^2 + \text{const}\\).
@@ -55,25 +55,25 @@ $$
 **Standard prior:**
 
 $$
-p\_\theta(\mathbf{z}) = \mathcal{N}(0, I)
+p_\theta(\mathbf{z}) = \mathcal{N}(0, I)
 $$
 
 $$
-\text{KL} = \frac{1}{2} \sum\_{k} \left( \sigma\_{\phi,k}^2 + \mu\_{\phi,k}^2 - 1 - \log \sigma\_{\phi,k}^2 \right)
+\text{KL} = \frac{1}{2} \sum_{k} \left( \sigma_{\phi,k}^2 + \mu_{\phi,k}^2 - 1 - \log \sigma_{\phi,k}^2 \right)
 $$
 
 **Sinusoidal (seasonal) prior:**
 
 $$
-p\_\theta(\mathbf{z}) = \mathcal{N}(\boldsymbol{\mu}\_{\sin}, \text{diag}(\boldsymbol{\sigma}^2\_{\sin}))
+p_\theta(\mathbf{z}) = \mathcal{N}(\boldsymbol{\mu}_{\sin}, \text{diag}(\boldsymbol{\sigma}^2_{\sin}))
 $$
 
 $$
-\mu\_{\sin,k} = A\_k \sin(\omega\_k \cdot \text{week} + \theta\_{0,k})
+\mu_{\sin,k} = A_k \sin(\omega_k \cdot \text{week} + \theta_{0,k})
 $$
 
 $$
-\text{KL} = \frac{1}{2} \sum\_{k} \left( \frac{\sigma\_{\phi,k}^2}{\sigma\_{\sin,k}^2} + \frac{(\mu\_{\phi,k} - \mu\_{\sin,k})^2}{\sigma\_{\sin,k}^2} - 1 - \log \frac{\sigma\_{\phi,k}^2}{\sigma\_{\sin,k}^2} \right)
+\text{KL} = \frac{1}{2} \sum_{k} \left( \frac{\sigma_{\phi,k}^2}{\sigma_{\sin,k}^2} + \frac{(\mu_{\phi,k} - \mu_{\sin,k})^2}{\sigma_{\sin,k}^2} - 1 - \log \frac{\sigma_{\phi,k}^2}{\sigma_{\sin,k}^2} \right)
 $$
 
 The seasonal prior bakes week-of-year structure into \\(\mathbf{z}\\) with learned parameters \\((A, \omega, \theta\_0, \sigma\_{\sin})\\).
@@ -87,13 +87,13 @@ The seasonal prior bakes week-of-year structure into \\(\mathbf{z}\\) with learn
 At fine-tuning, only \\((\mathbf{x}, y, \mathbf{y}^{\text{past}})\\) is available. Start from the pretrained encoder and optimize the ELBO for \\(p(y \mid \mathbf{x})\\):
 
 $$
-\mathcal{L}\_{\text{yield}} = -\mathbb{E}\_{q\_\phi(\mathbf{z} \mid \mathbf{x})}\big[\log p\_\theta(y \mid \mathbf{z})\big] + \beta \, \text{KL}\big[q\_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p\_\theta(\mathbf{z})\big]
+\mathcal{L}_{\text{yield}} = -\mathbb{E}_{q_\phi(\mathbf{z} \mid \mathbf{x})}\big[\log p_\theta(y \mid \mathbf{z})\big] + \beta \, \text{KL}\big[q_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p_\theta(\mathbf{z})\big]
 $$
 
 Model yield as Gaussian: \\(p\_\theta(y \mid \mathbf{z}) = \mathcal{N}(y; \hat{y}, \sigma\_y^2)\\) where \\(\hat{y} = \text{MLP}\_y(\mathbf{z}\_{\text{agg}}, \mathbf{y}^{\text{past}})\\). This gives:
 
 $$
-\mathcal{L}\_{\text{yield}} = (y - \hat{y})^2 + \beta \, \text{KL}\big[q\_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p\_\theta(\mathbf{z})\big]
+\mathcal{L}_{\text{yield}} = (y - \hat{y})^2 + \beta \, \text{KL}\big[q_\phi(\mathbf{z} \mid \mathbf{x}) \,\|\, p_\theta(\mathbf{z})\big]
 $$
 
 The KL term keeps the latent space seasonal while fitting yields. Historical yields \\(\mathbf{y}^{\text{past}}\\) implicitly encode soil and management factors.
