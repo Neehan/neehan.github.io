@@ -153,7 +153,46 @@ $$
 P(\iota_2, \boldsymbol{\alpha}, \sigma \mid g_1, g_0) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot P(\iota_1, \boldsymbol{\alpha}, \sigma \mid g_0) \, d\iota_1
 $$
 
-**Implementation:** The integral is computed numerically on a discretized grid with \\(\iota\_n\\) (200 values), \\(\boldsymbol{\alpha}\\) components (200 values each), and \\(\sigma\\) (400 values), yielding 200 × 200 × 400 = 16 million configurations.
+**Implementation in log space:**
+
+To avoid numerical underflow, all computations are performed in log space. Let \\(\Theta = (\iota, \boldsymbol{\alpha}, \sigma)\\) denote the parameter vector. We discretize the parameter space into a grid with \\(M\\) configurations.
+
+**Algorithm:**
+
+1. **Initialize** (match 0):
+   $$
+   \log P(\Theta_0^{(i)}) = \log P(\iota_0^{(i)}) + \log P(\boldsymbol{\alpha}^{(i)}) + \log P(\sigma^{(i)}), \quad i = 1, \ldots, M
+   $$
+
+2. **Posterior update after match 0**:
+   $$
+   \log P(\Theta_0^{(i)} \mid g_0) = \log P(g_0 \mid \Theta_0^{(i)}) + \log P(\Theta_0^{(i)}) - Z_0
+   $$
+   where \\(Z_0 = \text{logsumexp}_i[\log P(g_0 \mid \Theta_0^{(i)}) + \log P(\Theta_0^{(i)})]\\) and
+   $$
+   \log P(g_0 \mid \Theta_0^{(i)}) = g_0 \log \lambda_0^{(i)} - \lambda_0^{(i)} - \log(g_0!), \quad \lambda_0^{(i)} = \exp(\iota_0^{(i)} + \boldsymbol{\alpha}^{(i)\top} \mathbf{x}_0)
+   $$
+
+3. **For \\(n = 1, 2, \ldots, N\\) (where \\(N\\) is total number of matches):**
+
+   **(a) Prediction** (marginalize over \\(\iota\_{n-1}\\)):
+
+   For each configuration \\((\iota\_n^{(j)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)})\\):
+   $$
+   \log P(\iota_n^{(j)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)} \mid g_{0:n-1}) = \text{logsumexp}_{\iota_{n-1}^{(i)}} \left[ \log P(\iota_n^{(j)} \mid \iota_{n-1}^{(i)}, \sigma^{(l)}) + \log P(\iota_{n-1}^{(i)}, \boldsymbol{\alpha}^{(k)}, \sigma^{(l)} \mid g_{0:n-1}) \right]
+   $$
+   where
+   $$
+   \log P(\iota_n^{(j)} \mid \iota_{n-1}^{(i)}, \sigma^{(l)}) = -\frac{1}{2}\log(2\pi (\sigma^{(l)})^2) - \frac{(\iota_n^{(j)} - \iota_{n-1}^{(i)})^2}{2(\sigma^{(l)})^2}
+   $$
+
+   **(b) Posterior update** after observing \\(g_n\\):
+   $$
+   \log P(\Theta_n^{(i)} \mid g_{0:n}) = \log P(g_n \mid \Theta_n^{(i)}) + \log P(\Theta_n^{(i)} \mid g_{0:n-1}) - Z_n
+   $$
+   where \\(Z_n = \text{logsumexp}_i[\log P(g_n \mid \Theta_n^{(i)}) + \log P(\Theta_n^{(i)} \mid g_{0:n-1})]\\)
+
+The discretization uses 200 values for \\(\iota\_n\\), 200 values for each \\(\alpha\_i\\), and 400 values for \\(\sigma\\), yielding \\(M = 200 \times 200 \times 400 = 16\\) million configurations.
 
 ## Results
 
