@@ -11,13 +11,11 @@ I develop a probabilistic framework for predicting soccer match outcomes by mode
 
 ## Problem Formulation
 
-Let $g_n \in \mathbb{Z}_{\geq 0}$ denote the number of goals scored by a team in match $n$. We seek to model the conditional distribution $P(g_n | g_{1:n-1}, \mathbf{x}_{1:n})$, where $\mathbf{x}_n$ represents match-specific covariates (opponent strength, venue, etc.).
+Let $g_n \in \mathbb{Z}_{\geq 0}$ denote the number of goals scored by a team in match $n$. We seek to model the conditional distribution $P(g_n \mid g_{1:n-1}, \mathbf{x}_{1:n})$, where $\mathbf{x}_n$ represents match-specific covariates (opponent strength, venue, etc.).
 
 We adopt a Poisson likelihood for goal counts:
 
-\[
-g_n \mid \lambda_n \sim \text{Poisson}(\lambda_n)
-\]
+\[g_n \mid \lambda_n \sim \text{Poisson}(\lambda_n)\]
 
 where $\lambda_n > 0$ is the instantaneous goal-scoring rate for match $n$. The key modeling challenge is to specify how $\lambda_n$ depends on historical observations and covariates while accounting for temporal evolution in team quality.
 
@@ -27,15 +25,11 @@ We decompose $\lambda_n$ into:
 
 This yields the log-linear specification:
 
-\[
-\log \lambda_n = \iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n
-\]
+\[\log \lambda_n = \iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n\]
 
 Inference proceeds via sequential Bayesian updating:
 
-\[
-P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{1:n}) \propto P(g_n \mid \iota_n, \boldsymbol{\alpha}) \cdot P(\iota_n \mid \iota_{n-1}, \sigma) \cdot P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{1:n-1})
-\]
+\[P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{1:n}) \propto P(g_n \mid \iota_n, \boldsymbol{\alpha}) \cdot P(\iota_n \mid \iota_{n-1}, \sigma) \cdot P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{1:n-1})\]
 
 where $\sigma^2$ parameterizes the drift variance between consecutive matches.
 
@@ -43,13 +37,11 @@ where $\sigma^2$ parameterizes the drift variance between consecutive matches.
 
 Consider a simplified scenario where team A plays only team B repeatedly. We model team A's goal-scoring rate $\lambda_n$ in match $n$ as evolving according to:
 
-\[
-\begin{align}
+\[\begin{align}
 g_n &\sim \text{Poisson}(\lambda_n)\\
 \lambda_n &\sim \mathcal{N}(\lambda_{n-1}, \sigma^2)\\
-P(\lambda_n | g_n, g_{n-1},\ldots) &\propto P(g_n|\lambda_n) \cdot P(\lambda_n | g_{n-1},\ldots)
-\end{align}
-\]
+P(\lambda_n \mid g_n, g_{n-1},\ldots) &\propto P(g_n\mid\lambda_n) \cdot P(\lambda_n \mid g_{n-1},\ldots)
+\end{align}\]
 
 The drift term $\lambda_n \sim \mathcal{N}(\lambda_{n-1}, \sigma^2)$ accounts for temporal changes in team quality due to lineup adjustments, player form, and experience accumulation. The posterior update can be computed numerically or via MCMC sampling.
 
@@ -71,22 +63,18 @@ Let $\mathbf{x}_n$ denote the covariate vector for match $n$, including:
 
 We model the observed goal rate as:
 
-\[
-\lambda_n = \exp(\iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n)
-\]
+\[\lambda_n = \exp(\iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n)\]
 
 The complete hierarchical model is:
 
-\[
-\begin{align}
+\[\begin{align}
 \boldsymbol{\alpha} &\sim \mathcal{N}(0, 2^2 \mathbf{I})\\
 \sigma &\sim \text{Gamma}(0.5, 1)\\
 \iota_0 &\sim \mathcal{N}(0.4, 0.7^2)\\
 \iota_n &\sim \mathcal{N}(\iota_{n-1}, \sigma^2)\\
 \lambda_n &= \exp(\iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n)\\
 g_n &\sim \text{Poisson}(\lambda_n)
-\end{align}
-\]
+\end{align}\]
 
 Prior specification rationale:
 - **Coefficient prior** $\mathcal{N}(0, 2^2)$: Appears weakly informative, but the exponential link function amplifies the effect. A coefficient two standard deviations from zero scales $\lambda_n$ by a factor in $[e^{-4}, e^4] \approx [0.02, 54.6]$.

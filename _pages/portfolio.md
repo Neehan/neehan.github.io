@@ -5,9 +5,9 @@ author_profile: true
 ---
 
 ## Software and Packages
-* **Bayesian Soccer Score Predictor**: A toy project to predict FIFA World Cup 2022 game scores with only Bayes Rule. ([blogpost](/blog/bayesian-soccer-score/), [Medium post](https://medium.com/@notadib/i-looked-into-16-million-futures-and-saw-argentina-win-against-australia-in-11-million-of-them-c336574ae574))
-* **ML Augmented Binary Heap**: We sped-up classic binary heap operations 55% using a small logistic regression predictor to predict future heap operations. ([blogpost](/blog/ml-augmented-heap/), [Medium post](https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6))
-* **LaTeXbangla**: A package for seamless integration of Bangla fonts in large LaTeX projects. ([blogpost](/blog/latexbangla/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
+* **Bayesian Soccer Score Predicto (2022)r**: A toy project to predict FIFA World Cup 2022 game scores with only Bayes Rule. ([blogpost](/blog/bayesian-soccer-score/), [Medium post](https://medium.com/@notadib/i-looked-into-16-million-futures-and-saw-argentina-win-against-australia-in-11-million-of-them-c336574ae574))
+* **ML Augmented Binary Heap (2019)**: We sped-up classic binary heap operations 55% using a small logistic regression predictor to predict future heap operations. ([blogpost](/blog/ml-augmented-heap/), [Medium post](https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6))
+* **LaTeXbangla (2016)**: A package for seamless integration of Bangla fonts in large LaTeX projects. ([blogpost](/blog/latexbangla/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
 
 ## Books
 1. Adib Hasan, Ahmed Zawad Chowdhury, and Joydeep Saha (2019). "Introduction to Combinatorics" ([Part 1](https://www.rokomari.com/book/180324/combinatorics-hatekhori-1st-part), [Part 2](https://www.rokomari.com/book/180324/combinatorics-hatekhori-2nd-part)).
