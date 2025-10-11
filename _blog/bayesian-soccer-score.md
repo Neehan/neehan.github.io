@@ -177,7 +177,7 @@ $$
 \end{align}
 $$
 
-Total configurations: \\(400 \times 40000 = 16\\) million.
+Total configurations: \\(400 \times 200 \times 200 = 16\\) million.
 
 ## Results
 
