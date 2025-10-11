@@ -17,7 +17,7 @@ Let \\(\mathbf{x} \in \mathbb{R}^{T \times 6}\\) denote basic weather features (
 
 **Datasets**
 
-Consider \\( D_w = \{(\mathbf{x}_i, \mathbf{z}^\star_i)\}_{i=1}^{N_w}\\) and \\(D_y = \{(\mathbf{x}_j, y_j, \mathbf{y}^{\text{past}}_j)\}_{j=1}^{N_y}\\) to pre-training and fine-tuning datasets, respectively, where \\(x\\) is the basic weather variables (such as, temperature), \\(z\\) is detailed weather features, (such as radiation flux, surface albedo, cloud cover, etc), \\(y\\) is crop yield and \\(\mathbf{y}^{\text{past}}\\) contains six years of historical yields (capturing soil quality and management practices).
+Consider \\( D\_w = \{(\mathbf{x}\_i, \mathbf{z}^\star\_i)\}\_{i=1}^{N\_w}\\) and \\(D\_y = \{(\mathbf{x}\_j, y\_j, \mathbf{y}^{\text{past}}\_j)\}\_{j=1}^{N\_y}\\) to pre-training and fine-tuning datasets, respectively, where \\(x\\) is the basic weather variables (such as, temperature), \\(z\\) is detailed weather features, (such as radiation flux, surface albedo, cloud cover, etc), \\(y\\) is crop yield and \\(\mathbf{y}^{\text{past}}\\) contains six years of historical yields (capturing soil quality and management practices).
 
 **The asymmetry:** We have \\((\mathbf{x}, \mathbf{z}^\star)\\) pairs during pretraining but only \\(\mathbf{x}\\) at deployment. How do we learn representations from \\(\mathbf{x}\\) that generalize to downstream tasks?
 
@@ -119,7 +119,7 @@ We evaluate on the five most extreme weather years across U.S. Corn Belt countie
 
 | Model | Mean \\(R^2\\) | Corn | Soybean |
 |-------|---------|------|---------|
-| **VITA-Sinusoidal** | **0.726** | 0.729±0.008 | 0.722±0.005 |
+| **VITA-Sinusoidal** | **0.726** | **0.729±0.008** | 0.**722±0.005** |
 | T-BERT (MSE; VITA architecture) | 0.677 | 0.660 ± 0.041 | 0.693 ± 0.011 |
 | SimMTM | 0.665 | 0.642 ± 0.028 | 0.687 ± 0.018 |
 | Chronos-Bolt-tiny | 0.573 | 0.525 ± 0.015 | 0.621 ± 0.017 |
