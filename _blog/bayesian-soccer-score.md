@@ -133,27 +133,27 @@ $$
 
 ## Bayesian Inference
 
-The posterior update for \\(\iota\_n, \boldsymbol{\alpha}, \sigma\\) after observing match outcomes proceeds sequentially. To compute the prior before match \\(n\\), we marginalize over the previous latent state:
+The full sequential update equations are:
 
 $$
-P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, \ldots) = \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, \ldots) \, d\iota_{n-1}
+\begin{align}
+P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, g_{n-2}, \ldots) &= \int_{\iota_{n-1}} P(\iota_n, \boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, g_{n-2}, \ldots) \, d\iota_{n-1}\\
+&= \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, g_{n-2}, \ldots) \, d\iota_{n-1}\\
+&\propto \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{n-2}, \ldots) \, d\iota_{n-1}
+\end{align}
 $$
 
-After observing \\(g\_n\\), we apply Bayes' rule:
+**Concrete examples for first few matches:**
 
 $$
-P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_n, g_{n-1}, \ldots) \propto P(g_n \mid \iota_n, \boldsymbol{\alpha}) \, P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{n-1}, \ldots)
+P(\iota_1, \boldsymbol{\alpha}, \sigma \mid g_0) \propto \int_{\iota_0} P(\iota_1 \mid \iota_0, \sigma) \cdot P(g_0 \mid \iota_0, \boldsymbol{\alpha}) \cdot P(\iota_0) \cdot P(\boldsymbol{\alpha}) \cdot P(\sigma) \, d\iota_0
 $$
 
-where \\(P(g\_n \mid \iota\_n, \boldsymbol{\alpha})\\) is the Poisson likelihood with \\(\lambda\_n = \exp(\iota\_n + \boldsymbol{\alpha}^\top \mathbf{x}\_n)\\).
-
-The joint posterior at match \\(n-1\\) can be expanded recursively:
-
 $$
-P(\boldsymbol{\alpha}, \sigma, \iota_{n-1} \mid g_{n-1}, \ldots) \propto P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{n-2}, \ldots)
+P(\iota_2, \boldsymbol{\alpha}, \sigma \mid g_1, g_0) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot P(\iota_1, \boldsymbol{\alpha}, \sigma \mid g_0) \, d\iota_1
 $$
 
-This recursion continues back to the base case with priors \\(P(\boldsymbol{\alpha})\\), \\(P(\sigma)\\), and \\(P(\iota\_0)\\). The integral over \\(\iota\_{n-1}\\) is computed numerically on a discretized grid. For computational tractability, I discretize the parameter space into 200 × 200 × 400 = 16 million configurations and compute unnormalized posterior probabilities for each.
+**Implementation:** The integral is computed numerically on a discretized grid with \\(\iota\_n\\) (200 values), \\(\boldsymbol{\alpha}\\) components (200 values each), and \\(\sigma\\) (400 values), yielding 200 × 200 × 400 = 16 million configurations.
 
 ## Results
 
