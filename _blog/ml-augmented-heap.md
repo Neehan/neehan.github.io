@@ -3,6 +3,9 @@ title: "ML Augmented Binary Heap"
 excerpt: "We sped-up binary heap operations 55% using ML."
 collection: blog
 date: 2019-05-01
+tags:
+  - computer-science
+  - releases
 ---
 
 *by Adib Hasan and Angelos Pelecanos*

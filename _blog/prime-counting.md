@@ -3,6 +3,10 @@ title: "Prime Counting Function and Chebyshev Bounds"
 excerpt: "A simple proof bounding the prime counting function using Chebyshev's technique."
 collection: blog
 date: 2019-03-22
+tags:
+  - math
+  - theory
+  - proofs
 ---
 
 The distribution of primes plays a central role in number theory. The famous mathematician Gauss conjectured that the number of primes between \\(1\\) and \\(n\\) is roughly \\(n/\log n\\), with this estimation becoming increasingly accurate as \\(n\to \infty\\). We denote the number of primes up to \\(n\\) by \\(\pi(n)\\). Mathematically, Gauss's conjecture is equivalent to the claim
@@ -85,14 +89,14 @@ $$
 **Claim:** For all \\(n\ge 2\\), 
 
 $$
-\prod_{p\leq n\\ p\ \text{prime}}p\leq 4^n
+\prod_{p\leq n\mid p\ \text{prime}}p\leq 4^n
 $$
 
 **Proof:** We proceed by induction. The base case holds trivially. The step from \\(n=2k-1\\) to \\(n=2k\\) is immediate since no new primes appear. Thus we need only establish the step from \\(n=2k\\) to \\(n=2k+1\\):
 
 $$
 \begin{align}
-\prod_{p \leq 2k+1\\ p\ \text{prime}}p &= \prod_{p \leq k+1\\ p\ \text{prime}}p \cdot\prod_{k+2\leq p \leq 2k+1\\ p\ \text{prime}}p\\
+\prod_{p \leq 2k+1\mid p\ \text{prime}}p &= \prod_{p \leq k+1\mid p\ \text{prime}}p \cdot\prod_{k+2\leq p \leq 2k+1\mid p\ \text{prime}}p\\
 &\leq 4^{k+1}\cdot \binom{2k+1}{k}\quad (1)
 \end{align}
 $$
@@ -102,13 +106,13 @@ By the inductive hypothesis, the first product satisfies \\(\prod\_{p \leq k+1} 
 The binomial coefficient satisfies \\(\binom{2k+1}{k}<4^k\\). Substituting into (1) yields
 
 $$
-\prod_{p \leq 2k+1\\ p\ \text{prime}}p \leq 4^{k+1}\cdot 4^k=4^{2k+1}\quad (\text{Q.E.D.})
+\prod_{p \leq 2k+1\mid p\ \text{prime}}p \leq 4^{k+1}\cdot 4^k=4^{2k+1}\quad (\text{Q.E.D.})
 $$
 
 To convert this product bound into a bound on \\(\pi(n)\\), fix \\(2\leq m\leq n\\) and consider the primes between \\(m\\) and \\(n\\). There are \\(\pi(n)-\pi(m)\\) such primes, each at least \\(m\\), so
 
 $$
-m^{\pi(n)-\pi(m)}\leq \prod_{m\leq p \leq n\\ p\ \text{prime}}p\leq \prod_{1\leq p \leq n\\ p\ \text{prime}}p\leq 4^n
+m^{\pi(n)-\pi(m)}\leq \prod_{m\leq p \leq n\mid p\ \text{prime}}p\leq \prod_{1\leq p \leq n\mid p\ \text{prime}}p\leq 4^n
 $$
 
 Taking logarithms,
