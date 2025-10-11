@@ -11,7 +11,7 @@ I develop a probabilistic framework for predicting soccer match outcomes by mode
 
 ## Problem Formulation
 
-Let \(g_n \in \mathbb{Z}_{\geq 0}\) denote the number of goals scored by a team in match \(n\). We seek to model the conditional distribution \(P(g_n \mid g_{1:n-1}, \mathbf{x}_{1:n})\), where \(\mathbf{x}_n\) represents match-specific covariates (opponent strength, venue, etc.).
+Let \\(g_n \in \mathbb{Z}_{\geq 0}\\) denote the number of goals scored by a team in match \\(n\\). We seek to model the conditional distribution \\(P(g_n \mid g_{1:n-1}, \mathbf{x}_{1:n})\\), where \\(\mathbf{x}_n\\) represents match-specific covariates (opponent strength, venue, etc.).
 
 We adopt a Poisson likelihood for goal counts:
 
@@ -21,11 +21,11 @@ g_n \mid \lambda_n \sim \text{Poisson}(\lambda_n)
 
 $$
 
-where \(\lambda_n > 0\) is the instantaneous goal-scoring rate for match \(n\). The key modeling challenge is to specify how \(\lambda_n\) depends on historical observations and covariates while accounting for temporal evolution in team quality.
+where \\(\lambda_n > 0\\) is the instantaneous goal-scoring rate for match \\(n\\). The key modeling challenge is to specify how \\(\lambda_n\\) depends on historical observations and covariates while accounting for temporal evolution in team quality.
 
-We decompose \(\lambda_n\) into:
-1. A latent team strength parameter \(\iota_n \in \mathbb{R}\) that evolves as a Gaussian random walk
-2. A linear adjustment term \(\boldsymbol{\alpha}^\top \mathbf{x}_n\) capturing match-specific effects
+We decompose \\(\lambda_n\\) into:
+1. A latent team strength parameter \\(\iota_n \in \mathbb{R}\\) that evolves as a Gaussian random walk
+2. A linear adjustment term \\(\boldsymbol{\alpha}^\top \mathbf{x}_n\\) capturing match-specific effects
 
 This yields the log-linear specification:
 
@@ -43,11 +43,11 @@ P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{1:n}) \propto P(g_n \mid \iota_n,
 
 $$
 
-where \(\sigma^2\) parameterizes the drift variance between consecutive matches.
+where \\(\sigma^2\\) parameterizes the drift variance between consecutive matches.
 
 ## Simplified Model: Fixed Opposition
 
-Consider a simplified scenario where team A plays only team B repeatedly. We model team A's goal-scoring rate \(\lambda_n\) in match \(n\) as evolving according to:
+Consider a simplified scenario where team A plays only team B repeatedly. We model team A's goal-scoring rate \\(\lambda_n\\) in match \\(n\\) as evolving according to:
 
 $$
 
@@ -59,21 +59,21 @@ P(\lambda_n \mid g_n, g_{n-1},\ldots) &\propto P(g_n\mid\lambda_n) \cdot P(\lamb
 
 $$
 
-The drift term \(\lambda_n \sim \mathcal{N}(\lambda_{n-1}, \sigma^2)\) accounts for temporal changes in team quality due to lineup adjustments, player form, and experience accumulation. The posterior update can be computed numerically or via MCMC sampling.
+The drift term \\(\lambda_n \sim \mathcal{N}(\lambda_{n-1}, \sigma^2)\\) accounts for temporal changes in team quality due to lineup adjustments, player form, and experience accumulation. The posterior update can be computed numerically or via MCMC sampling.
 
-For example, suppose Argentina scores 2 goals in match 1. Our posterior for \(\lambda\) concentrates around 2. In match 2, they score 1 goal; the posterior shifts left. In match 3, they score 3 goals; it shifts right, but with narrower variance as we accumulate more observations.
+For example, suppose Argentina scores 2 goals in match 1. Our posterior for \\(\lambda\\) concentrates around 2. In match 2, they score 1 goal; the posterior shifts left. In match 3, they score 3 goals; it shifts right, but with narrower variance as we accumulate more observations.
 
 ## Full Model: Variable Opposition
 
 The simplified model fails when teams face different opponents. If Brazil plays South Korea and then Argentina, the observed goal-scoring rates cannot be directly compared without accounting for opponent strength.
 
 We decompose team performance into:
-1. **Intrinsic strength** \(\iota_n\): Team quality against a standardized baseline opponent
+1. **Intrinsic strength** \\(\iota_n\\): Team quality against a standardized baseline opponent
 2. **Match-specific adjustments**: Covariates capturing opponent strength, match importance, venue effects, and player availability
 
-Let \(\mathbf{x}_n\) denote the covariate vector for match \(n\), including:
-- ELO rating difference \(E_n\)
-- Match importance \(m_n\) (e.g., World Cup vs. friendly)
+Let \\(\mathbf{x}_n\\) denote the covariate vector for match \\(n\\), including:
+- ELO rating difference \\(E_n\\)
+- Match importance \\(m_n\\) (e.g., World Cup vs. friendly)
 - Key player availability indicators
 - Home advantage
 
@@ -101,24 +101,24 @@ g_n &\sim \text{Poisson}(\lambda_n)
 $$
 
 Prior specification rationale:
-- **Coefficient prior** \(\mathcal{N}(0, 2^2)\): Appears weakly informative, but the exponential link function amplifies the effect. A coefficient two standard deviations from zero scales \(\lambda_n\) by a factor in \([e^{-4}, e^4] \approx [0.02, 54.6]\).
-- **Drift variance** \(\text{Gamma}(0.5, 1)\): Mean and variance of 0.5 reflect the expectation of gradual evolution in team strength between consecutive matches.
-- **Initial strength** \(\mathcal{N}(0.4, 0.7^2)\): World Cup matches average 2.8 goals total, suggesting approximately 1.4 goals per team. Setting \(\iota_0 \approx \log(1.4) \approx 0.34\) with moderate uncertainty.
+- **Coefficient prior** \\(\mathcal{N}(0, 2^2)\\): Appears weakly informative, but the exponential link function amplifies the effect. A coefficient two standard deviations from zero scales \\(\lambda_n\\) by a factor in \\([e^{-4}, e^4] \approx [0.02, 54.6]\\).
+- **Drift variance** \\(\text{Gamma}(0.5, 1)\\): Mean and variance of 0.5 reflect the expectation of gradual evolution in team strength between consecutive matches.
+- **Initial strength** \\(\mathcal{N}(0.4, 0.7^2)\\): World Cup matches average 2.8 goals total, suggesting approximately 1.4 goals per team. Setting \\(\iota_0 \approx \log(1.4) \approx 0.34\\) with moderate uncertainty.
 
 ## Results: Argentina vs. Australia
 
 I fit separate models for Argentina and Australia using historical match data from [eloratings.net](http://eloratings.net). Posterior inference was performed over a discretized parameter space of 200 × 200 × 400 = 16 million configurations.
 
 **Inferred model parameters for Argentina:**
-- \(\alpha_1\) (ELO coefficient): Large positive value, confirming that rating differentials strongly predict goal-scoring rates.
-- \(\alpha_2\) (match importance): Small negative coefficient, suggesting Argentina scores marginally fewer goals in high-stakes matches, likely due to facing stronger opposition in tournaments.
-- \(\iota_n\) trajectory: The 2002 and 2006 national teams exhibited peak intrinsic strength in recent history.
+- \\(\alpha_1\\) (ELO coefficient): Large positive value, confirming that rating differentials strongly predict goal-scoring rates.
+- \\(\alpha_2\\) (match importance): Small negative coefficient, suggesting Argentina scores marginally fewer goals in high-stakes matches, likely due to facing stronger opposition in tournaments.
+- \\(\iota_n\\) trajectory: The 2002 and 2006 national teams exhibited peak intrinsic strength in recent history.
 
 **Match prediction:**
 - Most likely scorelines: 1–0, 2–0
-- \(P(\text{Argentina win}) = 70.69\%\)
-- \(P(\text{Australia win}) = 9.97\%\)
-- \(P(\text{Draw}) = 19.34\%\)
+- \\(P(\text{Argentina win}) = 70.69\%\\)
+- \\(P(\text{Australia win}) = 9.97\%\\)
+- \\(P(\text{Draw}) = 19.34\%\\)
 
 Interpretation: In 11.3 million of the 16 million sampled futures, Argentina outscored Australia.
 
