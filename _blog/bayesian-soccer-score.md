@@ -133,59 +133,58 @@ $$
 
 ## Bayesian Inference
 
-Let \\(Q\_n(\iota\_n, \boldsymbol{\alpha}, \sigma) := P(\iota\_n, \boldsymbol{\alpha}, \sigma \mid g\_{0:n-1})\\) denote the posterior before match \\(n\\).
+**Notation:** Let \\(Q\_n(\iota\_n) := P(\iota\_n, \boldsymbol{\alpha}, \sigma \mid g\_0, g\_1, \ldots, g\_{n-1})\\) for brevity. Note that \\(\boldsymbol{\alpha}\\) and \\(\sigma\\) are constant parameters (no time subscript), while \\(\iota\_n\\) evolves over time.
 
-The sequential update unfolds as:
+**Recursion:**
 
 $$
 \begin{align}
-Q_n(\iota_n, \boldsymbol{\alpha}, \sigma) &= \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{0:n-1}) \, d\iota_{n-1}\\
-&\propto \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, Q_{n-1}(\iota_{n-1}, \boldsymbol{\alpha}, \sigma) \, d\iota_{n-1}
+Q_n(\iota_n) &= \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_0, \ldots, g_{n-1}) \, d\iota_{n-1}\\
+&\propto \int_{\iota_{n-1}} P(\iota_n \mid \iota_{n-1}, \sigma) \, P(g_{n-1} \mid \iota_{n-1}, \boldsymbol{\alpha}) \, Q_{n-1}(\iota_{n-1}) \, d\iota_{n-1}
 \end{align}
 $$
 
-**Concrete examples:**
+**Base case:**
 
 $$
-Q_1(\iota_1, \boldsymbol{\alpha}, \sigma) \propto \int_{\iota_0} P(\iota_1 \mid \iota_0, \sigma) \cdot P(g_0 \mid \iota_0, \boldsymbol{\alpha}) \cdot P(\iota_0) \cdot P(\boldsymbol{\alpha}) \cdot P(\sigma) \, d\iota_0
+Q_0(\iota_0) = P(\iota_0) \cdot P(\boldsymbol{\alpha}) \cdot P(\sigma)
+$$
+
+**Examples:**
+
+$$
+Q_1(\iota_1) \propto \int_{\iota_0} P(\iota_1 \mid \iota_0, \sigma) \cdot P(g_0 \mid \iota_0, \boldsymbol{\alpha}) \cdot Q_0(\iota_0) \, d\iota_0
 $$
 
 $$
-Q_2(\iota_2, \boldsymbol{\alpha}, \sigma) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot Q_1(\iota_1, \boldsymbol{\alpha}, \sigma) \, d\iota_1
+Q_2(\iota_2) \propto \int_{\iota_1} P(\iota_2 \mid \iota_1, \sigma) \cdot P(g_1 \mid \iota_1, \boldsymbol{\alpha}) \cdot Q_1(\iota_1) \, d\iota_1
 $$
 
 **Implementation in log space:**
 
 Discretize the parameter space: \\(\iota\_n \in \\{\iota^{(1)}, \ldots, \iota^{(200)}\\}\\), \\(\boldsymbol{\alpha} \in \\{\boldsymbol{\alpha}^{(1)}, \ldots, \boldsymbol{\alpha}^{(200)}\\}\\), \\(\sigma \in \\{\sigma^{(1)}, \ldots, \sigma^{(400)}\\}\\).
 
-Let \\(q\_n[i, j, k] := \log Q\_n(\iota^{(i)}, \boldsymbol{\alpha}^{(j)}, \sigma^{(k)})\\).
-
 **Algorithm:**
 
-1. **Initialize** (\\(n=0\\)):
+1. **Base case** (\\(n=0\\)):
    $$
-   q_0[i, j, k] = \log P(\iota^{(i)}) + \log P(\boldsymbol{\alpha}^{(j)}) + \log P(\sigma^{(k)})
+   \log Q_0(\iota^{(i)}) = \log P(\iota^{(i)}) + \log P(\boldsymbol{\alpha}^{(j)}) + \log P(\sigma^{(k)})
    $$
+   for all \\(i, j, k\\).
 
-2. **For \\(n = 0, 1, 2, \ldots, N-1\\):**
+2. **For \\(n = 1, 2, \ldots, N\\):**
 
-   **(a) Posterior update** after observing \\(g\_n\\):
+   Compute \\(\log Q\_n(\iota^{(i)})\\) by marginalizing over \\(\iota\_{n-1}\\):
    $$
-   q_n[i, j, k] \leftarrow q_n[i, j, k] + \log P(g_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)}) - Z_n
+   \log Q_n(\iota^{(i)}) = \text{logsumexp}_{i'} \left[ \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma^{(k)}) + \log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) + \log Q_{n-1}(\iota^{(i')}) \right]
    $$
    where
    $$
-   \log P(g_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)}) = g_n \log \lambda_n - \lambda_n - \log(g_n!), \quad \lambda_n = \exp(\iota^{(i)} + \boldsymbol{\alpha}^{(j)\top} \mathbf{x}_n)
+   \log P(\iota^{(i)} \mid \iota^{(i')}, \sigma^{(k)}) = -\frac{1}{2}\log(2\pi (\sigma^{(k)})^2) - \frac{(\iota^{(i)} - \iota^{(i')})^2}{2(\sigma^{(k)})^2}
    $$
-   and \\(Z\_n = \text{logsumexp}\_{i,j,k}[q\_n[i, j, k] + \log P(g\_n \mid \iota^{(i)}, \boldsymbol{\alpha}^{(j)})]\\)
-
-   **(b) Prediction** for match \\(n+1\\) (marginalize over \\(\iota\_n\\)):
+   and
    $$
-   q_{n+1}[i', j, k] = \text{logsumexp}_i \left[ \log P(\iota^{(i')} \mid \iota^{(i)}, \sigma^{(k)}) + q_n[i, j, k] \right]
-   $$
-   where
-   $$
-   \log P(\iota^{(i')} \mid \iota^{(i)}, \sigma^{(k)}) = -\frac{1}{2}\log(2\pi (\sigma^{(k)})^2) - \frac{(\iota^{(i')} - \iota^{(i)})^2}{2(\sigma^{(k)})^2}
+   \log P(g_{n-1} \mid \iota^{(i')}, \boldsymbol{\alpha}^{(j)}) = g_{n-1} \log \lambda_{n-1} - \lambda_{n-1} - \log(g_{n-1}!), \quad \lambda_{n-1} = \exp(\iota^{(i')} + \boldsymbol{\alpha}^{(j)\top} \mathbf{x}_{n-1})
    $$
 
 Total configurations: \\(200 \times 200 \times 400 = 16\\) million.
