@@ -21,7 +21,7 @@ We adopt a Poisson likelihood for goal counts:
 
 $$
 
-g\_n \mid \lambda\_n \sim \text{Poisson}(\lambda\_n)
+g_n \mid \lambda_n \sim \text{Poisson}(\lambda_n)
 
 $$
 
@@ -35,7 +35,7 @@ This yields the log-linear specification:
 
 $$
 
-\log \lambda\_n = \iota\_n + \boldsymbol{\alpha}^\top \mathbf{x}\_n
+\log \lambda_n = \iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n
 
 $$
 
@@ -43,7 +43,7 @@ Inference proceeds via sequential Bayesian updating:
 
 $$
 
-P(\iota\_n, \boldsymbol{\alpha}, \sigma \mid g\_{1:n}) \propto P(g\_n \mid \iota\_n, \boldsymbol{\alpha}) \cdot P(\iota\_n \mid \iota\_{n-1}, \sigma) \cdot P(\iota\_{n-1}, \boldsymbol{\alpha}, \sigma \mid g\_{1:n-1})
+P(\iota_n, \boldsymbol{\alpha}, \sigma \mid g_{1:n}) \propto P(g_n \mid \iota_n, \boldsymbol{\alpha}) \cdot P(\iota_n \mid \iota_{n-1}, \sigma) \cdot P(\iota_{n-1}, \boldsymbol{\alpha}, \sigma \mid g_{1:n-1})
 
 $$
 
@@ -56,9 +56,9 @@ Consider a simplified scenario where team A plays only team B repeatedly. We mod
 $$
 
 \begin{align}
-g\_n &\sim \text{Poisson}(\lambda\_n)\\
-\lambda\_n &\sim \mathcal{N}(\lambda\_{n-1}, \sigma^2)\\
-P(\lambda\_n \mid g\_n, g\_{n-1},\ldots) &\propto P(g\_n\mid\lambda\_n) \cdot P(\lambda\_n \mid g\_{n-1},\ldots)
+g_n &\sim \text{Poisson}(\lambda_n)\\
+\lambda_n &\sim \mathcal{N}(\lambda_{n-1}, \sigma^2)\\
+P(\lambda_n \mid g_n, g_{n-1},\ldots) &\propto P(g_n\mid\lambda_n) \cdot P(\lambda_n \mid g_{n-1},\ldots)
 \end{align}
 
 $$
@@ -85,7 +85,7 @@ We model the observed goal rate as:
 
 $$
 
-\lambda\_n = \exp(\iota\_n + \boldsymbol{\alpha}^\top \mathbf{x}\_n)
+\lambda_n = \exp(\iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n)
 
 $$
 
@@ -96,10 +96,10 @@ $$
 \begin{align}
 \boldsymbol{\alpha} &\sim \mathcal{N}(0, 2^2 \mathbf{I})\\
 \sigma &\sim \text{Gamma}(0.5, 1)\\
-\iota\_0 &\sim \mathcal{N}(0.4, 0.7^2)\\
-\iota\_n &\sim \mathcal{N}(\iota\_{n-1}, \sigma^2)\\
-\lambda\_n &= \exp(\iota\_n + \boldsymbol{\alpha}^\top \mathbf{x}\_n)\\
-g\_n &\sim \text{Poisson}(\lambda\_n)
+\iota_0 &\sim \mathcal{N}(0.4, 0.7^2)\\
+\iota_n &\sim \mathcal{N}(\iota_{n-1}, \sigma^2)\\
+\lambda_n &= \exp(\iota_n + \boldsymbol{\alpha}^\top \mathbf{x}_n)\\
+g_n &\sim \text{Poisson}(\lambda_n)
 \end{align}
 
 $$
