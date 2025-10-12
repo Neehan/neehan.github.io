@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">Here is a list of research papers I’ve published—nothing groundbreaking, but I’ve learned a lot through them. They’re also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">Here is a list of research papers I’ve published. I haven't found anything groundbreaking 😅, but I’ve learned a lot through them. They’re also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 * **Adib Hasan**, Mardaviz Roozbehani, & Munther Dahleh. (2025). *VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting*. [[arXiv:2508.03589]](https://arxiv.org/abs/2508.03589) [[blogpost]](/blog/vita/)
