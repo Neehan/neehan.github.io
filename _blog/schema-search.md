@@ -47,7 +47,7 @@ Drop it into Claude Desktop (or any MCP client) by adding:
 Use the CLI to point at any supported RDBMS:
 
 ```bash
-schema-search-mcp "postgresql://user:pass@localhost/db"
+schema-search "postgresql://user:pass@localhost/db"
 ```
 
 ## Performance
