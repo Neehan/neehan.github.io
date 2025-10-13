@@ -38,7 +38,11 @@ Drop it into Claude Desktop (or any MCP client) by adding:
   "mcpServers": {
     "schema-search": {
       "command": "uvx",
-      "args": ["schema-search[postgres,mcp]", "postgresql://user:pass@localhost/db"]
+      "args": [
+        "schema-search[postgres,mcp]", 
+        "postgresql://user:pass@localhost/db",
+        "path/to/config.yml"
+        ]
     }
   }
 }
@@ -47,7 +51,7 @@ Drop it into Claude Desktop (or any MCP client) by adding:
 Use the CLI to point at any supported RDBMS:
 
 ```bash
-schema-search "postgresql://user:pass@localhost/db"
+schema-search "postgresql://user:pass@localhost/db" "path/to/config.yml"
 ```
 
 ## Performance
