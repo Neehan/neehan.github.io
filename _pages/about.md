@@ -7,9 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-I'm Adib Hasan, a research engineer at a stealth startup, where I build large-scale retrieval-augmented generation (RAG) systems and optimize LLM inference for speed. I am interested in **alignment**, **performance under distribution shift**, and **algorithm design**.
+I'm Adib Hasan, a research engineer at a stealth startup, where I build large-scale retrieval-augmented generation (RAG) systems for financial data. I am interested in **alignment**, and **robustness under distribution shift**.
 
-I completed my bachelors (Math & EECS) and MEng (EECS) from MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). During that time, I developed a **variational pretraining framework for transformers on weather data**, and **an attention activation pruning based jailbreak defense for LLMs.**
+I completed my bachelors (Math & EECS) and MEng (EECS) from MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). During that time, I developed a novel **variational pretraining framework** for weather time series, and **an attention activation pruning based jailbreak defense for LLMs.**
 
 In between my bachelor's and master's, I spent two years as a **quant researcher** managing multi-million dollar crypto portfolios and leading a team of four. You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
 
