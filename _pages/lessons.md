@@ -24,8 +24,8 @@ Here is a running list of lessons that I have learned over the years from my mis
 
 ## Machine Learning
 1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)** with learning rate between $[10^{-4}, 10^{-3}]$ and a linear warm-up.
-2. Adam/AdamW tracks the first two exponential moments of the gradient. If VRAM-bound, test out your idea with [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html) first.
-3. Covariance is the scaled dot product between two mean centered vectors. Variance measures the L2 norm of each vector and Pearson correlation is the cosine of the angle between the two vectors.
+2. Adam is a memory-hog because it tracks the first two exponential moments of the gradient. If VRAM-bound, test out your idea with [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html) first.
+3. Covariance represents the dimension-scaled dot product between two mean centered vectors. If both vectors are standardized, both Covariance and Pearson correlation represent the cosine of the angle between the two vectors.
 4. Under pre-layer normalization, token representations are roughly white across features. Consequently, the scaled attention logits $QK^T/\sqrt{d}$ represent the pairwise **directional similarities** between tokens. If $Q=K$, this is a covariance matrix.
 5. When training with large batches, for example, during pre-training, scale your learning rate as: [$\mathrm{lr} \sim \sqrt{\mathrm{tokens}}$](https://arxiv.org/pdf/1705.08741). For small batch size like 32, 64 etc, linear scaling may work [better](https://arxiv.org/pdf/1404.5997). 
 6. Larger models require more data and computational resources but not linearly. Your model might be [undertrained](https://arxiv.org/pdf/2001.08361) for its size.
