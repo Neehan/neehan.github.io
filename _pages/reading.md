@@ -24,6 +24,7 @@ Here is what I am currently reading:
 14. The Wisdom of Life - Arthur Schopenhauer
 15. Surzodeeghol Bari - Abu Ishaq
 16. How Countries Go Broke - Ray Dalio
+17. The Basic Laws of Human Stupidity - Carlo M. Cipolla
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
