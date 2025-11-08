@@ -24,7 +24,7 @@ Here is a running list of lessons that I have learned over the years from my mis
 
 ## Machine Learning
 1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)** with learning rate between $[10^{-4}, 10^{-3}]$ and a linear warm-up.
-2. Adam is a memory-hog because it tracks the first two exponential moments of the gradient. If VRAM-bound, test out your idea with [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html) first.
+2. Adam is a memory-hog because it tracks EMA estimates of the first two moments of the gradient. If VRAM-bound, test out your idea with [SGD](https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html) first.
 3. Covariance is the dimension-scaled dot product of two mean-centered vectors. Pearson correlation is the same quantity normalized by both vectors’ L2 norms, so it equals the cosine of the angle between them. This is why it always lies between −1 and 1.
 5. When training with large batches, for example, during pre-training, scale your learning rate as: [$\mathrm{lr} \sim \sqrt{\mathrm{tokens}}$](https://arxiv.org/pdf/1705.08741). For small batch size like 32, 64 etc, linear scaling may work [better](https://arxiv.org/pdf/1404.5997). 
 6. Larger models require more data and computational resources but not linearly. Your model might be [undertrained](https://arxiv.org/pdf/2001.08361) for its size.
