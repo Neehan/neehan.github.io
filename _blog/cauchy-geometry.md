@@ -9,9 +9,9 @@ tags:
 
 The Cauchy–Schwarz inequality is usually introduced as a deep structural fact about inner product spaces. In standard courses, the inequality is proved algebraically from the axioms of an inner product. However, it is a more fundamental geometric fact.
 
-The goal of this note is to show that the Cauchy–Schwarz inequality geometrically means that projecting a vector onto another cannot increase its length. To make this work, we need two properties:
-1. **Symmetric Bilinear Form** (orthogonal decomposition to be possible)
-2. **Positive definiteness** (all vectors must have non-negative squared length)
+In this blog post, I will show that the Cauchy–Schwarz inequality simply tells us *projecting a vector onto another cannot increase its length*. To make this work, we need two geometric properties:
+1. **Symmetric bilinear form** (enables orthogonal decomposition)
+2. **Positive definiteness** (ensures all vectors have non-negative squared length)
 
 From these alone, we can show Cauchy–Schwarz represents the **cosine of an angle** between two vectors.
 
@@ -111,19 +111,17 @@ This is the **law of cosines** in its inner product form. The bilinear form meas
 - $\theta = \pi$: vectors are anti-parallel ($\langle u, v \rangle = -\|u\|\|v\|$)
 
 ## Implications
-1. If $u$ and $v$ have zero mean, then:
-
+* If $u$ and $v$ have zero mean, then:
 $$
 \cos \theta = \frac{\langle u, v \rangle}{\|u\| \|v\|}
 $$
-
 is the **Pearson correlation coefficient** between $u$ and $v$.
 
-2. The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This happens when:
+* The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This happens when:
 - $\cos \theta \approx 1$ (high positive correlation), the vectors are nearly parallel and the bound is nearly saturated
 - $\cos \theta \approx -1$ (high negative correlation), the vectors are nearly anti-parallel and the bound is nearly saturated
 
-3. When $\cos \theta = 0$ (orthogonality/no correlation), the bound becomes loose: the left side is zero while the right side can be arbitrarily large.
+* When $\cos \theta = 0$ (orthogonality/no correlation), the bound becomes loose: the left side is zero while the right side can be arbitrarily large.
 
 ## Conclusion
 
