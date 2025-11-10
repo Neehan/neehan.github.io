@@ -1,5 +1,5 @@
 ---
-title: "Geometric Interpretration of Cauchy–Schwarz Inequality"
+title: "Geometric Interpretration of the Cauchy–Schwarz Inequality"
 excerpt: "How Pythagoras and positive definiteness geometrically prove the Cauchy–Schwarz inequality"
 collection: blog
 date: 2025-11-10
