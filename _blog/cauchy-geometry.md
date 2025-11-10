@@ -110,23 +110,21 @@ This is the **law of cosines** in its inner product form. The bilinear form meas
 - $\theta = \pi/2$: vectors are orthogonal ($\langle u, v \rangle = 0$)
 - $\theta = \pi$: vectors are anti-parallel ($\langle u, v \rangle = -\|u\|\|v\|$)
 
-**Connection to Pearson correlation:** For mean-centered vectors, $\cos \theta$ is exactly the **Pearson correlation coefficient**. If $u$ and $v$ have zero mean, then:
+## Implications
+1. If $u$ and $v$ have zero mean, then:
 
 $$
 \cos \theta = \frac{\langle u, v \rangle}{\|u\| \|v\|}
 $$
 
-is the correlation between $u$ and $v$.
+is the **Pearson correlation coefficient** between $u$ and $v$.
 
-**When is the bound tight?** The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This corresponds to $|\cos \theta| = 1$:
-- When $\cos \theta \approx 1$ (high positive correlation), the vectors are nearly parallel and the bound is nearly saturated
-- When $\cos \theta \approx -1$ (high negative correlation), the vectors are nearly anti-parallel and the bound is nearly saturated
-- When $\cos \theta = 0$ (orthogonality/no correlation), the bound becomes loose: the left side is zero while the right side can be arbitrarily large
+2. The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This happens when:
+- $\cos \theta \approx 1$ (high positive correlation), the vectors are nearly parallel and the bound is nearly saturated
+- $\cos \theta \approx -1$ (high negative correlation), the vectors are nearly anti-parallel and the bound is nearly saturated
+
+3. When $\cos \theta = 0$ (orthogonality/no correlation), the bound becomes loose: the left side is zero while the right side can be arbitrarily large.
 
 ## Conclusion
 
-The Cauchy–Schwarz inequality is the geometric statement that **projecting a vector onto another cannot increase its length**. This follows from:
-1. **Pythagoras**: orthogonal components have independent lengths
-2. **Positive definiteness**: all lengths are non-negative
-
-The inequality's bound $|\langle u, v \rangle| \leq \|u\|\|v\|$ naturally defines an angle via $\cos \theta = \frac{\langle u,v \rangle}{\|u\|\|v\|}$, revealing the deep connection between inner products and geometry.
+We have shown that the Cauchy–Schwarz inequality is the geometric statement that **projecting a vector onto another cannot increase its length**.
