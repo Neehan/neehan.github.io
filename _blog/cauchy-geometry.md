@@ -93,13 +93,27 @@ $$
 
 ## The Cosine Interpretation
 
-Define the angle $\theta \in [0, \pi]$ between $u$ and $v$ by:
+The projection naturally defines an angle $\theta \in [0, \pi]$ between $u$ and $v$. Since the projection has length $\|\text{proj}_v(u)\|$ and $u$ has length $\|u\|$, define:
 
 $$
-\cos \theta = \frac{\langle u, v \rangle}{\|u\| \|v\|}
+\cos \theta = \frac{\|\text{proj}_v(u)\|}{\|u\|}
 $$
 
-Cauchy–Schwarz guarantees $-1 \leq \cos \theta \leq 1$, so $\theta$ is well-defined. This gives:
+This is the ratio of the projection's length to the original vector's length. From our earlier calculation, $\|\text{proj}_v(u)\|^2 = \frac{|\langle u, v \rangle|^2}{\|v\|^2}$, so:
+
+$$
+\|\text{proj}_v(u)\| = \frac{|\langle u, v \rangle|}{\|v\|}
+$$
+
+Therefore:
+
+$$
+\cos \theta = \frac{|\langle u, v \rangle|}{\|u\| \|v\|}
+$$
+
+The Cauchy–Schwarz inequality $|\langle u, v \rangle| \leq \|u\| \|v\|$ is now transparent: it simply says $|\cos \theta| \leq 1$, i.e., **the projection cannot be longer than the original vector**.
+
+Accounting for sign (parallel vs anti-parallel), we get:
 
 $$
 \langle u, v \rangle = \|u\| \|v\| \cos \theta
