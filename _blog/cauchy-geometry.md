@@ -93,13 +93,19 @@ $$
 
 ## The Cosine Interpretation
 
-The projection naturally defines an angle $\theta \in [0, \pi]$ between $u$ and $v$. Since the projection has length $\|\text{proj}_v(u)\|$ and $u$ has length $\|u\|$, define:
+The projection naturally defines an angle between $u$ and $v$. Since the projection has a certain length and $u$ has length, define:
 
 $$
 \cos \theta = \frac{\|\text{proj}_v(u)\|}{\|u\|}
 $$
 
-This is the ratio of the projection's length to the original vector's length. From our earlier calculation, $\|\text{proj}_v(u)\|^2 = \frac{|\langle u, v \rangle|^2}{\|v\|^2}$, so:
+This is the ratio of the projection's length to the original vector's length. From our earlier calculation:
+
+$$
+\|\text{proj}_v(u)\|^2 = \frac{|\langle u, v \rangle|^2}{\|v\|^2}
+$$
+
+so:
 
 $$
 \|\text{proj}_v(u)\| = \frac{|\langle u, v \rangle|}{\|v\|}
@@ -111,7 +117,7 @@ $$
 \cos \theta = \frac{|\langle u, v \rangle|}{\|u\| \|v\|}
 $$
 
-The Cauchy–Schwarz inequality $|\langle u, v \rangle| \leq \|u\| \|v\|$ is now transparent: it simply says $|\cos \theta| \leq 1$, i.e., **the projection cannot be longer than the original vector**.
+The Cauchy–Schwarz inequality is now transparent: it simply says the cosine is at most 1, i.e., **the projection cannot be longer than the original vector**.
 
 Accounting for sign (parallel vs anti-parallel), we get:
 
@@ -119,10 +125,7 @@ $$
 \langle u, v \rangle = \|u\| \|v\| \cos \theta
 $$
 
-This is the **law of cosines** in its inner product form. The bilinear form measures the "alignment" between vectors:
-- $\theta = 0$: vectors are parallel ($\langle u, v \rangle = \|u\|\|v\|$)
-- $\theta = \pi/2$: vectors are orthogonal ($\langle u, v \rangle = 0$)
-- $\theta = \pi$: vectors are anti-parallel ($\langle u, v \rangle = -\|u\|\|v\|$)
+This is the **law of cosines** in its inner product form. The bilinear form measures the "alignment" between vectors where the angle can be 0 (parallel), $\pi/2$ (orthogonal), or $\pi$ (anti-parallel).
 
 ## Implications
 * If $u$ and $v$ have zero mean, then:
