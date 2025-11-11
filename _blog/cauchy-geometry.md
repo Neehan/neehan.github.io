@@ -9,7 +9,7 @@ tags:
 
 The Cauchy–Schwarz inequality is usually introduced as a deep structural fact about inner product spaces. In standard courses, the inequality is proved algebraically from the axioms of an inner product. However, it is a more fundamental geometric fact.
 
-In this blog post, I will show that the Cauchy–Schwarz inequality simply tells us *projecting a vector onto another cannot increase its length*. To make this work, we need two geometric properties:
+In this blog post, I will show that the Cauchy–Schwarz inequality simply tells us *projecting a vector onto another cannot increase its length*. To make this work, we need introduce two properties to a vector space:
 1. **Symmetric bilinear form** (enables orthogonal decomposition)
 2. **Positive definiteness** (ensures all vectors have non-negative squared length)
 
@@ -17,7 +17,7 @@ From these alone, we can show Cauchy–Schwarz represents the **cosine of an ang
 
 ## Setup
 
-Let $V$ be a vector space with a symmetric, positive definite bilinear form $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$. Define the induced norm $\|u\| = \sqrt{\langle u, u \rangle}$.
+Let $V$ be a vector space with a symmetric, positive definite bilinear form $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$. Define the induced norm $\\|u\\| = \sqrt{\langle u, u \rangle}$.
 
 **Positive definiteness** means:
 - $\langle u, u \rangle \geq 0$ for all $u \in V$
@@ -29,7 +29,7 @@ $$
 \|u + v\|^2 = \|u\|^2 + \|v\|^2
 $$
 
-This follows from expanding $\langle u+v, u+v \rangle = \langle u,u \rangle + \langle u,v \rangle + \langle v,u \rangle + \langle v,v \rangle$. By symmetry, $\langle u,v \rangle = \langle v,u \rangle$, so when $\langle u,v \rangle = 0$, the middle terms vanish and we get $\|u+v\|^2 = \|u\|^2 + \|v\|^2$.
+This follows from expanding $\langle u+v, u+v \rangle = \langle u,u \rangle + \langle u,v \rangle + \langle v,u \rangle + \langle v,v \rangle$. By symmetry, $\langle u,v \rangle = \langle v,u \rangle$, so when $\langle u,v \rangle = 0$, the middle terms vanish and we get $\\|u+v\\|^2 = \\|u\\|^2 + \\|v\\|^2$.
 
 ## Orthogonal Projection and Pythagoras
 
@@ -59,7 +59,7 @@ $$
 
 ## Deriving Cauchy–Schwarz
 
-By **positive definiteness**, $\|u - \text{proj}_v(u)\|^2 \geq 0$, so:
+By **positive definiteness**, $\\|u - \text{proj}_v(u)\\|^2 \geq 0$, so:
 
 $$
 \|u\|^2 \geq \|\text{proj}_v(u)\|^2
@@ -89,7 +89,7 @@ $$
 |\langle u, v \rangle| \leq \|u\| \|v\|
 $$
 
-**Equality holds** if and only if $u - \text{proj}_v(u) = 0$, meaning $u$ is parallel to $v$.
+**Equality holds** if and only if $u - \text{proj}\_v(u) = 0$, meaning $u$ is parallel to $v$.
 
 ## The Cosine Interpretation
 
@@ -125,7 +125,7 @@ $$
 \langle u, v \rangle = \|u\| \|v\| \cos \theta
 $$
 
-This is the **law of cosines** in its inner product form. The bilinear form measures the "alignment" between vectors where the angle can be 0 (parallel), $\pi/2$ (orthogonal), or $\pi$ (anti-parallel).
+This is the **law of cosines** in its inner product form. The bilinear form measures the "alignment" between vectors where the angle can be 0 (parallel), $\\pi/2$ (orthogonal), or $\\pi$ (anti-parallel).
 
 ## Implications
 * If $u$ and $v$ have zero mean, then:
@@ -134,7 +134,7 @@ $$
 $$
 is the **Pearson correlation coefficient** between $u$ and $v$.
 
-* The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This happens when:
+* The Cauchy–Schwarz inequality becomes an equality when $u - \text{proj}\_v(u) = 0$, i.e., when $u$ is parallel to $v$ (or anti-parallel). This happens when:
 - $\cos \theta \approx 1$ (high positive correlation), the vectors are nearly parallel and the bound is nearly saturated
 - $\cos \theta \approx -1$ (high negative correlation), the vectors are nearly anti-parallel and the bound is nearly saturated
 
