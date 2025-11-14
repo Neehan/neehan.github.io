@@ -15,7 +15,7 @@ Linear regression is typically introduced as an optimization problem, but it can
 Let $X \in \mathbb{R}^{n \times d}$, $\theta \in \mathbb{R}^{d \times 1}$, and $y \in \mathbb{R}^{n \times 1}$. We are interested in solving the linear system
 
 $$
-X\theta = y.
+X\theta = y.\quad\quad(1)
 $$
 
 This system may have zero, one, or infinitely many solutions. The structure is governed entirely by the rank of $X$ and by whether $y$ lies in its column space.
@@ -31,9 +31,17 @@ A **unique solution** to $X\theta = y$ exists iff:
    $$\operatorname{rank}(X) = d.$$
    To see why this ensures uniqueness, suppose $X\theta = X\theta' = y$. Then $X(\theta - \theta') = 0$, which implies $\theta - \theta' = 0$ by the injectivity condition.
 
-If both conditions hold,i.e, $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d,$ then there is exactly one $\theta$ satisfying $X\theta = y$.
+If both conditions hold—i.e., $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d$—then there is exactly one $\theta$ satisfying $X\theta = y$.
 
 ## Closed-Form Solution
+
+Multiply both sides of (1) by $X^T$ to obtain the **normal equations**:
+
+$$
+X^TX\theta = X^Ty.
+$$
+
+Note that $X^TX$ is a $d \times d$ square matrix. To determine when this system has a unique solution, we need to understand when $X^TX$ is invertible.
 
 A key observation is that $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, which follows from the equivalence
 
@@ -43,7 +51,7 @@ $$
 
 To see the forward direction, note that if $X\theta = 0$, then $X^TX\theta = X^T \cdot 0 = 0$. For the reverse, if $X^TX\theta = 0$, then $\theta^T X^TX\theta = \\|X\theta\\|^2 = 0$, so $X\theta = 0$.
 
-Since $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, we have $\operatorname{rank}(X) = \operatorname{rank}(X^TX)$. Therefore, if $\operatorname{rank}(X) = d$, then $X^TX$ is a $d \times d$ matrix with full rank, hence invertible. In this case the solution is
+Since $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, we have $\operatorname{rank}(X) = \operatorname{rank}(X^TX)$. Therefore, if $\operatorname{rank}(X) = d$, then $X^TX$ has full rank and is invertible. In this case the solution is
 
 $$
 \theta^* = (X^T X)^{-1} X^T y.
