@@ -1,6 +1,6 @@
 ---
 title: "I looked into 16 Million Futures and Saw Argentina Win against Australia in 11 Million of Them"
-excerpt: "Predicting FIFA World Cup 2022 match outcomes using Bayesian inference on Poisson processes."
+excerpt: "Predicting FIFA World Cup 2022 match outcomes using Bayesian inference on Poisson processes. The model treats each team's latent strength as evolving stochastically over time, with observations generated via a Poisson likelihood. This design prioritizes posterior interpretability and uncertainty quantification over raw predictive performance."
 collection: blog
 date: 2022-12-01
 tags:
