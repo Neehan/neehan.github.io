@@ -15,7 +15,7 @@ Linear regression is typically introduced as an optimization problem, but it can
 Let $X \in \mathbb{R}^{n \times d}$, $\theta \in \mathbb{R}^{d \times 1}$, and $y \in \mathbb{R}^{n \times 1}$. We are interested in solving the linear system
 
 $$
-X\theta = y.\quad\quad(1)
+X\theta = y.\qquad(1)
 $$
 
 This system may have zero, one, or infinitely many solutions. The structure is governed entirely by the rank of $X$ and by whether $y$ lies in its column space.
@@ -38,7 +38,7 @@ If both conditions hold—i.e., $\operatorname{rank}(X) = \operatorname{rank}([X
 Multiply both sides of (1) by $X^T$ to obtain the **normal equations**:
 
 $$
-X^TX\theta = X^Ty.
+X^TX\theta = X^Ty.\qquad (2)
 $$
 
 Note that $X^TX$ is a $d \times d$ square matrix. To determine when this system has a unique solution, we need to understand when $X^TX$ is invertible.
@@ -64,10 +64,10 @@ It applies cleanly in cases:
 - $n = d$ (square full-rank),
 - but not $n < d$ (since $\operatorname{rank}(X) \le n < d$).
 
-To verify that $\theta^\*$ satisfies $X\theta^\* = y$ when the system is consistent, observe that if $y = X\theta'$ for some $\theta'$, then 
+To verify that $\theta^\*$ satisfies $X\theta^\* = y$ when the system is consistent, observe that if $y = X\theta^\dagger$ is the true solution for some $\theta^\dagger$, then 
 
 $$
-X\theta^* = X(X^TX)^{-1}X^Ty = X(X^TX)^{-1}X^TX\theta' = X\theta' = y.
+X\theta^* = X(X^TX)^{-1}X^Ty = X(X^TX)^{-1}X^TX\theta^\dagger = X\theta^\dagger = y.
 $$
 
 ## The Regression Setting
@@ -78,10 +78,10 @@ $$
 y = X\theta + \varepsilon, \qquad \varepsilon \sim \mathcal{N}(0, \sigma^2 I).
 $$
 
-The negative log-likelihood is
+**Note:** The only source of uncertainty in this model is the *Gaussian* noise. Since $y = X\theta + \varepsilon$ with $\varepsilon \sim \mathcal{N}(0, \sigma^2 I)$, we have $y \sim \mathcal{N}(X\theta, \sigma^2 I)$. The negative log-likelihood is
 
 $$
--\log p(y \mid X, \theta, \sigma^2) = \frac{n}{2}\log(2\pi\sigma^2) + \frac{1}{2\sigma^2}\|X\theta - y\|_2^2.
+-\log p(y \mid X, \theta, \sigma^2) = \frac{n}{2}\log(2\pi\sigma^2) + \frac{1}{2\sigma^2}\|y - X\theta\|_2^2.
 $$
 
 Since $\sigma^2$ is a constant with respect to $\theta$, maximizing the log-likelihood (or minimizing the negative log-likelihood) over $\theta$ is equivalent to solving the **least-squares problem**
