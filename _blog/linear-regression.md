@@ -27,11 +27,11 @@ A **unique solution** to $X\theta = y$ exists iff:
 1. **At least one solution**:  
    There is at least one $\theta\in \mathbb{R}^d$ such that $X\theta = y$. In other words, $y$ lies in the column space of $X$, i.e. $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]).$
 
-2. **At most one solution**: $X\theta = 0$ if and only if $\theta=0$, or equivalently,
+2. **At most one solution**: $X\phi = 0$ if and only if $\phi=0$, or equivalently,
    $$\operatorname{rank}(X) = d.$$
    To see why this ensures uniqueness, suppose $X\theta = X\theta' = y$. Then $X(\theta - \theta') = 0$, which implies $\theta - \theta' = 0$ by the injectivity condition.
 
-If both conditions hold—i.e., $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d$—then there is exactly one $\theta$ satisfying $X\theta = y$.
+If both conditions hold—i.e., $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d$—then there is *exactly one* $\theta$ satisfying $X\theta = y$.
 
 ## Closed-Form Solution
 
@@ -51,7 +51,7 @@ $$
 
 To see the forward direction, note that if $X\theta = 0$, then $X^TX\theta = X^T \cdot 0 = 0$. For the reverse, if $X^TX\theta = 0$, then $\theta^T X^TX\theta = \\|X\theta\\|^2 = 0$, so $X\theta = 0$.
 
-Since $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, we have $\operatorname{rank}(X) = \operatorname{rank}(X^TX)$. Therefore, if $\operatorname{rank}(X) = d$, then $X^TX$ has full rank and is invertible. In this case the solution is
+Since $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, we have $\operatorname{rank}(X) = \operatorname{rank}(X^TX)$. Therefore, if $\operatorname{rank}(X) = d$, then $X^TX$ has full rank and is invertible. In this case the solution of (2) is
 
 $$
 \theta^* = (X^T X)^{-1} X^T y.
@@ -78,13 +78,13 @@ $$
 y = X\theta + \varepsilon, \qquad \varepsilon \sim \mathcal{N}(0, \sigma^2 I).
 $$
 
-The negative log-likelihood (up to constants) is proportional to
+The negative log-likelihood is
 
 $$
-\|X\theta - y\|_2^2.
+-\log p(y \mid X, \theta, \sigma^2) = \frac{n}{2}\log(2\pi\sigma^2) + \frac{1}{2\sigma^2}\|X\theta - y\|_2^2.
 $$
 
-Thus, maximum likelihood estimation is equivalent to solving the **least-squares problem**
+Since $\sigma^2$ is a constant with respect to $\theta$, maximizing the log-likelihood (or minimizing the negative log-likelihood) over $\theta$ is equivalent to solving the **least-squares problem**
 
 $$
 \min_\theta \|X\theta - y\|_2^2.
