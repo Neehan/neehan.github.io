@@ -1,6 +1,6 @@
 ---
 title: "VITA: Variational Inference Transformer for Asymmetric Data"
-excerpt: "A decoder-free variational pretraining framework for time-series forecasting under feature asymmetry."
+excerpt: "A decoder-free variational pretraining framework for time-series forecasting under feature asymmetry. VITA learns latent representations that bridge the gap between rich training features and limited deployment features, using a transformer encoder with a seasonal prior. Applied to agricultural yield forecasting, VITA achieves R² = 0.726 on extreme weather years, training in <2.5 hours on a single GPU."
 collection: blog
 date: 2025-08-01
 tags:

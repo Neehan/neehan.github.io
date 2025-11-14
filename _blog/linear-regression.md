@@ -1,6 +1,6 @@
 ---
 title: "Linear Regression as a System of Linear Equations"
-excerpt: "A systematic treatment of linear regression from the perspective of solving linear systems. We characterize when exact solutions exist based on rank conditions and derive the closed-form solution (X^T X)^{-1} X^T y. In the regression setting with noise, this formula emerges as both the least-squares minimizer and the maximum likelihood estimator."
+excerpt: "A systematic treatment of linear regression from the perspective of solving linear systems. We characterize when exact solutions exist based on rank conditions and derive the closed-form solution ($X^T X)^{-1} X^T y$. In the regression setting with noise, this formula emerges as both the least-squares minimizer and the maximum likelihood estimator."
 collection: blog
 date: 2025-10-10
 tags:
@@ -59,7 +59,7 @@ It applies cleanly in cases:
 - $n = d$ (square full-rank),
 - but not $n < d$ (since $\operatorname{rank}(X) \le n < d$).
 
-To verify that $\theta^*$ satisfies $X\theta^* = y$ when the system is consistent, observe that if $y = X\theta'$ for some $\theta'$, then 
+To verify that $\theta^\*$ satisfies $X\theta^\* = y$ when the system is consistent, observe that if $y = X\theta'$ for some $\theta'$, then 
 
 $$
 X\theta^* = X(X^TX)^{-1}X^Ty = X(X^TX)^{-1}X^TX\theta' = X\theta' = y.
