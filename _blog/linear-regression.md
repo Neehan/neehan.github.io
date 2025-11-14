@@ -25,16 +25,13 @@ This system may have zero, one, or infinitely many solutions. The structure is g
 A **unique solution** to $X\theta = y$ exists iff:
 
 1. **At least one solution**:  
-   There is at least one $\theta\in \mathbb{R}^d$ such that $X\theta = y$. In other words, $y$ lies in the column space of $X$, i.e.  
-   $$\operatorname{rank}(X) = \operatorname{rank}([X \mid y]).$$
+   There is at least one $\theta\in \mathbb{R}^d$ such that $X\theta = y$. In other words, $y$ lies in the column space of $X$, i.e. $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]).$
 
 2. **At most one solution**: $X\theta = 0$ if and only if $\theta=0$, or equivalently,
    $$\operatorname{rank}(X) = d.$$
    To see why this ensures uniqueness, suppose $X\theta = X\theta' = y$. Then $X(\theta - \theta') = 0$, which implies $\theta - \theta' = 0$ by the injectivity condition.
 
-If both conditions hold—equivalently,  
-$$\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d,$$  
-then there is exactly one $\theta$ satisfying $X\theta = y$.
+If both conditions hold,i.e, $\operatorname{rank}(X) = \operatorname{rank}([X \mid y]) = d,$ then there is exactly one $\theta$ satisfying $X\theta = y$.
 
 ## Closed-Form Solution
 
@@ -44,7 +41,7 @@ $$
 X\theta = 0 \Leftrightarrow X^TX\theta = 0.
 $$
 
-To see the forward direction, note that if $X\theta = 0$, then $X^TX\theta = X^T \cdot 0 = 0$. For the reverse, if $X^TX\theta = 0$, then $\theta^T X^TX\theta = \|X\theta\|^2 = 0$, so $X\theta = 0$.
+To see the forward direction, note that if $X\theta = 0$, then $X^TX\theta = X^T \cdot 0 = 0$. For the reverse, if $X^TX\theta = 0$, then $\theta^T X^TX\theta = \\|X\theta\\|^2 = 0$, so $X\theta = 0$.
 
 Since $\operatorname{ker}(X) = \operatorname{ker}(X^TX)$, we have $\operatorname{rank}(X) = \operatorname{rank}(X^TX)$. Therefore, if $\operatorname{rank}(X) = d$, then $X^TX$ is a $d \times d$ matrix with full rank, hence invertible. In this case the solution is
 
