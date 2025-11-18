@@ -83,7 +83,7 @@ $$
 \mathbb P(|X|>t) \le C e^{-ct}\quad\text{for all }t>0,
 $$
 
-for some constants $C,c>0$. Then all moments $\mathbb E[|X|^n]$ are finite, and the set of polynomials in $X$,
+for some constants $C,c>0$. Then all moments $\mathbb E[\|X\|^n]$ are finite, and the set of polynomials in $X$,
 
 $$
 \{p(X): p \text{ a real polynomial}\},
@@ -107,9 +107,9 @@ $$
 \le nC \int_0^\infty u^{n-1} e^{-cu}\,du,
 $$
 
-which is a finite Gamma integral. Thus $\mathbb E[|X|^n]<\infty$ for every $n$.
+which is a finite Gamma integral. Thus $\mathbb E[\|X\|^n]<\infty$ for every $n$.
 
-In particular, every polynomial $p(x) = \sum\_{k=0}^d a\_k x^k$ satisfies $p(X)\in L^2(\mathbb P)$: the square $p(x)^2$ is a polynomial of degree at most $2d$, and its expectation is a finite linear combination of moments $\mathbb E[|X|^m]$ with $m\le 2d$. Hence all polynomials belong to $L^2(\mathbb P\_X)$.
+In particular, every polynomial $p(x) = \sum\_{k=0}^d a\_k x^k$ satisfies $p(X)\in L^2(\mathbb P)$: the square $p(x)^2$ is a polynomial of degree at most $2d$, and its expectation is a finite linear combination of moments $\mathbb E[\|X\|^m]$ with $m\le 2d$. Hence all polynomials belong to $L^2(\mathbb P\_X)$.
 
 We now prove density. Let $\mu = \mu\_X$ be the law of $X$. We can view everything in $L^2(\mathbb R,\mu)$. Take any $f\in L^2(\mu)$ and $\varepsilon>0$.
 
@@ -125,7 +125,7 @@ $$
 \|f-f_R\|_{L^2(\mu)}^2 = \int_{|x|>R} |f(x)|^2 \, d\mu(x).
 $$
 
-Since $|f|^2\in L^1(\mu)$ and the sets $\{|x|>R\}$ decrease to the empty set as $R\to\infty$, the [dominated convergence theorem](https://en.wikipedia.org/wiki/Dominated_convergence_theorem) gives $\|f-f\_R\|_{L^2(\mu)}\to 0$. Choose $R$ large enough that
+Since $\|f\|^2\in L^1(\mu)$ and the sets $\{\|x\|>R\}$ decrease to the empty set as $R\to\infty$, the [dominated convergence theorem](https://en.wikipedia.org/wiki/Dominated_convergence_theorem) gives $\|f-f\_R\|_{L^2(\mu)}\to 0$. Choose $R$ large enough that
 
 $$
 \|f-f_R\|_{L^2(\mu)} < \varepsilon/3.
