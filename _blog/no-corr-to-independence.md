@@ -93,9 +93,15 @@ where the third equality uses $\operatorname{Cov}(X^m,Y^n) = 0$, which gives $\m
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
-**Lemma 3.** *If the MGF of a random vector $(X,Y)$ on $\mathbb R^2$ is finite in a neighborhood of $(0,0)$, then it uniquely determines the distribution of $(X,Y)$.*
+**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $(\theta,\eta)$ in a neighborhood of $(0,0)$, then $X$ and $Y$ are independent.*
 
-This is a standard result in probability theory; see Billingsley, *Probability and Measure*, Theorem 30.1.
+*Proof.* Setting $\theta = iv\_1$ and $\eta = iv\_2$ for real $v\_1,v\_2$, the MGF factorization gives $\phi\_{(X,Y)}(v\_1,v\_2) = \phi\_X(v\_1)\phi\_Y(v\_2)$ for all $(v\_1,v\_2)$ in a neighborhood of $(0,0)$. Since characteristic functions are continuous, this extends to all $(v\_1,v\_2) \in \mathbb R^2$. By the inverse Fourier transform,
+
+$$
+\mu\_{(X,Y)}(dx,dy) = \frac{1}{(2\pi)^2}\iint e^{-i(v\_1 x + v\_2 y)}\phi\_{(X,Y)}(v\_1,v\_2)\,dv\_1\,dv\_2 = \frac{1}{2\pi}\int e^{-iv\_1 x}\phi\_X(v\_1)\,dv\_1 \cdot \frac{1}{2\pi}\int e^{-iv\_2 y}\phi\_Y(v\_2)\,dv\_2 = \mu\_X(dx)\mu\_Y(dy),
+$$
+
+which is the definition of independence. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $(\theta,\eta)$ in a neighborhood of $(0,0)$, the joint MGF satisfies
 
