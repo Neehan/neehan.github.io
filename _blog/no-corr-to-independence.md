@@ -30,9 +30,9 @@ $$
 \mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\cdot\mathbb E[g(Y)].
 $$
 
-To see the equivalence, note that if the joint law factorizes then integrating $f(x)g(y)$ against $\mu\_X\otimes\mu\_Y$ gives factorization by Fubini's theorem. Conversely, taking $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ recovers the probabilistic definition.
+To see the equivalence, note that if the joint law factorizes then integrating $f(x)g(y)$ against $\mu\_X\otimes\mu\_Y$ gives factorization by [Fubini's theorem](https://en.wikipedia.org/wiki/Fubini%27s_theorem). Conversely, taking $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ recovers the probabilistic definition.
 
-The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gives factorization for the specific choice $f(x) = x$ and $g(y) = y$, which is vastly weaker than what is required for independence. This explains why the standard counterexample $Y = X^2$ works: we only have factorization for linear functions, not for nonlinear functions like $f(x) = x^2$.
+The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gives factorization for the linear functions, which is vastly weaker than what is required for independence. This explains why the standard counterexample $Y = X^2$ works: we only have factorization for linear functions, not for nonlinear functions like $f(x) = x^2$.
 
 ## The Main Theorem
 
@@ -44,19 +44,33 @@ The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gi
 
 ## Proof Strategy
 
-Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for monomials, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
+Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all positive integers $m,n$, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
 
-To show independence, we need to be able to approximate arbitrary measurable functions $f$ by moments of $X$. This is not always possible, and a classic counter-example is the LogNormal distribution. However, if the moments of $X$ don't grow too fast, they uniquely determine $\mu\_X$, which is known as Carleman's condition.
+The key observation is that if the moments of a distribution do not grow too fast, they uniquely determine the distribution. This is known as [Carleman's condition](https://en.wikipedia.org/wiki/Carleman%27s_condition). A classic counterexample where moments fail to determine the distribution is the [log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution), whose moments grow factorially fast. Our exponential tail condition ensures that moments grow slowly enough for Carleman's condition to hold.
 
-Our strategy is to show that the joint moment generating function (MGF) $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. By Carleman's condition, this will imply the distributions are equal, hence independence. We proceed in three steps. First, we show that exponential tails imply the moment generating function has positive radius of convergence. Second, we use the covariance condition to show the joint moment generating function factorizes. Finally, we invoke Carleman's theorem to conclude that moment generating function uniqueness implies distributional uniqueness, completing the proof. 
+We exploit this using moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. Since moment generating functions encode all moments via their Taylor expansions, equality of the moment generating functions implies equality of all moments. By Carleman's condition, this forces the distributions to be equal, which gives independence.
+
+The proof proceeds in three steps. First, we show that exponential tails imply the moment generating function has positive radius of convergence. Second, we use the covariance condition to show the joint moment generating function factorizes. Finally, we verify that Carleman's condition holds under exponential tails, so that moment generating function uniqueness implies distributional uniqueness. 
 
 ## Proof of the Main Theorem
 
 The moment generating function (MGF) of a random variable $X$ is defined as $M\_X(\theta) = \mathbb E[e^{\theta X}]$ for all $\theta \in \mathbb R$ where this expectation exists. When finite, the MGF encodes all moments of $X$ via its Taylor expansion: $M\_X(\theta) = \sum\_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n]$. We will show that exponential tails guarantee the MGF exists in a neighborhood of zero.
 
-**Lemma 1.** *$M\_X(\theta)$ is finite for all $\|\theta\| < c\_X/2$.*
+**Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ is finite for all $\|\theta\| < c\_X/2$.*
 
-*Proof.* Fix $\|\theta\| < c\_X/2$. Then
+*Proof.* For any $n \ge 0$, we have
+
+$$
+\mathbb E[\|X\|^n] = \int_0^\infty nt^{n-1}\mathbb P(\|X\| > t)\,dt \le \int_0^\infty nt^{n-1}C_Xe^{-c_Xt}\,dt = C_Xn! c_X^{-n} < \infty.
+$$
+
+For $\|\theta\| < c\_X/2$, the Taylor series of the MGF converges by the moment bound:
+
+$$
+M_X(\theta) = \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
+$$
+
+Alternatively, by integration by parts:
 
 $$
 \begin{align}
@@ -94,7 +108,7 @@ $$
 \sum_{n=1}^\infty \left(\mathbb E[|X|^{2n}]\right)^{-1/(2n)} \ge \sum_{n=1}^\infty (C_Xn!c_X^{-n})^{-1/(2n)} \ge \sum_{n=1}^\infty C_X^{-1/(2n)}(n!)^{-1/(2n)}c_X^{1/2} = \infty,
 $$
 
-where the divergence follows from Stirling's approximation: $(n!)^{-1/(2n)} \sim (ne)^{-1/2}$. The same holds for $Y$. By Carleman's theorem, the moment sequences of $X$ and $Y$ uniquely determine their distributions, and hence the joint moment sequence uniquely determines $\mu\_{(X,Y)}$. Since the MGF has positive radius of convergence by Lemma 1, it uniquely determines the moments, and therefore uniquely determines the distribution. $\square$
+where the divergence follows from [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation): $(n!)^{-1/(2n)} \sim (ne)^{-1/2}$. The same holds for $Y$. By [Carleman's theorem](https://en.wikipedia.org/wiki/Carleman%27s_condition), the moment sequences of $X$ and $Y$ uniquely determine their distributions, and hence the joint moment sequence uniquely determines $\mu\_{(X,Y)}$. Since the MGF has positive radius of convergence by Lemma 1, it uniquely determines the moments, and therefore uniquely determines the distribution. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $(\theta,\eta)$ in a neighborhood of $(0,0)$, the joint MGF satisfies
 
