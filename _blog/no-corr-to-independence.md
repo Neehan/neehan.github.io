@@ -96,14 +96,14 @@ where we used $\mu(\{\|x\|>t\}) \le Ce^{-ct}$ and integration by parts. Since ex
 
 **Lemma 3.** *Under the exponential tail condition, for any $f\in L^2(\mu)$ and $\varepsilon>0$, there exists a polynomial $p$ such that $\|f-p\|_{L^2(\mu)} < \varepsilon$.*
 
-*Proof.* Since $f\in L^2(\mu)$, by dominated convergence we can choose $R$ large enough that $\|f - f_R\|_{L^2(\mu)} < \varepsilon/3$ where $f_R(x) = f(x)\mathbf 1_{\{\|x\|\le R\}}$. By Lusin's theorem, approximate $f_R$ by a continuous function $g$ supported on $[-R,R]$ with $\|f_R - g\|_{L^2(\mu)} < \varepsilon/3$. By Weierstrass approximation, find a polynomial $p$ with $\sup_{x\in[-R,R]} \|g(x) - p(x)\| < \delta$. Then
+*Proof.* Since $f\in L^2(\mu)$, by dominated convergence we can choose $R$ large enough that $\|f - f\_R\|\_\{L^2(\mu)\} < \varepsilon/3$ where $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. By Lusin's theorem, approximate $f\_R$ by a continuous function $g$ supported on $[-R,R]$ with $\|f\_R - g\|\_\{L^2(\mu)\} < \varepsilon/3$. By Weierstrass approximation, find a polynomial $p$ with $\sup\_\{x\in[-R,R]\} \|g(x) - p(x)\| < \delta$. Then
 
 $$
 \|g - p\|_{L^2(\mu)}^2
 \le \int_{[-R,R]} \delta^2 d\mu(x) + \int_{|x|>R} |p(x)|^2 d\mu(x).
 $$
 
-Choose $\delta$ small so the first term contributes $<(\varepsilon/6)^2$. By Lemma 2, the second term is exponentially small in $R$, so choose $R$ large enough that both terms together give $\|g-p\|_{L^2(\mu)} < \varepsilon/3$. By the triangle inequality, $\|f-p\|_{L^2(\mu)} < \varepsilon$. $\square$
+Choose $\delta$ small so the first term contributes $<(\varepsilon/6)^2$. By Lemma 2, the second term is exponentially small in $R$, so choose $R$ large enough that both terms together give $\|g-p\|\_\{L^2(\mu)\} < \varepsilon/3$. By the triangle inequality, $\|f-p\|\_\{L^2(\mu)\} < \varepsilon$. $\square$
 
 ## Proof of the Main Theorem
 
