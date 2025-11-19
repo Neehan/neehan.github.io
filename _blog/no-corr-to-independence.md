@@ -59,19 +59,30 @@ The moment generating function (MGF) of a random variable $X$ is defined as $M\_
 *Proof.* For any $n \ge 0$, we have
 
 $$
-\mathbb E[|X|^n] = \int_0^\infty nt^{n-1}\mathbb P(|X| > t)\,dt \le \int_0^\infty nt^{n-1}C_Xe^{-c_Xt}\,dt = C_Xn! c_X^{-n} < \infty.
+\begin{align}
+\mathbb E[|X|^n] &= \int_0^\infty nt^{n-1}\mathbb P(|X| > t)\,dt \\
+&\le \int_0^\infty nt^{n-1}C_Xe^{-c_Xt}\,dt \\
+&= C_Xn! c_X^{-n} < \infty.
+\end{align}
 $$
 
 For $\|\theta\| < c\_X/2$, the Taylor series of the MGF converges by the moment bound:
 
 $$
-M_X(\theta) = \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
+\begin{align}
+M_X(\theta) &= \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \\
+&\le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \\
+&\le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
+\end{align}
 $$
 
 By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X/2$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y/2$. We now verify that the joint MGF also converges in a rectangle around the origin. Let $r\_X = c\_X/4$ and $r\_Y = c\_Y/4$. For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, by Cauchy-Schwarz we have
 
 $$
-\mathbb E[e^{\theta X + \eta Y}] \le \mathbb E[e^{|\theta||X|+|\eta||Y|}] \le \sqrt{\mathbb E[e^{2|\theta||X|}]\mathbb E[e^{2|\eta||Y|}]} < \infty,
+\begin{align}
+\mathbb E[e^{\theta X + \eta Y}] &\le \mathbb E[e^{|\theta||X|+|\eta||Y|}] \\
+&\le \sqrt{\mathbb E[e^{2|\theta||X|}]\mathbb E[e^{2|\eta||Y|}]} < \infty,
+\end{align}
 $$
 
 where the right side is finite since $2\|\theta\| < c\_X/2$ and $2\|\eta\| < c\_Y/2$. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
@@ -98,7 +109,11 @@ The final step is to show that factorization of the MGF implies factorization of
 *Proof.* The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
 
 $$
-\mu\_{(X,Y)}(dx,dy) = \frac{1}{(2\pi)^2}\iint e^{-i(v\_1 x + v\_2 y)}\phi\_{(X,Y)}(v\_1,v\_2)\,dv\_1\,dv\_2 = \frac{1}{2\pi}\int e^{-iv\_1 x}\phi\_X(v\_1)\,dv\_1 \cdot \frac{1}{2\pi}\int e^{-iv\_2 y}\phi\_Y(v\_2)\,dv\_2 = \mu\_X(dx)\mu\_Y(dy),
+\begin{align}
+\mu_{(X,Y)}(dx,dy) &= \frac{1}{(2\pi)^2}\iint e^{-i(v_1 x + v_2 y)}\phi_{(X,Y)}(v_1,v_2)\,dv_1\,dv_2 \\
+&= \frac{1}{2\pi}\int e^{-iv_1 x}\phi_X(v_1)\,dv_1 \cdot \frac{1}{2\pi}\int e^{-iv_2 y}\phi_Y(v_2)\,dv_2 \\
+&= \mu_X(dx)\mu_Y(dy),
+\end{align}
 $$
 
 which is the definition of independence. $\square$
