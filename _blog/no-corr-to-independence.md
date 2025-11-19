@@ -46,7 +46,7 @@ The zero covariance only gives this condition for linear $f$ and $g$, which is v
 
 Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for monomials, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this to all bounded measurable functions. One idea is to approximate all such functions with polynomials. This requires a stronger assumption as I will explain later.
 
-First note that, on compact sets, polynomials are dense in measurable functions. This follows from [Weierstrass approximation](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) (polynomials dense in continuous) and [Lusin's theorem](https://en.wikipedia.org/wiki/Lusin%27s_theorem) (continuous dense in measurable). So locally we can approximate any measurable function by polynomials in $L^2$ norm, and the factorization passes to general functions by a limiting argument.
+First note that, on compact sets, polynomials are dense in measurable functions. This follows from [Weierstrass approximation](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem) (polynomials dense in continuous) and [Lusin's theorem](https://en.wikipedia.org/wiki/Lusin%27s_theorem) (continuous dense in measurable). So locally we can approximate any measurable function by polynomials in $L^2$ norm, and the factorization passes to general functions via triangle inequality.
 
 However, $X$ and $Y$ live on all of $\mathbb R$ and not just compact sets, so we need to control the tails. The exponential decay ensures all moments are finite and, crucially, allows us to bound the tail contribution. This permits truncation of any $L^2$ function to a compact set with arbitrarily small error. Combining truncation with polynomial density on compact sets gives that polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$ globally. The factorization then extends to all square-integrable functions by continuity, and applying to indicator functions yields independence.
 
@@ -121,15 +121,19 @@ By the triangle inequality, $\|f-p\| < \varepsilon$. $\square$
 
 By linearity, the assumption extends from monomials to polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. By Lemma 3, polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$. For $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$, choose polynomial sequences $p\_n \to f$ and $q\_n \to g$ in the respective $L^2$ spaces.
 
-By Cauchy–Schwarz,
+We show $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. By Cauchy–Schwarz,
 
 $$
-\mathbb E[|f(X)g(Y) - p_n(X)q_n(Y)|]
-\le \mathbb E[|f(X)g(Y) - p_n(X)q_n(Y)|^2]^{1/2}
-\to 0,
+\begin{align}
+|\mathbb E[f(X)g(Y) - p_n(X)q_n(Y)]|
+&\le \mathbb E[|f(X) - p_n(X)| \cdot |g(Y)|] + \mathbb E[|p_n(X)| \cdot |g(Y) - q_n(Y)|] \\
+&\le \mathbb E[|f(X) - p_n(X)|^2]^{1/2} \mathbb E[|g(Y)|^2]^{1/2} \\
+&\quad + \mathbb E[|p_n(X)|^2]^{1/2} \mathbb E[|g(Y) - q_n(Y)|^2]^{1/2} \\
+&\to 0.
+\end{align}
 $$
 
-since $p\_n(X)q\_n(Y) \to f(X)g(Y)$ in $L^2(\mathbb P)$. Thus $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)] \to \mathbb E[f(X)]\mathbb E[g(Y)]$, we obtain
+Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)] \to \mathbb E[f(X)]\mathbb E[g(Y)]$, we obtain
 
 $$
 \mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\mathbb E[g(Y)]
