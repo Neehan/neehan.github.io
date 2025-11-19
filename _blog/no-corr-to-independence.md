@@ -112,17 +112,7 @@ The final step is to show that factorization of the MGF implies factorization of
 
 **Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
-*Proof.* This is a standard theorem in probability theory, but I will mention the proof here for completeness. The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
-
-$$
-\begin{align}
-\mu_{(X,Y)}(dx,dy) &= \frac{1}{(2\pi)^2}\iint e^{-i(v_1 x + v_2 y)}\phi_{(X,Y)}(v_1,v_2)\,dv_1\,dv_2 \\
-&= \frac{1}{2\pi}\int e^{-iv_1 x}\phi_X(v_1)\,dv_1 \cdot \frac{1}{2\pi}\int e^{-iv_2 y}\phi_Y(v_2)\,dv_2 \\
-&= \mu_X(dx)\mu_Y(dy),
-\end{align}
-$$
-
-Noticeably, this also the definition of independence. $\square$
+*Proof.* This is a standard result in probability theory. See Billingsley, *Probability and Measure*, Theorem 30.1 for a proof. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, the joint MGF satisfies
 
