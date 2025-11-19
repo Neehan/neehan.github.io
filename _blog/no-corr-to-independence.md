@@ -1,6 +1,6 @@
 ---
 title: "When Does No Correlation Imply Independence?"
-excerpt: "Zero correlation does not always imply independence, but under exponential tails and vanishing mixed polynomial covariances, it does. We prove this using moment generating functions."
+excerpt: "Zero correlation does not always imply independence. However, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. The proof uses moment generating functions to extend polynomial factorization to the full distribution."
 collection: blog
 date: 2025-11-18
 tags:
@@ -44,7 +44,7 @@ The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gi
 
 ## Proof Strategy
 
-Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all positive integers $m,n$, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
+Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all positive integers $m,n$, which extends by linearity to all polynomials with real coefficients: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
 
 One trick is to use moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. By the standard uniqueness theorem for MGFs, this equality forces the distributions to be equal, which gives independence.
 
