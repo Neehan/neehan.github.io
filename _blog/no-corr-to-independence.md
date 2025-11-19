@@ -46,11 +46,9 @@ The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gi
 
 Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all positive integers $m,n$, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
 
-The key observation is that if the moments of a distribution do not grow too fast, they uniquely determine the distribution. This is known as [Carleman's condition](https://en.wikipedia.org/wiki/Carleman%27s_condition). A classic counterexample where moments fail to determine the distribution is the [log-normal distribution](https://en.wikipedia.org/wiki/Log-normal_distribution), whose moments grow factorially fast. Our exponential tail condition ensures that moments grow slowly enough for Carleman's condition to hold.
+We exploit this using moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. By the standard uniqueness theorem for MGFs, this equality forces the distributions to be equal, which gives independence.
 
-We exploit this using moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. Since moment generating functions encode all moments via their Taylor expansions, equality of the moment generating functions implies equality of all moments. By Carleman's condition, this forces the distributions to be equal, which gives independence.
-
-The proof proceeds in three steps. First, we show that exponential tails imply the moment generating function has positive radius of convergence. Second, we use the covariance condition to show the joint moment generating function factorizes. Finally, we verify that Carleman's condition holds under exponential tails, so that moment generating function uniqueness implies distributional uniqueness. 
+The proof proceeds in three steps. First, we show that exponential tails imply the moment generating function has positive radius of convergence. Second, we use the covariance condition to show the joint moment generating function factorizes. Finally, we invoke the standard uniqueness theorem for MGFs to conclude that equality of MGFs implies equality of distributions. 
 
 ## Proof of the Main Theorem
 
@@ -70,11 +68,17 @@ $$
 M_X(\theta) = \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
 $$
 
-By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X$ and $M\_Y$ are finite in neighborhoods of zero. The covariance condition now implies factorization of the joint MGF.
+By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X$ and $M\_Y$ are finite in neighborhoods of zero. We now verify that the joint MGF also exists in a neighborhood of $(0,0)$. For sufficiently small $\|\theta\|,\|\eta\|$, by Cauchy-Schwarz we have
+
+$$
+\mathbb E[e^{\theta X + \eta Y}] \le \mathbb E[e^{|\theta||X|+|\eta||Y|}] \le \sqrt{\mathbb E[e^{2|\theta||X|}]\mathbb E[e^{2|\eta||Y|}]} < \infty,
+$$
+
+where the right side is finite by Lemma 1 applied with parameters $2\|\theta\|$ and $2\|\eta\|$ sufficiently small. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ exists in a neighborhood of $(0,0)$. The covariance condition now implies factorization of the joint MGF.
 
 **Lemma 2.** *For $\|\theta\|,\|\eta\|$ sufficiently small, $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
-*Proof.* For $\|\theta\|,\|\eta\|$ sufficiently small, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. By Lemma 1, the MGFs are finite, so these series converge absolutely in $L^1(\mathbb P)$. By dominated convergence,
+*Proof.* For $\|\theta\|,\|\eta\|$ sufficiently small, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\||X|+\|\eta\||Y|}$, which has finite expectation as shown above. By dominated convergence,
 
 $$
 \begin{align}
@@ -87,17 +91,11 @@ $$
 
 where the third equality uses $\operatorname{Cov}(X^m,Y^n) = 0$, which gives $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$. $\square$
 
-The final step is to show that factorization of the MGF implies factorization of the distribution. This follows from Carleman's condition.
+The final step is to show that factorization of the MGF implies factorization of the distribution. This is a standard result in probability theory.
 
-**Lemma 3.** *The joint distribution $\mu\_{(X,Y)}$ is uniquely determined by its MGF.*
+**Lemma 3.** *If the MGF of a random vector $(X,Y)$ on $\mathbb R^2$ is finite in a neighborhood of $(0,0)$, then it uniquely determines the distribution of $(X,Y)$.*
 
-*Proof.* By Lemma 1, the moments satisfy $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. This moment bound implies that Carleman's condition holds:
-
-$$
-\sum_{n=1}^\infty \left(\mathbb E[|X|^{2n}]\right)^{-1/(2n)} \ge \sum_{n=1}^\infty (C_Xn!c_X^{-n})^{-1/(2n)} \ge \sum_{n=1}^\infty C_X^{-1/(2n)}(n!)^{-1/(2n)}c_X^{1/2} = \infty,
-$$
-
-where the divergence follows from [Stirling's approximation](https://en.wikipedia.org/wiki/Stirling%27s_approximation): $(n!)^{-1/(2n)} \sim (ne)^{-1/2}$. The same holds for $Y$. By [Carleman's theorem](https://en.wikipedia.org/wiki/Carleman%27s_condition), the moment sequences of $X$ and $Y$ uniquely determine their distributions, and hence the joint moment sequence uniquely determines $\mu\_{(X,Y)}$. Since the MGF has positive radius of convergence by Lemma 1, it uniquely determines the moments, and therefore uniquely determines the distribution. $\square$
+*Proof.* This is the standard uniqueness theorem for moment generating functions. The key points are: (i) when the MGF is finite in a neighborhood of the origin, it is analytic in a complex neighborhood; (ii) equality of MGFs on a real neighborhood implies equality on the whole domain by analytic continuation; (iii) restricting to purely imaginary directions gives equality of characteristic functions; (iv) the characteristic function uniquely determines the distribution by Lévy's continuity theorem. For details, see Billingsley, *Probability and Measure*, Theorem 30.1. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $(\theta,\eta)$ in a neighborhood of $(0,0)$, the joint MGF satisfies
 
@@ -112,7 +110,3 @@ $$
 $$
 
 Therefore $\mu\_{(X,Y)}$ and $\mu\_X \otimes \mu\_Y$ have identical MGFs on a neighborhood of $(0,0)$. By Lemma 3, the MGF uniquely determines the distribution, so $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$. This is precisely the definition of independence. $\square$
-
-**Corollary.** *If $X$ satisfies the exponential tail condition $\mathbb P(\|X\|>t) \le Ce^{-ct}$, then polynomials are dense in $L^2(\mu\_X)$.*
-
-*Proof.* By Lemma 1, all moments are finite, so the polynomials $\{1, X, X^2, X^3, \ldots\}$ all lie in $L^2(\mu\_X)$. To show density, suppose $f \in L^2(\mu\_X)$ is orthogonal to all polynomials, meaning $\mathbb E[f(X)X^n] = 0$ for all $n \ge 0$. Let $Y = f(X)$. Then $\mathbb E[Y] = 0$ and $\operatorname{Cov}(X^m, Y) = \mathbb E[X^m Y] - \mathbb E[X^m]\mathbb E[Y] = \mathbb E[X^m Y] = 0$ for all $m \ge 0$. By the main theorem, $X$ and $Y$ are independent. But $Y = f(X)$ is a function of $X$, so the only way they can be independent is if $Y$ is constant almost surely. Since $\mathbb E[Y] = 0$, we have $Y = 0$ almost surely, hence $f = 0$ in $L^2$. $\square$
