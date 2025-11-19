@@ -112,7 +112,7 @@ The final step is to show that factorization of the MGF implies factorization of
 
 **Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
-*Proof.* This is a standard result in probability theory. See Billingsley, *Probability and Measure*, Theorem 30.1 for a proof. $\square$
+*Proof.* This is a standard result in probability theory. See Khoshnevisan, [*Moment-generating functions and independence*](https://www.math.utah.edu/~davar/math6010/2014/MGFIndependence.pdf), Theorem 6 for a proof. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, the joint MGF satisfies
 
