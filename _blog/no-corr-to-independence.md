@@ -74,7 +74,7 @@ $$
 
 ## Lemma 2: Exponential Tails Dominate Polynomials
 
-**Lemma 2.** *Under the exponential tail condition, for any polynomial $p$ of degree $k$ and any $R>0$,*
+**Lemma 2.** *Under the exponential tail condition, for any polynomial $p$ of degree $d$ and any $R>0$,*
 
 $$
 \int_{|x|>R} |p(x)|^2 d\mu(x) \le C' e^{-cR/2}
@@ -82,12 +82,12 @@ $$
 
 *for some constant $C'$ depending on $p$, $C$, and $c$.*
 
-*Proof.* Let $p$ have degree $k$ and let $A = \sum \|a_i\|$ where $p(x) = \sum a_i x^i$. Then $\|p(x)\| \le A\|x\|^k$ for $\|x\|>1$. For $\|x\|>R$,
+*Proof.* Let $p$ have degree $d$ and let $A = \sum \|a\_i\|$ where $p(x) = \sum a\_i x^i$. Then $\|p(x)\| \le A\|x\|^d$ for $\|x\|>1$. For $\|x\|>R$,
 
 $$
 \int_{|x|>R} |p(x)|^2 d\mu(x)
-\le A^2 \int_{|x|>R} |x|^{2k} d\mu(x)
-\le A^2 \int_R^\infty t^{2k} \cdot 2Ce^{-ct} dt,
+\le A^2 \int_{|x|>R} |x|^{2d} d\mu(x)
+\le A^2 \int_R^\infty t^{2d} \cdot 2Ce^{-ct} dt,
 $$
 
 where we used $\mu(\{\|x\|>t\}) \le Ce^{-ct}$ and integration by parts. Since exponential decay dominates polynomial growth, this integral decays exponentially in $R$. $\square$
@@ -96,40 +96,32 @@ where we used $\mu(\{\|x\|>t\}) \le Ce^{-ct}$ and integration by parts. Since ex
 
 **Lemma 3.** *Under the exponential tail condition, for any $f\in L^2(\mu)$ and $\varepsilon>0$, there exists a polynomial $p$ such that $\|f-p\|_{L^2(\mu)} < \varepsilon$.*
 
-*Proof.* Since $f\in L^2(\mu)$, by dominated convergence we can choose $R$ large enough that $\|f - f\_R\|\_\{L^2(\mu)\} < \varepsilon/3$ where $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. By Lusin's theorem, approximate $f\_R$ by a continuous function $g$ supported on $[-R,R]$ with $\|f\_R - g\|\_\{L^2(\mu)\} < \varepsilon/3$. By Weierstrass approximation, find a polynomial $p$ with $\sup\_\{x\in[-R,R]\} \|g(x) - p(x)\| < \delta$. Then
+*Proof.* Fix $f\in L^2(\mu)$ and $\varepsilon>0$. Define $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. Since $\int\_\{\|x\|>R\} \|f(x)\|^2 d\mu(x) \to 0$ as $R\to\infty$ by dominated convergence, choose $R\_0$ so that $\|f - f\_\{R\_0\}\|\_\{L^2(\mu)\} < \varepsilon/3$.
+
+By Lusin's theorem, there exists a continuous function $g$ supported on $[-R\_0,R\_0]$ with $\|f\_\{R\_0\} - g\|\_\{L^2(\mu)\} < \varepsilon/3$. By Weierstrass approximation, there exists a polynomial $p$ with $\sup\_\{x\in[-R\_0,R\_0]\} \|g(x) - p(x)\| < \delta$. Then
 
 $$
 \|g - p\|_{L^2(\mu)}^2
-\le \int_{[-R,R]} \delta^2 d\mu(x) + \int_{|x|>R} |p(x)|^2 d\mu(x).
+= \int_{|x|\le R_0} |g(x) - p(x)|^2 d\mu(x) + \int_{|x|>R_0} |p(x)|^2 d\mu(x)
+\le \delta^2 + C' e^{-cR_0/2},
 $$
 
-Choose $\delta$ small so the first term contributes $<(\varepsilon/6)^2$. By Lemma 2, the second term is exponentially small in $R$, so choose $R$ large enough that both terms together give $\|g-p\|\_\{L^2(\mu)\} < \varepsilon/3$. By the triangle inequality, $\|f-p\|\_\{L^2(\mu)\} < \varepsilon$. $\square$
+where we used $\mu(\mathbb R) = 1$ and Lemma 2. Since $g$ is continuous on the compact set $[-R\_0,R\_0]$, we have $\|g\|\_\infty \le M$ for some $M$. By Weierstrass, we may choose $p$ with $\|p\|\_\infty \le M+1$ on $[-R\_0,R\_0]$ and degree at most $d\_0$ (independent of $\delta$), so the constant $C'$ in Lemma 2 is bounded. Choose $\delta$ small enough that $\delta^2 + C' e^{-cR\_0/2} < (\varepsilon/3)^2$, giving $\|g-p\|\_\{L^2(\mu)\} < \varepsilon/3$.
+
+By the triangle inequality, $\|f-p\|\_\{L^2(\mu)\} < \varepsilon$. $\square$
 
 ## Proof of the Main Theorem
 
-By linearity, the assumption $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ extends from monomials to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. We now extend this to all square-integrable functions.
+By linearity, the assumption extends from monomials to polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. By Lemma 3, polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$. For $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$, choose polynomial sequences $p\_n \to f$ in $L^2(\mu\_X)$ and $q\_n \to g$ in $L^2(\mu\_Y)$.
 
-By Lemma 3, polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$. Take $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$, and choose polynomial sequences $p\_n \to f$ in $L^2(\mu\_X)$ and $q\_n \to g$ in $L^2(\mu\_Y)$.
-
-Under a probability measure, $L^2\subset L^1$ with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$ by [Cauchy–Schwarz](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality), so $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. For the product, we have
+Since $L^2\subset L^1$ under probability measures with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$, we have $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. Moreover,
 
 $$
-\begin{align}
 \|f(X)g(Y) - p_n(X)q_n(Y)\|_{L^1}
-&\le \|f(X)\|_{L^2}\,\|g(Y)-q_n(Y)\|_{L^2} \\
-&\quad + \|q_n(Y)\|_{L^2}\,\|f(X)-p_n(X)\|_{L^2}
+\le \|f(X)\|_{L^2}\,\|g(Y)-q_n(Y)\|_{L^2} + \|q_n(Y)\|_{L^2}\,\|f(X)-p_n(X)\|_{L^2}
 \to 0,
-\end{align}
 $$
 
-hence $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)]$ by polynomial factorization, we obtain $\mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\mathbb E[g(Y)]$ for all $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$.
+so $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)]$ and the right side converges to $\mathbb E[f(X)]\mathbb E[g(Y)]$, we obtain $\mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\mathbb E[g(Y)]$ for all $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$.
 
-To conclude independence, apply this to $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ for any Borel sets $A,B\subset\mathbb R$. These indicators are bounded, hence in $L^2$, giving
-
-$$
-\mathbb P(X\in A, Y\in B)
-= \mathbb E[\mathbf 1_A(X)\mathbf 1_B(Y)]
-= \mathbb E[\mathbf 1_A(X)]\,\mathbb E[\mathbf 1_B(Y)]
-= \mathbb P(X\in A)\,\mathbb P(Y\in B).
-\quad\square
-$$
+Taking $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ for Borel sets $A,B$ gives $\mathbb P(X\in A, Y\in B) = \mathbb P(X\in A)\mathbb P(Y\in B)$. $\square$
