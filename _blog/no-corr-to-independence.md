@@ -19,6 +19,7 @@ But what if we ask for more than just zero correlation? Instead of requiring onl
 ## What Independence Means
 
 Two random variables $X$ and $Y$ are independent if their joint distribution factorizes: 
+
 $$
 \mathbb P(X\in A, Y\in B) = \mathbb P(X\in A)\cdot\mathbb P(Y\in B)
 $$ 
@@ -29,7 +30,7 @@ $$
 \mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\cdot\mathbb E[g(Y)].
 $$ 
 
-To see the equivalence, note that if the joint law factorizes then integrating $f(x)g(y)$ against $\mu\_X\otimes\mu\_Y$ gives factorization by Fubini's theorem. Conversely, taking $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ recovers the probabilistic definition.
+To see the equivalence, note that if the joint law factorizes then integrating $f(x)g(y)$ against $\mu\_X\otimes\mu\_Y$ gives factorization by [Fubini's theorem](https://en.wikipedia.org/wiki/Fubini%27s_theorem). Conversely, taking $f=\mathbf 1\_A$ and $g=\mathbf 1\_B$ recovers the probabilistic definition.
 
 The zero covariance only gives this condition for linear $f$ and $g$, which is vastly inferior to what is required. 
 
@@ -43,11 +44,11 @@ The zero covariance only gives this condition for linear $f$ and $g$, which is v
 
 ## Proof Strategy
 
-The proof extends factorization from polynomials to all measurable functions via density and continuity. Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for monomials, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need this for indicator functions $\mathbf 1\_A$ and $\mathbf 1\_B$, which are far from polynomial.
+Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for monomials, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this to all bounded measurable functions. One idea is to approximate all such functions with polynomials. This requires a stronger assumption as I will explain later.
 
-On compact sets, polynomials are dense in measurable functions. This follows from Weierstrass (polynomials dense in continuous) and Lusin (continuous dense in measurable). So locally we can approximate any measurable function by polynomials in $L^2$ norm, and the factorization passes to general functions by a limiting argument.
+First note that, on compact sets, polynomials are dense in measurable functions. This follows from [Weierstrass approximation](https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass\_theorem) (polynomials dense in continuous) and [Lusin's theorem](https://en.wikipedia.org/wiki/Lusin%27s\_theorem) (continuous dense in measurable). So locally we can approximate any measurable function by polynomials in $L^2$ norm, and the factorization passes to general functions by a limiting argument.
 
-However, $X$ and $Y$ live on all of $\mathbb R$, not just compact sets, so we need to control the tails. The exponential decay ensures all moments are finite and, crucially, allows us to dominate the tail contribution. This permits truncation of any $L^2$ function to a compact set with arbitrarily small error. Combining truncation with polynomial density on compact sets gives that polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$ globally. The factorization then extends to all square-integrable functions by continuity, and applying to indicator functions yields independence.
+However, $X$ and $Y$ live on all of $\mathbb R$ and not just compact sets, so we need to control the tails. The exponential decay ensures all moments are finite and, crucially, allows us to dominate the tail contribution. This permits truncation of any $L^2$ function to a compact set with arbitrarily small error. Combining truncation with polynomial density on compact sets gives that polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$ globally. The factorization then extends to all square-integrable functions by continuity, and applying to indicator functions yields independence.
 
 ## Lemma 1: Finite Moments
 
@@ -75,7 +76,7 @@ $$
 
 **Lemma 2.** *Under the exponential tail condition, for any $f\in L^2(\mu)$ and $\varepsilon>0$, there exists $R>0$ such that $\|f-f\_R\|_{L^2(\mu)} < \varepsilon$, where $f\_R(x) = f(x)\mathbf 1\_{\{\|x\|\le R\}}$.*
 
-*Proof.* We have $\|f-f\_R\|_{L^2(\mu)}^2 = \int\_{\|x\|>R} \|f(x)\|^2 \, d\mu(x)$. Since $f\in L^2(\mu)$, we can dominate the integrand by the integrable function $\|f(x)\|^2$. The sets $\{\|x\|>R\}$ decrease to $\emptyset$ as $R\to\infty$, so by dominated convergence theorem, $\|f-f\_R\|_{L^2(\mu)}\to 0$. $\square$
+*Proof.* We have $\|f-f\_R\|_{L^2(\mu)}^2 = \int\_{\|x\|>R} \|f(x)\|^2 \, d\mu(x)$. Since $f\in L^2(\mu)$, we can dominate the integrand by the integrable function $\|f(x)\|^2$. The sets $\{\|x\|>R\}$ decrease to $\emptyset$ as $R\to\infty$, so by the [dominated convergence theorem](https://en.wikipedia.org/wiki/Dominated\_convergence\_theorem), $\|f-f\_R\|_{L^2(\mu)}\to 0$. $\square$
 
 ## Lemma 3: Polynomial Density on Compact Sets
 
@@ -98,7 +99,7 @@ By linearity, the assumption $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$
 
 By Lemmas 2 and 3, polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$. Indeed, given $f\in L^2(\mu\_X)$, Lemma 2 allows us to truncate to a compact set with small error, and Lemma 3 approximates the truncation by polynomials. Take $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$, and choose polynomial sequences $p\_n \to f$ in $L^2(\mu\_X)$ and $q\_n \to g$ in $L^2(\mu\_Y)$.
 
-Under a probability measure, $L^2\subset L^1$ with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$ by Cauchy–Schwarz, so $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. For the product, we have
+Under a probability measure, $L^2\subset L^1$ with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$ by [Cauchy–Schwarz](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz\_inequality), so $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. For the product, we have
 
 $$
 \|f(X)g(Y) - p_n(X)q_n(Y)\|_{L^1}
