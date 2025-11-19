@@ -94,14 +94,14 @@ where we used $\mu(\{\|x\|>t\}) \le Ce^{-ct}$ and integration by parts. Since ex
 
 ## Lemma 3: Polynomial Density
 
-**Lemma 3.** *Under the exponential tail condition, for any $f\in L^2(\mu)$ and $\varepsilon>0$, there exists a polynomial $p$ such that $\|f-p\|_{L^2(\mu)} < \varepsilon$.*
+**Lemma 3.** *Under the exponential tail condition, for any $f\in L^2(\mu)$ and $\varepsilon>0$, there exists a polynomial $p$ such that $\|f-p\|\_{L^2(\mu)} < \varepsilon$.*
 
 *Proof.* Fix $f\in L^2(\mu)$ and $\varepsilon>0$. Define $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. Since $\int\_\{\|x\|>R\} \|f(x)\|^2 d\mu(x) \to 0$ as $R\to\infty$ by dominated convergence, choose $R\_0$ so that $\|f - f\_\{R\_0\}\|\_\{L^2(\mu)\} < \varepsilon/3$.
 
 By Lusin's theorem, there exists a continuous function $g$ supported on $[-R\_0,R\_0]$ with $\|f\_\{R\_0\} - g\|\_\{L^2(\mu)\} < \varepsilon/3$. By Weierstrass approximation, there exists a polynomial $p$ with $\sup\_\{x\in[-R\_0,R\_0]\} \|g(x) - p(x)\| < \delta$. Then
 
 $$
-\|g - p\|_{L^2(\mu)}^2
+\|g - p\|\_{L^2(\mu)}^2
 = \int_{|x|\le R_0} |g(x) - p(x)|^2 d\mu(x) + \int_{|x|>R_0} |p(x)|^2 d\mu(x)
 \le \delta^2 + C' e^{-cR_0/2},
 $$
@@ -117,8 +117,8 @@ By linearity, the assumption extends from monomials to polynomials: $\mathbb E[p
 Since $L^2\subset L^1$ under probability measures with $\|h\|\_\{L^1\} \le \|h\|\_\{L^2\}$, we have $p\_n(X)\to f(X)$ and $q\_n(Y)\to g(Y)$ in $L^1(\mathbb P)$. Moreover,
 
 $$
-\|f(X)g(Y) - p_n(X)q_n(Y)\|_{L^1}
-\le \|f(X)\|_{L^2}\,\|g(Y)-q_n(Y)\|_{L^2} + \|q_n(Y)\|_{L^2}\,\|f(X)-p_n(X)\|_{L^2}
+\|f(X)g(Y) - p_n(X)q_n(Y)\|\_{L^1}
+\le \|f(X)\|\_{L^2}\,\|g(Y)-q_n(Y)\|\_{L^2} + \|q_n(Y)\|\_{L^2}\,\|f(X)-p_n(X)\|\_{L^2}
 \to 0,
 $$
 
