@@ -72,7 +72,7 @@ $$
 \mathbb E[e^{\lambda |X|}] = \sum_{n=0}^\infty \frac{\lambda^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \left(\frac{|\lambda|}{c_X}\right)^n < \infty.
 $$
 
-In particular, for all $\|\theta\| < c\_X$ we have $\mathbb E[e^{\|\theta\||X|}] < \infty$, and by symmetry $\mathbb E[e^{\|\eta\||Y|}] < \infty$ for all $\|\eta\| < c\_Y$. For $\|\theta\| < c\_X$, the Taylor series of the MGF converges by the moment bound:
+In particular, for all $\|\theta\| < c\_X$ we have $\mathbb E[e^{\|\theta\|\|X\|}] < \infty$, and by symmetry $\mathbb E[e^{\|\eta\|\|Y\|}] < \infty$ for all $\|\eta\| < c\_Y$. For $\|\theta\| < c\_X$, the Taylor series of the MGF converges by the moment bound:
 
 $$
 \begin{align}
@@ -91,7 +91,7 @@ $$
 \end{align}
 $$
 
-where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$, so $\mathbb E[e^{2\|\theta\||X|}] < \infty$ and $\mathbb E[e^{2\|\eta\||Y|}] < \infty$ by Lemma 1. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
+where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$, so $\mathbb E[e^{2\|\theta\|\|X\|}] < \infty$ and $\mathbb E[e^{2\|\eta\|\|Y\|}] < \infty$ by Lemma 1. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
 
 **Lemma 2.** *For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
