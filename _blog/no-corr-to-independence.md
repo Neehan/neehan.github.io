@@ -78,7 +78,7 @@ where the right side is finite by Lemma 1 applied with parameters $2\|\theta\|$ 
 
 **Lemma 2.** *For $\|\theta\|,\|\eta\|$ sufficiently small, $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
-*Proof.* For $\|\theta\|,\|\eta\|$ sufficiently small, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\||X|+\|\eta\||Y|}$, which has finite expectation as shown above. By dominated convergence,
+*Proof.* For $\|\theta\|,\|\eta\|$ sufficiently small, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By dominated convergence,
 
 $$
 \begin{align}
@@ -91,11 +91,11 @@ $$
 
 where the third equality uses $\operatorname{Cov}(X^m,Y^n) = 0$, which gives $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$. $\square$
 
-The final step is to show that factorization of the MGF implies factorization of the distribution. This is a standard result in probability theory.
+The final step is to show that factorization of the MGF implies factorization of the distribution.
 
 **Lemma 3.** *If the MGF of a random vector $(X,Y)$ on $\mathbb R^2$ is finite in a neighborhood of $(0,0)$, then it uniquely determines the distribution of $(X,Y)$.*
 
-*Proof.* This is the standard uniqueness theorem for moment generating functions. The key points are: (i) when the MGF is finite in a neighborhood of the origin, it is analytic in a complex neighborhood; (ii) equality of MGFs on a real neighborhood implies equality on the whole domain by analytic continuation; (iii) restricting to purely imaginary directions gives equality of characteristic functions; (iv) the characteristic function uniquely determines the distribution by Lévy's continuity theorem. For details, see Billingsley, *Probability and Measure*, Theorem 30.1. $\square$
+This is a standard result in probability theory; see Billingsley, *Probability and Measure*, Theorem 30.1.
 
 We can now complete the proof of the main theorem. By Lemma 2, for $(\theta,\eta)$ in a neighborhood of $(0,0)$, the joint MGF satisfies
 
