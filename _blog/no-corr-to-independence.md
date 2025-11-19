@@ -54,7 +54,7 @@ The proof proceeds in three steps. First, we show that exponential tails imply t
 
 The moment generating function (MGF) of a random variable $X$ is defined as $M\_X(\theta) = \mathbb E[e^{\theta X}]$ for all $\theta \in \mathbb R$ where this expectation exists. When finite, the MGF encodes all moments of $X$ via its Taylor expansion: $M\_X(\theta) = \sum\_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n]$. We will show that exponential tails guarantee the MGF exists in a neighborhood of zero.
 
-**Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ converges absolutely for all $\|\theta\| < c\_X/2$.*
+**Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ converges absolutely for all $\|\theta\| < c\_X$.*
 
 *Proof.* For any $n \ge 0$, we have
 
@@ -66,7 +66,13 @@ $$
 \end{align}
 $$
 
-For $\|\theta\| < c\_X/2$, the Taylor series of the MGF converges by the moment bound:
+Thus, for every $\|\lambda\| < c\_X$, we have
+
+$$
+\mathbb E[e^{\lambda |X|}] = \sum_{n=0}^\infty \frac{\lambda^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \left(\frac{|\lambda|}{c_X}\right)^n < \infty.
+$$
+
+In particular, for all $\|\theta\| < c\_X$ we have $\mathbb E[e^{\|\theta\||X|}] < \infty$, and by symmetry $\mathbb E[e^{\|\eta\||Y|}] < \infty$ for all $\|\eta\| < c\_Y$. For $\|\theta\| < c\_X$, the Taylor series of the MGF converges by the moment bound:
 
 $$
 \begin{align}
@@ -76,7 +82,7 @@ M_X(\theta) &= \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \\
 \end{align}
 $$
 
-By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X/2$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y/2$. We now verify that the joint MGF also converges in a rectangle around the origin. Let $r\_X = c\_X/4$ and $r\_Y = c\_Y/4$. For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, by Cauchy-Schwarz we have
+By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y$. We now verify that the joint MGF also converges in a rectangle around the origin. Pick $r\_X,r\_Y > 0$ such that $2r\_X < c\_X$ and $2r\_Y < c\_Y$. For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, by Cauchy-Schwarz we have
 
 $$
 \begin{align}
@@ -85,7 +91,7 @@ $$
 \end{align}
 $$
 
-where the right side is finite since $2\|\theta\| < c\_X/2$ and $2\|\eta\| < c\_Y/2$. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
+where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$, so $\mathbb E[e^{2\|\theta\||X|}] < \infty$ and $\mathbb E[e^{2\|\eta\||Y|}] < \infty$ by Lemma 1. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
 
 **Lemma 2.** *For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
@@ -100,7 +106,7 @@ $$
 \end{align}
 $$
 
-where the third equality uses $\operatorname{Cov}(X^m,Y^n) = 0$, which gives $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$. $\square$
+where the third equality uses the factorization $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all $m,n \ge 0$. For $m,n \ge 1$, this follows from the covariance assumption $\operatorname{Cov}(X^m,Y^n) = 0$. For $m=0$ or $n=0$, the factorization is trivial since $X^0 = Y^0 = 1$, giving $\mathbb E[X^0Y^n] = \mathbb E[Y^n] = \mathbb E[X^0]\mathbb E[Y^n]$ and $\mathbb E[X^mY^0] = \mathbb E[X^m] = \mathbb E[X^m]\mathbb E[Y^0]$. $\square$
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
