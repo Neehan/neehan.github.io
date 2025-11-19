@@ -12,7 +12,7 @@ tags:
 
 It is a well-known fact in probability that zero correlation does not always imply independence. The standard counterexample is trivial: let $X$ be a standard normal random variable and $Y = X^2$. Then $X$ and $Y$ are clearly dependent, since knowing $X$ determines $Y$ completely, yet by symmetry $\operatorname{Cov}(X,Y) = \mathbb E[X^3] = 0$. Independence is a much stronger condition than mere uncorrelatedness.
 
-But what if we ask for more than just zero correlation? Instead of requiring only that $\operatorname{Cov}(X,Y) = 0$, suppose we require that $\operatorname{Cov}(X^m,Y^n) = 0$ for every pair of positive integers $m$ and $n$. This is a vastly stronger condition. It says that not only are $X$ and $Y$ uncorrelated, but so are all powers of $X$ with all powers of $Y$. In this note I will show that under certain regularity conditions, this stronger property does in fact imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
+But what is the relationship between covariance and independence? In this note I will attempt to explain that and also how a stronger covariance relation does in fact imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
 
 **Notations.** We work throughout on a fixed probability space $(\Omega,\mathcal F,\mathbb P)$. All random variables are real-valued and defined on this space. For a random variable $X:\Omega\to\mathbb R$, we denote its [law](https://en.wikipedia.org/wiki/Probability_distribution) by $\mu\_X$, the pushforward of $\mathbb P$ under $X$. The space $L^2(\mathbb P\_X)$ means $L^2(\mathbb R,\mathcal B(\mathbb R),\mu\_X)$, and we freely identify a function $f\in L^2(\mathbb P\_X)$ with the random variable $f(X)\in L^2(\mathbb P)$.
 
@@ -46,7 +46,7 @@ The zero covariance condition $\mathbb E[XY] = \mathbb E[X]\mathbb E[Y]$ only gi
 
 Our covariance hypothesis gives us $\mathbb E[X^m Y^n] = \mathbb E[X^m]\mathbb E[Y^n]$ for all positive integers $m,n$, which extends by linearity to all polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. To prove independence, we need to extend this factorization from polynomials to all bounded measurable functions.
 
-We exploit this using moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. By the standard uniqueness theorem for MGFs, this equality forces the distributions to be equal, which gives independence.
+One trick is to use moment generating functions. Our strategy is to show that the joint moment generating function $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ and the product $M\_X(\theta) M\_Y(\eta)$ both exist and are equal in a neighborhood of zero. By the standard uniqueness theorem for MGFs, this equality forces the distributions to be equal, which gives independence.
 
 The proof proceeds in three steps. First, we show that exponential tails imply the moment generating function has positive radius of convergence. Second, we use the covariance condition to show the joint moment generating function factorizes. Finally, we invoke the standard uniqueness theorem for MGFs to conclude that equality of MGFs implies equality of distributions. 
 
@@ -54,7 +54,7 @@ The proof proceeds in three steps. First, we show that exponential tails imply t
 
 The moment generating function (MGF) of a random variable $X$ is defined as $M\_X(\theta) = \mathbb E[e^{\theta X}]$ for all $\theta \in \mathbb R$ where this expectation exists. When finite, the MGF encodes all moments of $X$ via its Taylor expansion: $M\_X(\theta) = \sum\_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n]$. We will show that exponential tails guarantee the MGF exists in a neighborhood of zero.
 
-**Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ is finite for all $\|\theta\| < c\_X/2$.*
+**Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ converges absolutely for all $\|\theta\| < c\_X/2$.*
 
 *Proof.* For any $n \ge 0$, we have
 
@@ -68,17 +68,17 @@ $$
 M_X(\theta) = \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
 $$
 
-By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X$ and $M\_Y$ are finite in neighborhoods of zero. We now verify that the joint MGF also exists in a neighborhood of $(0,0)$. For sufficiently small $\|\theta\|,\|\eta\|$, by Cauchy-Schwarz we have
+By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X/2$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y/2$. We now verify that the joint MGF also converges in a rectangle around the origin. Let $r\_X = c\_X/4$ and $r\_Y = c\_Y/4$. For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, by Cauchy-Schwarz we have
 
 $$
 \mathbb E[e^{\theta X + \eta Y}] \le \mathbb E[e^{|\theta||X|+|\eta||Y|}] \le \sqrt{\mathbb E[e^{2|\theta||X|}]\mathbb E[e^{2|\eta||Y|}]} < \infty,
 $$
 
-where the right side is finite by Lemma 1 applied with parameters $2\|\theta\|$ and $2\|\eta\|$ sufficiently small. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ exists in a neighborhood of $(0,0)$. The covariance condition now implies factorization of the joint MGF.
+where the right side is finite since $2\|\theta\| < c\_X/2$ and $2\|\eta\| < c\_Y/2$. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
 
-**Lemma 2.** *For $\|\theta\|,\|\eta\|$ sufficiently small, $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
+**Lemma 2.** *For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
-*Proof.* For $\|\theta\|,\|\eta\|$ sufficiently small, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By dominated convergence,
+*Proof.* For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By dominated convergence,
 
 $$
 \begin{align}
@@ -93,9 +93,9 @@ where the third equality uses $\operatorname{Cov}(X^m,Y^n) = 0$, which gives $\m
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
-**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $(\theta,\eta)$ in a neighborhood of $(0,0)$, then $X$ and $Y$ are independent.*
+**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $X$ and $Y$ are independent.*
 
-*Proof.* Setting $\theta = iv\_1$ and $\eta = iv\_2$ for real $v\_1,v\_2$, the MGF factorization gives $\phi\_{(X,Y)}(v\_1,v\_2) = \phi\_X(v\_1)\phi\_Y(v\_2)$ for all $(v\_1,v\_2)$ in a neighborhood of $(0,0)$. Since characteristic functions are continuous, this extends to all $(v\_1,v\_2) \in \mathbb R^2$. By the inverse Fourier transform,
+*Proof.* The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
 
 $$
 \mu\_{(X,Y)}(dx,dy) = \frac{1}{(2\pi)^2}\iint e^{-i(v\_1 x + v\_2 y)}\phi\_{(X,Y)}(v\_1,v\_2)\,dv\_1\,dv\_2 = \frac{1}{2\pi}\int e^{-iv\_1 x}\phi\_X(v\_1)\,dv\_1 \cdot \frac{1}{2\pi}\int e^{-iv\_2 y}\phi\_Y(v\_2)\,dv\_2 = \mu\_X(dx)\mu\_Y(dy),
@@ -103,7 +103,7 @@ $$
 
 which is the definition of independence. $\square$
 
-We can now complete the proof of the main theorem. By Lemma 2, for $(\theta,\eta)$ in a neighborhood of $(0,0)$, the joint MGF satisfies
+We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, the joint MGF satisfies
 
 $$
 M_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}] = \mathbb E[e^{\theta X}e^{\eta Y}] = M_X(\theta)M_Y(\eta).
@@ -115,4 +115,4 @@ $$
 \int_{\mathbb R^2} e^{\theta x + \eta y}\,d(\mu_X \otimes \mu_Y)(x,y) = \int_{\mathbb R} e^{\theta x}\,d\mu_X(x) \cdot \int_{\mathbb R} e^{\eta y}\,d\mu_Y(y) = M_X(\theta)M_Y(\eta).
 $$
 
-Therefore $\mu\_{(X,Y)}$ and $\mu\_X \otimes \mu\_Y$ have identical MGFs on a neighborhood of $(0,0)$. By Lemma 3, the MGF uniquely determines the distribution, so $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$. This is precisely the definition of independence. $\square$
+Therefore $\mu\_{(X,Y)}$ and $\mu\_X \otimes \mu\_Y$ have identical MGFs on the rectangle $\|\theta\| < r\_X$, $\|\eta\| < r\_Y$. By Lemma 3, this implies $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$ and we are done. $\square$
