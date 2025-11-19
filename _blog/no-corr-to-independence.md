@@ -12,7 +12,7 @@ tags:
 
 It is a well-known fact in probability that zero correlation does not always imply independence. The standard counterexample is trivial: let $X$ be a standard normal random variable and $Y = X^2$. Then $X$ and $Y$ are clearly dependent, since knowing $X$ determines $Y$ completely, yet by symmetry $\operatorname{Cov}(X,Y) = \mathbb E[X^3] = 0$. Independence is a much stronger condition than mere uncorrelatedness.
 
-But what is the relationship between covariance and independence? In this note I will attempt to explain that and also how a stronger covariance relation does in fact imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
+But what is the relationship between covariance and independence? In this note I will attempt to explain that and also show how a stronger covariance relation does in fact imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
 
 **Notations.** We work throughout on a fixed probability space $(\Omega,\mathcal F,\mathbb P)$. All random variables are real-valued and defined on this space. For a random variable $X:\Omega\to\mathbb R$, we denote its [law](https://en.wikipedia.org/wiki/Probability_distribution) by $\mu\_X$, the pushforward of $\mathbb P$ under $X$. The space $L^2(\mathbb P\_X)$ means $L^2(\mathbb R,\mathcal B(\mathbb R),\mu\_X)$, and we freely identify a function $f\in L^2(\mathbb P\_X)$ with the random variable $f(X)\in L^2(\mathbb P)$.
 
@@ -95,7 +95,7 @@ where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$
 
 **Lemma 2.** *For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
-*Proof.* For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By dominated convergence,
+*Proof.* For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By [dominated convergence](https://en.wikipedia.org/wiki/Dominated_convergence_theorem),
 
 $$
 \begin{align}
@@ -110,7 +110,7 @@ where the third equality uses the factorization $\mathbb E[X^m Y^n] = \mathbb E[
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
-**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $X$ and $Y$ are independent.*
+**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
 *Proof.* The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
 
@@ -122,7 +122,7 @@ $$
 \end{align}
 $$
 
-which is the definition of independence. $\square$
+Noticeably, this also the definition of independence. $\square$
 
 We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, the joint MGF satisfies
 
