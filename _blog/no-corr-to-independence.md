@@ -61,24 +61,13 @@ The moment generating function (MGF) of a random variable $X$ is defined as $M\_
 *Proof.* For any $n \ge 0$, we have
 
 $$
-\mathbb E[\|X\|^n] = \int_0^\infty nt^{n-1}\mathbb P(\|X\| > t)\,dt \le \int_0^\infty nt^{n-1}C_Xe^{-c_Xt}\,dt = C_Xn! c_X^{-n} < \infty.
+\mathbb E[|X|^n] = \int_0^\infty nt^{n-1}\mathbb P(|X| > t)\,dt \le \int_0^\infty nt^{n-1}C_Xe^{-c_Xt}\,dt = C_Xn! c_X^{-n} < \infty.
 $$
 
 For $\|\theta\| < c\_X/2$, the Taylor series of the MGF converges by the moment bound:
 
 $$
 M_X(\theta) = \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \le \sum_{n=0}^\infty \frac{|\theta|^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \frac{|\theta|^n}{c_X^n} < \infty.
-$$
-
-Alternatively, by integration by parts:
-
-$$
-\begin{align}
-\mathbb E[e^{\theta X}] &= \mathbb E[e^{\theta X}\mathbf 1_{\|X\|\le 1}] + \mathbb E[e^{\theta X}\mathbf 1_{\|X\|> 1}] \\
-&\le e^{|\theta|} + \int_1^\infty e^{\theta t}\,d\mathbb P(\|X\| > t) \\
-&\le e^{|\theta|} + C_X\int_1^\infty e^{\theta t}c_Xe^{-c_Xt}\,dt \\
-&= e^{|\theta|} + C_Xc_X\int_1^\infty e^{-t(c_X-|\theta|)}\,dt < \infty. \quad \square
-\end{align}
 $$
 
 By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X$ and $M\_Y$ are finite in neighborhoods of zero. The covariance condition now implies factorization of the joint MGF.
