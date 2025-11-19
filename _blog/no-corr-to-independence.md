@@ -1,6 +1,6 @@
 ---
-title: "When No Correlation Implies Independence"
-excerpt: "Zero correlation does not imply independence, but under exponential tails and vanishing mixed polynomial covariances, it does. We prove this using polynomial density in L² and a continuity argument."
+title: "When Does No Correlation Imply Independence"
+excerpt: "Zero correlation does not always imply independence, but under exponential tails and vanishing mixed polynomial covariances, it does. We prove this using moment generating functions."
 collection: blog
 date: 2025-11-18
 tags:
