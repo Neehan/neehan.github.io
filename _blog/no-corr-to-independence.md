@@ -12,7 +12,7 @@ tags:
 
 It is a well-known fact in probability that zero correlation does not always imply independence. The standard counterexample is trivial: let $X$ be a standard normal random variable and $Y = X^2$. Then $X$ and $Y$ are clearly dependent, since knowing $X$ determines $Y$ completely, yet by symmetry $\operatorname{Cov}(X,Y) = \mathbb E[X^3] = 0$. Independence is a much stronger condition than mere uncorrelatedness.
 
-But what is the relationship between covariance and independence? In this note I will attempt to explain that and also show how a stronger covariance relation with a regularity condition does  imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
+But what is the relationship between correlation (more generally, covariance) and independence? In this note I will attempt to explain that and also show how a stronger covariance relation with a regularity condition does  imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
 
 **Notations.** We work on a fixed probability space $(\Omega,\mathcal F,\mathbb P)$. For a random variable $X$, we denote its [law](https://en.wikipedia.org/wiki/Probability_distribution) by $\mu\_X$. For a pair $(X,Y)$, $\mu\_{(X,Y)}$ is the joint law and $\mu\_X \otimes \mu\_Y$ is the product measure. The covariance is $\operatorname{Cov}(X,Y) = \mathbb E[XY] - \mathbb E[X]\mathbb E[Y]$, and the moment generating function is $M\_X(\theta) = \mathbb E[e^{\theta X}]$.
 
@@ -52,7 +52,7 @@ The proof proceeds in three steps. First, we show that exponential tails imply t
 
 ## Proof of the Main Theorem
 
-The moment generating function (MGF) of a random variable $X$ is defined as $M\_X(\theta) = \mathbb E[e^{\theta X}]$ for all $\theta \in \mathbb R$ where this expectation exists. When finite, the MGF encodes all moments of $X$ via its Taylor expansion: $M\_X(\theta) = \sum\_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n]$. We will show that exponential tails guarantee the MGF exists in a neighborhood of zero.
+First, we will prove three lemmas.
 
 **Lemma 1.** *For all $n \ge 0$, we have $\mathbb E[\|X\|^n] \le C\_X n! c\_X^{-n}$. Moreover, $M\_X(\theta)$ converges absolutely for all $\|\theta\| < c\_X$.*
 
@@ -114,16 +114,10 @@ The final step is to show that factorization of the MGF implies factorization of
 
 *Proof.* This is a standard result in probability theory. See Khoshnevisan, [*Moment-generating functions and independence*](https://www.math.utah.edu/~davar/math6010/2014/MGFIndependence.pdf), Theorem 6 for a proof. $\square$
 
-We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, the joint MGF satisfies
+We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have
 
 $$
-M_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}] = \mathbb E[e^{\theta X}e^{\eta Y}] = M_X(\theta)M_Y(\eta).
+M_{(X,Y)}(\theta,\eta) = M_X(\theta)M_Y(\eta).
 $$
 
-Now consider the product measure $\mu\_X \otimes \mu\_Y$ on $\mathbb R^2$. The MGF of this product measure is given by
-
-$$
-\int_{\mathbb R^2} e^{\theta x + \eta y}\,d(\mu_X \otimes \mu_Y)(x,y) = \int_{\mathbb R} e^{\theta x}\,d\mu_X(x) \cdot \int_{\mathbb R} e^{\eta y}\,d\mu_Y(y) = M_X(\theta)M_Y(\eta).
-$$
-
-Therefore $\mu\_{(X,Y)}$ and $\mu\_X \otimes \mu\_Y$ have identical MGFs on the rectangle $\|\theta\| < r\_X$, $\|\eta\| < r\_Y$. By Lemma 3, this implies $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$ and we are done. $\square$
+By Lemma 3, this implies $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$, so $X$ and $Y$ are independent. $\square$
