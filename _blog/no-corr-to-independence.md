@@ -101,7 +101,7 @@ by integration by parts. Since $t^k e^{-ct} \le C\_k e^{-ct/2}$ for all $k\ge 0$
 
 *Proof.* Fix $f\in L^2(\mu)$ and $\varepsilon>0$. Throughout this proof, $\|\cdot\|$ denotes the $L^2(\mu)$ norm unless otherwise specified.
 
-**Step 1: Truncation.** Define $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. By dominated convergence, $\|f - f\_R\| \to 0$ as $R\to\infty$. Choose $R\_0$ so that $\|f - f\_\{R\_0\}\| < \varepsilon/3$.
+**Step 1: Truncation.** Define $f\_R(x) = f(x)\mathbf 1\_\{\{\|x\|\le R\}\}$. By [dominated convergence](https://en.wikipedia.org/wiki/Dominated_convergence_theorem), $\|f - f\_R\| \to 0$ as $R\to\infty$. Choose $R\_0$ so that $\|f - f\_\{R\_0\}\| < \varepsilon/3$.
 
 **Step 2: Continuous approximation.** By Lusin's theorem, there exists a continuous function $g$ supported on $[-R\_0,R\_0]$ with $\|f\_\{R\_0\} - g\| < \varepsilon/3$. Since $g$ is continuous on the compact set $[-R\_0,R\_0]$, it is bounded: $\|g\|\_\infty \le M$.
 
@@ -121,7 +121,7 @@ By the triangle inequality, $\|f-p\| < \varepsilon$. $\square$
 
 By linearity, the assumption extends from monomials to polynomials: $\mathbb E[p(X)q(Y)] = \mathbb E[p(X)]\mathbb E[q(Y)]$. By Lemma 3, polynomials are dense in $L^2(\mu\_X)$ and $L^2(\mu\_Y)$. For $f\in L^2(\mu\_X)$ and $g\in L^2(\mu\_Y)$, choose polynomial sequences $p\_n \to f$ and $q\_n \to g$ in the respective $L^2$ spaces.
 
-We show $\mathbb E[p\_n(X)q\_n(Y)] \to \mathbb E[f(X)g(Y)]$. By Cauchy–Schwarz,
+By Cauchy–Schwarz,
 
 $$
 \begin{align}
@@ -133,7 +133,7 @@ $$
 \end{align}
 $$
 
-Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)] \to \mathbb E[f(X)]\mathbb E[g(Y)]$, we obtain
+Similarly, $\mathbb E[p\_n(X)] \to \mathbb E[f(X)]$ and $\mathbb E[q\_n(Y)] \to \mathbb E[g(Y)]$ by Cauchy–Schwarz. Since $\mathbb E[p\_n(X)q\_n(Y)] = \mathbb E[p\_n(X)]\mathbb E[q\_n(Y)]$ by the polynomial factorization, taking limits gives
 
 $$
 \mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\mathbb E[g(Y)]
