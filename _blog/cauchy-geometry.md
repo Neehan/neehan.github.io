@@ -13,7 +13,9 @@ In this blog post, I will show that the Cauchy–Schwarz inequality simply tells
 1. **Symmetric bilinear form** (enables orthogonal decomposition)
 2. **Positive definiteness** (ensures all vectors have non-negative squared length)
 
-From these alone, we can show Cauchy–Schwarz represents the **cosine of an angle** between two vectors.
+The bilinear form $\langle \cdot, \cdot \rangle$ is not limited to the standard dot product. For example, for continuous, integrable functions $f,g : [0,1] \to [0, 1]$, we can define $\langle f, g \rangle = \int\_0^1 f(x)g(x)\,dx$, which gives a weighted inner product on a function space. The Cauchy–Schwarz inequality holds for any such inner product.
+
+From these properties alone, we can show Cauchy–Schwarz represents the **cosine of an angle** between two vectors.
 
 ## Setup
 
