@@ -82,7 +82,7 @@ M_X(\theta) &= \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \\
 \end{align}
 $$
 
-By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y$. We now verify that the joint MGF also converges in a rectangle around the origin. Pick $r\_X,r\_Y > 0$ such that $2r\_X < c\_X$ and $2r\_Y < c\_Y$. For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, by Cauchy-Schwarz we have
+By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y$. We now verify that the joint MGF also converges in a rectangle around the origin. For $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, by Cauchy-Schwarz we have
 
 $$
 \begin{align}
@@ -91,11 +91,11 @@ $$
 \end{align}
 $$
 
-where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$, so $\mathbb E[e^{2\|\theta\|\|X\|}] < \infty$ and $\mathbb E[e^{2\|\eta\|\|Y\|}] < \infty$ by Lemma 1. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$. The covariance condition now implies factorization of the joint MGF.
+where the right side is finite since $2\|\theta\| < c\_X$ and $2\|\eta\| < c\_Y$, so $\mathbb E[e^{2\|\theta\|\|X\|}] < \infty$ and $\mathbb E[e^{2\|\eta\|\|Y\|}] < \infty$ by Lemma 1. Thus the joint MGF $M\_{(X,Y)}(\theta,\eta) = \mathbb E[e^{\theta X + \eta Y}]$ converges for all $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$. The covariance condition now implies factorization of the joint MGF.
 
-**Lemma 2.** *For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
+**Lemma 2.** *For $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, we have $\mathbb E[e^{\theta X}e^{\eta Y}] = \mathbb E[e^{\theta X}]\mathbb E[e^{\eta Y}]$.*
 
-*Proof.* For $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By [dominated convergence](https://en.wikipedia.org/wiki/Dominated_convergence_theorem),
+*Proof.* For $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, we may expand $e^{\theta X} = \sum\_{m=0}^\infty \frac{\theta^m}{m!}X^m$ and $e^{\eta Y} = \sum\_{n=0}^\infty \frac{\eta^n}{n!}Y^n$. The partial sums are dominated by the integrable function $e^{\|\theta\|\|X\|+\|\eta\|\|Y\|}$, which has finite expectation as shown above. By [dominated convergence](https://en.wikipedia.org/wiki/Dominated_convergence_theorem),
 
 $$
 \begin{align}
@@ -110,11 +110,11 @@ where the third equality uses the factorization $\mathbb E[X^m Y^n] = \mathbb E[
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
-**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
+**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
 *Proof.* This is a standard result in probability theory. See Khoshnevisan, [*Moment-generating functions and independence*](https://www.math.utah.edu/~davar/math6010/2014/MGFIndependence.pdf), Theorem 6 for a proof. $\square$
 
-We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, we have
+We can now complete the proof of the main theorem. By Lemma 2, for $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, we have
 
 $$
 M_{(X,Y)}(\theta,\eta) = M_X(\theta)M_Y(\eta).
