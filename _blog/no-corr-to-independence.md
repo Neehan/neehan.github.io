@@ -1,5 +1,5 @@
 ---
-title: "When Does No Correlation Imply Independence"
+title: "When Does No Correlation Imply Independence?"
 excerpt: "Zero correlation does not always imply independence, but under exponential tails and vanishing mixed polynomial covariances, it does. We prove this using moment generating functions."
 collection: blog
 date: 2025-11-18
@@ -12,9 +12,9 @@ tags:
 
 It is a well-known fact in probability that zero correlation does not always imply independence. The standard counterexample is trivial: let $X$ be a standard normal random variable and $Y = X^2$. Then $X$ and $Y$ are clearly dependent, since knowing $X$ determines $Y$ completely, yet by symmetry $\operatorname{Cov}(X,Y) = \mathbb E[X^3] = 0$. Independence is a much stronger condition than mere uncorrelatedness.
 
-But what is the relationship between covariance and independence? In this note I will attempt to explain that and also show how a stronger covariance relation does in fact imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
+But what is the relationship between covariance and independence? In this note I will attempt to explain that and also show how a stronger covariance relation with a regularity condition does  imply independence. Specifically, if two random variables have exponentially decaying tails and all their mixed polynomial covariances vanish, then they must be independent. This result applies to many common families of distributions including Gaussian, Gamma, and Exponential.
 
-**Notations.** We work throughout on a fixed probability space $(\Omega,\mathcal F,\mathbb P)$. All random variables are real-valued and defined on this space. For a random variable $X:\Omega\to\mathbb R$, we denote its [law](https://en.wikipedia.org/wiki/Probability_distribution) by $\mu\_X$, the pushforward of $\mathbb P$ under $X$. The space $L^2(\mathbb P\_X)$ means $L^2(\mathbb R,\mathcal B(\mathbb R),\mu\_X)$, and we freely identify a function $f\in L^2(\mathbb P\_X)$ with the random variable $f(X)\in L^2(\mathbb P)$.
+**Notations.** We work throughout on a fixed probability space $(\Omega,\mathcal F,\mathbb P)$. All random variables are real-valued and defined on this space. For a random variable $X:\Omega\to\mathbb R$, we denote its [law](https://en.wikipedia.org/wiki/Probability_distribution) by $\mu\_X$, the pushforward of $\mathbb P$ under $X$. For a pair $(X,Y)$, we write $\mu\_{(X,Y)}$ for the joint law. The product measure is denoted $\mu\_X \otimes \mu\_Y$. The covariance is $\operatorname{Cov}(X,Y) = \mathbb E[XY] - \mathbb E[X]\mathbb E[Y]$. We write $\|X\|$ for the absolute value $\|X\|$. The moment generating function is $M\_X(\theta) = \mathbb E[e^{\theta X}]$ and the characteristic function is $\phi\_X(t) = \mathbb E[e^{itX}]$.
 
 ## What Independence Means
 
@@ -112,7 +112,7 @@ The final step is to show that factorization of the MGF implies factorization of
 
 **Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < r\_X$ and $\|\eta\| < r\_Y$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
-*Proof.* The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
+*Proof.* This is a standard theorem in probability theory, but I will mention the proof here for completeness. The MGF $M\_X(\theta)$ is analytic in $\|\theta\| < r\_X$, hence extends to a holomorphic function on the complex disk $\|z\| < r\_X$. Setting $\theta = it$ for real $t$ with $\|t\| < r\_X$, we have $M\_X(it) = \phi\_X(t)$, the characteristic function of $X$. Similarly for $Y$. The factorization hypothesis gives $M\_{(X,Y)}(is,it) = M\_X(is)M\_Y(it)$, or equivalently $\phi\_{(X,Y)}(s,t) = \phi\_X(s)\phi\_Y(t)$, for all $\|s\| < r\_X$ and $\|t\| < r\_Y$. Since characteristic functions uniquely determine distributions and $\phi\_{(X,Y)} = \phi\_X \otimes \phi\_Y$ on a nonempty open set, by analytic continuation this holds for all $(s,t) \in \mathbb R^2$. By the inverse Fourier transform,
 
 $$
 \begin{align}
