@@ -110,7 +110,7 @@ where the third equality uses the factorization $\mathbb E[X^m Y^n] = \mathbb E[
 
 The final step is to show that factorization of the MGF implies factorization of the distribution.
 
-**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta) = M\_X(\theta)M\_Y(\eta)$ for all $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
+**Lemma 3.** *If $M\_{(X,Y)}(\theta,\eta)$ and $M\_X(\theta)M\_Y(\eta)$ both exist and are equal for all $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, then $\mu\_{(X,Y)} = \mu\_X \otimes \mu\_Y$.*
 
 *Proof.* This is a standard result in probability theory. See Khoshnevisan, [*Moment-generating functions and independence*](https://www.math.utah.edu/~davar/math6010/2014/MGFIndependence.pdf), Theorem 6 for a proof. $\square$
 
