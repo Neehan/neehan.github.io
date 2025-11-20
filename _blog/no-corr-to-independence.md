@@ -24,7 +24,7 @@ $$
 \mathbb P(X\in A, Y\in B) = \mathbb P(X\in A)\cdot\mathbb P(Y\in B)
 $$
 
-for all Borel sets $A,B\subset\mathbb R$. This is equivalent to expectation factorizing for all bounded measurable functions:
+for all [Borel sets](https://en.wikipedia.org/wiki/Borel_set) $A,B\subset\mathbb R$. This is equivalent to expectation factorizing for all bounded measurable functions:
 
 $$
 \mathbb E[f(X)g(Y)] = \mathbb E[f(X)]\cdot\mathbb E[g(Y)].
