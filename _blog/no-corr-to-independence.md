@@ -66,13 +66,7 @@ $$
 \end{align}
 $$
 
-Thus, for every $\|\lambda\| < c\_X$, we have
-
-$$
-\mathbb E[e^{\lambda |X|}] = \sum_{n=0}^\infty \frac{\lambda^n}{n!}\mathbb E[|X|^n] \le C_X\sum_{n=0}^\infty \left(\frac{|\lambda|}{c_X}\right)^n < \infty.
-$$
-
-In particular, for all $\|\theta\| < c\_X$ we have $\mathbb E[e^{\|\theta\|\|X\|}] < \infty$, and by symmetry $\mathbb E[e^{\|\eta\|\|Y\|}] < \infty$ for all $\|\eta\| < c\_Y$. For $\|\theta\| < c\_X$, the Taylor series of the MGF converges by the moment bound:
+For all $\|\theta\| < c\_X$, the Taylor series of the MGF converges by the moment bound:
 
 $$
 \begin{align}
@@ -82,7 +76,7 @@ M_X(\theta) &= \sum_{n=0}^\infty \frac{\theta^n}{n!}\mathbb E[X^n] \\
 \end{align}
 $$
 
-By Lemma 1 applied to both $X$ and $Y$, we have that $M\_X(\theta)$ converges for $\|\theta\| < c\_X$ and $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y$. We now verify that the joint MGF also converges in a rectangle around the origin. For $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, by Cauchy-Schwarz we have
+By Lemma 1, $M\_X(\theta)$ converges for $\|\theta\| < c\_X$ and by symmetry $M\_Y(\eta)$ converges for $\|\eta\| < c\_Y$. We now verify that the joint MGF also converges in a rectangle around the origin. For $\|\theta\| < c\_X/2$ and $\|\eta\| < c\_Y/2$, by Cauchy-Schwarz we have
 
 $$
 \begin{align}
