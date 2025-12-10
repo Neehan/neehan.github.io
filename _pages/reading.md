@@ -28,6 +28,7 @@ Here is what I am currently reading:
 18. Of Mice and Men -  John Steinbeck
 19. Dream of the Red Chamber - Cao Xuiqin
 20. Jinjir - Kazi Nazrul Islam
+21. Tao Te Ching - Lao Zhu
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
