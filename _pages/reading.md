@@ -27,6 +27,7 @@ Here is what I am currently reading:
 17. The Basic Laws of Human Stupidity - Carlo M. Cipolla
 18. Of Mice and Men -  John Steinbeck
 19. Dream of the Red Chamber - Cao Xuiqin
+20. Jinjir - Kazi Nazrul Islam
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
