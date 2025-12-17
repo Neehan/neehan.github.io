@@ -29,6 +29,7 @@ Here is what I am currently reading:
 19. Dream of the Red Chamber - Cao Xuiqin
 20. Jinjir - Kazi Nazrul Islam
 21. Tao Te Ching - Lao Zhu
+22. Poka Makorer Ghor Bosoti - Selina Hossain
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
