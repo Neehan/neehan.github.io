@@ -30,6 +30,7 @@ Here is what I am currently reading:
 20. Jinjir - Kazi Nazrul Islam
 21. Tao Te Ching - Lao Zhu
 22. Poka Makorer Ghor Bosoti - Selina Hossain
+23. Gilgamesh - Stephen Mitchell
 
 # 2024
 1. Philosophy of Mind: Brain, Consciousness and Thinking Machines - Patrick Grim
