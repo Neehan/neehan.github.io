@@ -7,6 +7,9 @@ They say reading books is like taking your brain to the gym. I have been at it f
 
 Here is what I am currently reading:
 
+# 2026
+1. The Denial of Death - Ernest Becker
+
 # 2025
 1. How the World Works - Noam Chomsky
 2. Thuggee - Sripantha
