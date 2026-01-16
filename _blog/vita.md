@@ -7,6 +7,7 @@ tags:
   - theory
   - releases
 ---
+[Arxiv](https://arxiv.org/abs/2508.03589) \| [GitHub](https://github.com/Neehan/VITA) \| [Slides](https://github.com/Neehan/VITA/blob/main/docs/Variational_Transformer_slides.pdf)
 
 In time-series forecasting, it’s common to have richer features during training than at deployment. Weather-based crop yield prediction exemplifies this: many satellite-derived datasets (e.g., NASA POWER) offer dozens of meteorological variables—31 in this case—for pretraining. However, operational yield datasets depend on fine-grained ground-station measurements, which typically include six or fewer variables. Despite how prevalent this setup is, most state-of-the-art time-series models (SimMTM, PatchTST, Chronos) assume *identical features across pretraining and deployment* and therefore fail to address this feature asymmetry.
 

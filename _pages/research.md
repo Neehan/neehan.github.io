@@ -13,7 +13,7 @@ author_profile: true
   **Adib Hasan**, Mardavij Roozbehani, Munther Dahleh. <br>
   *AAAI Conference on Artificial Intelligence (AAAI)*, 2026. <br>
   <span style="color: red;">Oral (Top 5%)</span> <br>
-  [Arxiv](https://arxiv.org/abs/2508.03589) \| [GitHub](https://github.com/Neehan/VITA) \| [Blogpost](/blog/vita/)
+  [Arxiv](https://arxiv.org/abs/2508.03589) \| [GitHub](https://github.com/Neehan/VITA) \| [Blogpost](/blog/vita/) \| [Slides](https://github.com/Neehan/VITA/blob/main/docs/Variational_Transformer_slides.pdf)
 
 * Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning. <br>
   **Adib Hasan**, Ileana Rugina, Alex Wang. <br>
