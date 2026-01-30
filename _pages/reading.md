@@ -9,6 +9,8 @@ Here is what I am currently reading:
 
 # 2026
 1. The Denial of Death - Ernest Becker
+2. Everything Is Tuberculosis - John Green
+3. The Good Earth - Pearl S. Buck
 
 # 2025
 1. How the World Works - Noam Chomsky
