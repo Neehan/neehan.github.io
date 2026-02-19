@@ -11,7 +11,7 @@ tags:
 
 The classical Central Limit Theorem (CLT; Lindeberg-Lévy) states that the normalized sum of $n$ i.i.d. random variables with finite mean and variance must converge in distribution to $N(0,1)$ as $n \to \infty$. 
 
-However, one might ask, why is this sum for any distribution normally distributed? Why does it not follow gamma, exponential, log normal, or any other distribution? In this blogpost, I will build intuition for why the normal distribution is inevitable. It is meant to be expository and not rigorous. For a rigorous proof, see [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem#Proof_of_classical_CLT). The key insight is this limit from calculus:
+However, one might ask, why is this sum for any distribution normally distributed? Why does it not follow gamma, exponential, log normal, or any other distribution? In this blogpost, I will build intuition for why the normal distribution is inevitable. It is meant to be expository in nature. For a rigorous proof, see [Wikipedia](https://en.wikipedia.org/wiki/Central_limit_theorem#Proof_of_classical_CLT). The key insight is this limit from calculus:
 
 $$
 \lim_{n \to \infty}\left(1 + \frac{x}{n}\right)^n = e^x.
@@ -101,8 +101,8 @@ $$
 \phi_{N(0,1)}(t) = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} e^{itx} \, dx = e^{-t^2/2}.
 $$
 
-The Fourier transform of a Gaussian is again a Gaussian. No other distribution has this self-replicating property, which is why the CLT limit must be normal.
+The Fourier transform of a Gaussian is again a Gaussian. Under finite variance, no other distribution has this self-replicating property, which is why the CLT limit must be normal. (With infinite variance, other stable distributions can arise as limits.)
 
 ## Conclusion
 
-The ubiquity of the normal distribution is ultimately a consequence of the ubiquity of $e^x$. Wherever sums accumulate, wherever averages stabilize, the exponential limit $(1 + x/n)^n \to e^x$ quietly enforces its will, and the bell curve emerges. The Gaussian is not an arbitrary choice but a mathematical inevitability, woven into the fabric of how quantities combine.
+The normal distribution appears in CLT because finite variance forces a quadratic expansion of $\log \phi\_X(t)$ near 0. Exponentiating $n \log \phi\_X(t/\sqrt{n})$ then produces $e^{-t^2/2}$ via $(1 + x/n)^n \to e^x$. The Gaussian is the unique probability density with this characteristic function.
