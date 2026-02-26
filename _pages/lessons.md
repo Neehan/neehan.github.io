@@ -20,7 +20,7 @@ Here is a running list of lessons that I have learned over the years from my mis
 2. Accept that you will have shortcomings. Take full responsibility for your actions and own the outcomes.
 3. In the grand scheme of things, your existence is utterly meaningless. Only the pursuit of dreams gives life its [meaning](https://en.wikipedia.org/wiki/Existentialism). 
 4. Attachment is the cause of all [suffering](https://en.wikipedia.org/wiki/Four_Noble_Truths).
-5. Kindness costs little, yields much.
+5. Be kind to others even when you expect to get nothing in return.
 
 ## Machine Learning
 1. When in doubt, always start with **[AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)** with learning rate between $[10^{-4}, 10^{-3}]$ and a linear warm-up.

@@ -1,6 +1,6 @@
 ---
 title: "Why Does Normal Distribution Show Up in Central Limit Theorem?"
-excerpt: "The Central Limit Theorem states that normalized sums of i.i.d random variables with finite mean and variance converge in distribution to a Gaussian. But why the normal distribution specifically? This post builds intuition by showing CLT is a direct consequence of the exponential limit $(1 + x/n)^n \\to e^x$."
+excerpt: "The Central Limit Theorem states that sums of i.i.d random variables with finite mean and variance converge in distribution to a Gaussian. But why the normal distribution specifically? This post builds intuition by showing CLT is a direct consequence of the exponential limit $(1 + x/n)^n \\to e^x$."
 collection: blog
 date: 2026-02-16
 tags:
