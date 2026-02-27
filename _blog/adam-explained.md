@@ -9,9 +9,9 @@ tags:
   - proofs
 ---
 
-[Adam](https://arxiv.org/abs/1412.6980) is the default optimizer in modern deep learning, often converging faster and more reliably than stochastic gradient descent. This improved performance comes at the cost of roughly three times the memory requirement for SGD. Moreover, when weight decay is involved, Adam does not optimize the same objective as SGD as you might expect. This post explains why Adam works, where its memory overhead comes from, and how the interaction with weight decay can cause unexpected behavior.
+[Adam](https://arxiv.org/abs/1412.6980) is the default optimizer in modern deep learning, often converging faster and more reliably than stochastic gradient descent. This improved performance comes at the cost of roughly three times the memory requirement for SGD. Moreover, when weight decay is involved, Adam does not optimize the same objective as SGD as you might expect. This post explains how Adam works, where its memory overhead comes from, and how the interaction with weight decay can cause unexpected behavior.
 
-**Notations.** Throughout this post, $\eta$ denotes the learning rate, $\theta \in \mathbb{R}^d$ denotes the model parameters, and $g\_t$ denotes the minibatch gradient at step $t$. The symbol $\odot$ denotes elementwise multiplication.
+**Notations.** Throughout this post, $\theta \in \mathbb{R}^d$ denotes the model parameters, $\nabla\_\theta f$ denotes the gradient of $f$ with respect to $\theta$, and $g\_t$ denotes the minibatch gradient at step $t$. The learning rate is $\eta$, and the symbol $\odot$ denotes elementwise multiplication. Adam's hyperparameters are $\beta\_1$ and $\beta\_2$ for the exponential moving average decay rates, and $\epsilon$ for numerical stability. The regularization strength is $\lambda$.
 
 ## Motivation
 
