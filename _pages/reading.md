@@ -12,6 +12,7 @@ Here is what I am currently reading:
 2. Everything Is Tuberculosis - John Green
 3. The Good Earth - Pearl S. Buck
 4. Why Nations Fail - Daron Acemoglu and James A. Robinson
+5. The Withdrawal - Vijay Prashad and Noam Chomsky 
 
 # 2025
 1. How the World Works - Noam Chomsky
