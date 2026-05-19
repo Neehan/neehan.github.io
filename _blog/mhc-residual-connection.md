@@ -19,7 +19,7 @@ This additive structure gives gradients a direct path from the loss back to earl
 
 However, there is a fundamental bottleneck in residual connections. After $L$ layers, the hidden state is roughly $x\_0 + \sum\_{l=1}^{L} F\_l(x\_l)$. Since every layer reads from and writes to the same vector, a layer cannot selectively preserve its output for specific later layers or selectively read from specific previous layers.
 
-This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. [Zhu et al. (2024)](https://arxiv.org/abs/2409.19606) proposed this idea as Hyper-Connections, and DeepSeek-V4 ([DeepSeek-AI, 2025](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf)) extended it with a manifold constraint to prevent gradient explosion at depth. In this blogpost, I will try to motivate what it is and how it works.
+This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. DeepSeek proposed this idea as [Hyper-Connections](https://arxiv.org/abs/2409.19606) (HC), then added a manifold constraint to prevent gradient explosion at depth in a follow-up paper on [Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) (mHC). [DeepSeek-V4](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf) adopted showed mHC works at scale. In this blogpost, I will try to motivate what it is and how it works.
 
 **Notations.** We denote the hidden dimension by $d$ and the number of rows in the expanded hidden state by $n$. The hidden state at layer $l$ is $X\_l \in \mathbb{R}^{n \times d}$. Each layer function $F\_l$ takes a single $d$-dimensional vector as input and returns a $d$-dimensional vector as output. This includes both attention and feed-forward layers. The set of $n \times n$ doubly stochastic matrices is denoted $\mathcal{M}$.
 
@@ -43,7 +43,7 @@ This has the same structure as an RNN hidden state update. The first term $B\_l 
 
 Note that, after $L$ layers, the residual component involves the product $B\_L B\_{L-1} \cdots B\_1$. If any eigenvalue exceeds 1 in magnitude, this product explodes. If all are strictly less than 1, it vanishes. This is the same problem that plagued RNNs for years, which LSTMs and GRUs solved with gating.
 
-DeepSeek-V4 instead constrains $B\_l$ to be a [doubly stochastic matrix](https://en.wikipedia.org/wiki/Doubly_stochastic_matrix), which has the intriguing property that all of its eigenvalues have magnitude at most 1. Equivalently, a matrix $M \in \mathbb{R}^{n \times n}$ is doubly stochastic if all entries are non-negative, every row sums to 1, and every column sums to 1.
+mHC instead constrains $B\_l$ to be a [doubly stochastic matrix](https://en.wikipedia.org/wiki/Doubly_stochastic_matrix), which has the intriguing property that all of its eigenvalues have magnitude at most 1. Equivalently, a matrix $M \in \mathbb{R}^{n \times n}$ is doubly stochastic if all entries are non-negative, every row sums to 1, and every column sums to 1.
 
 $$
 \mathcal{M} = \left\{ M \in \mathbb{R}^{n \times n} \;\middle|\; M \geq 0, \; M \mathbf{1}_n = \mathbf{1}_n, \; \mathbf{1}_n^\top M = \mathbf{1}_n^\top \right\}
