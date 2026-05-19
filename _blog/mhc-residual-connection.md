@@ -9,7 +9,7 @@ tags:
   - transformers
 ---
 
-The [residual connection](https://arxiv.org/abs/1512.03385) is one of the most important inventions in modern deep learning. Before ResNet introduced it in 2015, training networks deeper than about 20 layers was impractical because gradients either exploded or vanished on their way back through the network. The fix was simple. Instead of asking each layer to compute the next hidden state from scratch, let it compute a *correction* and add that to the input.
+The [residual connection](https://arxiv.org/abs/1512.03385) is one of the most important inventions in modern deep learning. Before ResNet introduced it in 2015, training networks deeper than about 20 layers was impractical because gradients either exploded or vanished on their way back through the network. The ResNet fix was simple. Instead of asking each layer to compute the next hidden state from scratch, let it compute a *correction* and add that to the input.
 
 $$
 x_{l+1} = x_l + F_l(x_l).
@@ -19,7 +19,7 @@ This additive structure gives gradients a direct path from the loss back to earl
 
 However, there is a fundamental bottleneck in residual connections. After $L$ layers, the hidden state is roughly $x\_0 + \sum\_{l=1}^{L} F\_l(x\_l)$. Since every layer reads from and writes to the same vector, a layer cannot selectively preserve its output for specific later layers or selectively read from specific previous layers.
 
-This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. DeepSeek proposed this idea as [Hyper-Connections](https://arxiv.org/abs/2409.19606) (HC), then added a manifold constraint to prevent gradient explosion at depth in a follow-up paper on [Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) (mHC). [DeepSeek-V4](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf) showed mHC works at scale. In this blogpost, I will try to motivate what it is and how it works.
+This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. ByteDance proposed this idea as [Hyper-Connections](https://arxiv.org/abs/2409.19606) (HC). DeepSeek extended it with a manifold constraint in [Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) (mHC), and [DeepSeek-V4](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf) showed mHC works at scale. In this blogpost, I will try to motivate what it is and how it works.
 
 **Notations.** We denote the hidden dimension by $d$ and the number of rows in the expanded hidden state by $n$. The hidden state at layer $l$ is $X\_l \in \mathbb{R}^{n \times d}$. Each layer function $F\_l$ takes a single $d$-dimensional vector as input and returns a $d$-dimensional vector as output. This includes both attention and feed-forward layers. The set of $n \times n$ doubly stochastic matrices is denoted $\mathcal{M}$.
 
