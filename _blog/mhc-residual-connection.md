@@ -19,7 +19,7 @@ This additive structure gives gradients a direct path from the loss back to earl
 
 However, there is a fundamental bottleneck in residual connections. After $L$ layers, the hidden state is roughly $x\_0 + \sum\_{l=1}^{L} F\_l(x\_l)$. Since every layer reads from and writes to the same vector, a layer cannot selectively preserve its output for specific later layers or selectively read from specific previous layers.
 
-This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. DeepSeek proposed this idea as [Hyper-Connections](https://arxiv.org/abs/2409.19606) (HC), then added a manifold constraint to prevent gradient explosion at depth in a follow-up paper on [Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) (mHC). [DeepSeek-V4](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf) adopted showed mHC works at scale. In this blogpost, I will try to motivate what it is and how it works.
+This could be solved if each layer read and wrote to a matrix instead of a vector, with learnable gating rules to filter information. DeepSeek proposed this idea as [Hyper-Connections](https://arxiv.org/abs/2409.19606) (HC), then added a manifold constraint to prevent gradient explosion at depth in a follow-up paper on [Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) (mHC). [DeepSeek-V4](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/DeepSeek_V4.pdf) showed mHC works at scale. In this blogpost, I will try to motivate what it is and how it works.
 
 **Notations.** We denote the hidden dimension by $d$ and the number of rows in the expanded hidden state by $n$. The hidden state at layer $l$ is $X\_l \in \mathbb{R}^{n \times d}$. Each layer function $F\_l$ takes a single $d$-dimensional vector as input and returns a $d$-dimensional vector as output. This includes both attention and feed-forward layers. The set of $n \times n$ doubly stochastic matrices is denoted $\mathcal{M}$.
 
@@ -49,7 +49,7 @@ $$
 \mathcal{M} = \left\{ M \in \mathbb{R}^{n \times n} \;\middle|\; M \geq 0, \; M \mathbf{1}_n = \mathbf{1}_n, \; \mathbf{1}_n^\top M = \mathbf{1}_n^\top \right\}
 $$
 
-While does not restore the identity exactly, the vector $\mathbf{1}\_n$ is always an eigenvector with eigenvalue 1, so the product preserves the mean across rows. All other eigenvalues have magnitude at most 1, so the norm is bounded. And since $\mathcal{M}$ is closed under multiplication, the product $B\_L B\_{L-1} \cdots B\_1$ remains doubly stochastic regardless of depth.
+While this does not restore the identity exactly, the vector $\mathbf{1}\_n$ is always an eigenvector with eigenvalue 1, so the product preserves the mean across rows. All other eigenvalues have magnitude at most 1, so the norm is bounded. And since $\mathcal{M}$ is closed under multiplication, the product $B\_L B\_{L-1} \cdots B\_1$ remains doubly stochastic regardless of depth.
 
 Constraining $B$ like this also prevents gradient explosion, the same problem that plagued RNNs for years and that LSTMs and GRUs solved with gating. The vanishing problem is handled by the additive term $C\_l F\_l(A\_l X\_l)$, which injects fresh signal at every layer.
 
@@ -75,4 +75,4 @@ where $f$ is a small learned projection (flatten, RMSNorm, linear) with per-laye
 
 ## Conclusion
 
-Manifold-Constrained Hyper-Connections replace the residual connection's single shared vector with a matrix of $n$ separate rows. Constraining $B\_l$ to be doubly stochastic prevents gradient explosion at any depth. The layers themselves are unchanged. mHC only changes how information flows between them.
+Manifold-Constrained Hyper-Connections replace the residual connection's single shared vector with a matrix of $n$ separate rows. Constraining $B\_l$ to be doubly stochastic preserves the identity mapping property that makes residual connections stable. The layers themselves are unchanged. mHC only changes how information flows between them.
