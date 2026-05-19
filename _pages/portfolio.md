@@ -5,7 +5,7 @@ author_profile: true
 ---
 
 ## Software
-* **AutoFyn (2026)**: RL-inspired feedback-loop on Claude that optimizes a measurable goal. It autonomously built the #1 Spider 2.0 DBT agent and found 131 vulnerabilities across popular OSS, with confirmed CVEs. ([GitHub](https://github.com/SignalPilot-Labs/AutoFyn))
+* **AutoFyn (2026)**: RL-inspired feedback-loop on Claude that optimizes a measurable goal. It autonomously built the #1 Spider 2.0 DBT agent and found 150+ vulnerabilities across popular OSS, with confirmed CVEs. ([GitHub](https://github.com/SignalPilot-Labs/AutoFyn))
 * **Schema Search MCP Server (2025)**: Natural language schema search for Postgres, MySQL, Snowflake, and BigQuery via an MCP server with millisecond responses. ([blogpost](/blog/schema-search/), [GitHub](https://github.com/Neehan/schema-search))
 * **Essay Mate (2024)**: A free GPT-based college admissions essay reviewer for students applying to US universities. ([link](https://chatgpt.com/g/g-673c242ba900819183752398e7a8833b-essay-mate))
 * **Bayesian Soccer Score Predictor (2022)**: Predicting FIFA World Cup 2022 match outcomes using Bayesian inference on Poisson processes. ([blogpost](/blog/bayesian-soccer-score/))
