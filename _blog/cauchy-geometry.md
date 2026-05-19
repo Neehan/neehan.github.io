@@ -1,5 +1,5 @@
 ---
-title: "Geometric Interpretration of the Cauchy–Schwarz Inequality"
+title: "Geometric Interpretation of the Cauchy–Schwarz Inequality"
 excerpt: "How Pythagoras and positive definiteness geometrically prove the Cauchy–Schwarz inequality. The inequality simply states that projecting a vector onto another cannot increase its length. This geometric perspective reveals that Cauchy–Schwarz represents the cosine of an angle between vectors, connecting it to the law of cosines and Pearson correlation."
 collection: blog
 date: 2025-11-10
