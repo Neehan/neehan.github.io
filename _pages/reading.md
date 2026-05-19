@@ -57,7 +57,7 @@ Here is what I am currently reading:
 12. Danger Zone: the Coming Conflict with China - Hal Brands and Michael Beckley
 13. Kheya - Rabindranath Tagore
 14. Candide - Voltaire
-15. Will My Cat My Eyeballs - Caitlin Doughty
+15. Will My Cat Eat My Eyeballs - Caitlin Doughty
 16. Discipline and Punish - Michel Foucault
 17. Nausea - Jean-Paul Sartre
 18. White Nights - Fyodor Dostoevsky
