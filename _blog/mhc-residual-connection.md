@@ -1,5 +1,5 @@
 ---
-title: "Manifold-Constrained Hyper-Connections: Generalized Residual Connections in DeepSeek-V4"
+title: "mHC: Generalized Residual Connections in DeepSeek-V4"
 excerpt: "Residual connections force every layer to read from and write to one shared vector. Manifold-Constrained Hyper-Connections replace this vector with a matrix and constrain the mixing to be doubly stochastic, preserving the identity mapping property that makes residual connections stable."
 collection: blog
 date: 2026-05-18
