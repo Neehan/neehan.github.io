@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">Here is a list of research papers I’ve published. I haven't found anything groundbreaking 😅, but I’ve learned a lot through them. They’re also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">Here is a list of research papers I’ve published. I’ve learned a lot through them and they’re also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 * VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting. <br>
