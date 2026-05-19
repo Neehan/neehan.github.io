@@ -1,6 +1,6 @@
 ---
 title: "Manifold-Constrained Hyper-Connections: Generalized Residual Connections in DeepSeek-V4"
-excerpt: "Residual connections force every layer to read from and write to one shared vector. Manifold-Constrained Hyper-Connections replace this vector with a matrix and constrain the mixing to be doubly stochastic, preventing gradient explosion at depth."
+excerpt: "Residual connections force every layer to read from and write to one shared vector. Manifold-Constrained Hyper-Connections replace this vector with a matrix and constrain the mixing to be doubly stochastic, preserving the identity mapping property that makes residual connections stable."
 collection: blog
 date: 2026-05-18
 tags:
@@ -25,7 +25,7 @@ This could be solved if each layer read and wrote to a matrix instead of a vecto
 
 ## From Vector to Matrix
 
-As noted before, residual connections accumulate all layer outputs into one vector. In Hyper-Connections, we pass $n$ stacked vectors $x\_l \in \mathbb{R}^d$ between layers as a matrix $X\_l \in \mathbb{R}^{n \times d}$. (DeepSeek-V4 uses $n = 4$.) At initialization all rows are identical copies of the embedding vector. As training progresses, different layers learn to write to different rows, so the rows begin to carry different information. A later layer can then read from whichever rows are relevant to its computation. Three small, learnable matrices control the information flow. At the final layer, the first row of $X\_L$ is taken as the output vector for the prediction head.
+As noted before, residual connections accumulate all layer outputs into one vector. In Hyper-Connections, we pass $n$ stacked vectors $x\_l \in \mathbb{R}^d$ between layers as a matrix $X\_l \in \mathbb{R}^{n \times d}$. (DeepSeek-V4 uses $n = 4$.) At initialization all rows are identical copies of the embedding vector. As training progresses, different layers learn to write to different rows, so the rows begin to carry different information. A later layer can then read from whichever rows are relevant to its computation. Three small, learnable matrices control the information flow.
 
 ## The Update Equation
 
@@ -39,17 +39,19 @@ where $A\_l \in \mathbb{R}^{1 \times n}$, $B\_l \in \mathbb{R}^{n \times n}$, an
 
 This has the same structure as an RNN hidden state update. The first term $B\_l X\_l$ carries forward the existing state and determines what the network remembers. The second term is the new input. $A\_l$ selects what to feed from the hidden state to a layer, and $C\_l$ determines where to write the layer output back. When $n = 1$, all three become scalars, and setting them to 1 recovers the standard residual connection.
 
-## Constraining $B\_l$ to Prevent Gradient Explosion
+## Constraining $B\_l$ to Preserve Identity Mapping
 
-Note that, after $L$ layers, the residual component involves the product $B\_L B\_{L-1} \cdots B\_1$. If any eigenvalue exceeds 1 in magnitude, this product explodes. If all are strictly less than 1, it vanishes. This is the same problem that plagued RNNs for years, which LSTMs and GRUs solved with gating.
+The reason residual connections work so well is the identity mapping. In $x\_{l+1} = x\_l + F\_l(x\_l)$, the hidden state $x\_l$ passes through to $x\_L$ unchanged regardless of depth. HC breaks this. The residual term is now $B\_l X\_l$ instead of $I \cdot X\_l$, so across $L$ layers the hidden state gets multiplied by $B\_L B\_{L-1} \cdots B\_1$. If $B\_l$ are unconstrained, this product can amplify or attenuate signals arbitrarily, destroying the stability that identity mapping provided.
 
-mHC instead constrains $B\_l$ to be a [doubly stochastic matrix](https://en.wikipedia.org/wiki/Doubly_stochastic_matrix), which has the intriguing property that all of its eigenvalues have magnitude at most 1. Equivalently, a matrix $M \in \mathbb{R}^{n \times n}$ is doubly stochastic if all entries are non-negative, every row sums to 1, and every column sums to 1.
+mHC constrains $B\_l$ to be a [doubly stochastic matrix](https://en.wikipedia.org/wiki/Doubly_stochastic_matrix). A matrix $M \in \mathbb{R}^{n \times n}$ is doubly stochastic if all entries are non-negative, every row sums to 1, and every column sums to 1.
 
 $$
 \mathcal{M} = \left\{ M \in \mathbb{R}^{n \times n} \;\middle|\; M \geq 0, \; M \mathbf{1}_n = \mathbf{1}_n, \; \mathbf{1}_n^\top M = \mathbf{1}_n^\top \right\}
 $$
 
-The set $\mathcal{M}$ is also closed under multiplication, so the product $B\_L B\_{L-1} \cdots B\_1$ remains doubly stochastic regardless of depth. Explosion is impossible by construction. The vanishing problem is handled by the additive term $C\_l F\_l(A\_l X\_l)$, which injects fresh signal at every layer.
+While does not restore the identity exactly, the vector $\mathbf{1}\_n$ is always an eigenvector with eigenvalue 1, so the product preserves the mean across rows. All other eigenvalues have magnitude at most 1, so the norm is bounded. And since $\mathcal{M}$ is closed under multiplication, the product $B\_L B\_{L-1} \cdots B\_1$ remains doubly stochastic regardless of depth.
+
+Constraining $B$ like this also prevents gradient explosion, the same problem that plagued RNNs for years and that LSTMs and GRUs solved with gating. The vanishing problem is handled by the additive term $C\_l F\_l(A\_l X\_l)$, which injects fresh signal at every layer.
 
 ## Projecting $B\_l$ During Training
 
