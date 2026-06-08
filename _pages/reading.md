@@ -16,6 +16,7 @@ Here is what I am currently reading:
 6. Pnin - Vladimir Nabokov
 7. How Do You Live? - Genzaburō Yoshino
 8. Crugo - Muhammad Zafar Iqbal
+9. A Christmas Carol - Charles Dickens
 
 # 2025
 1. How the World Works - Noam Chomsky
