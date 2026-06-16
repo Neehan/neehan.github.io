@@ -17,6 +17,7 @@ Here is what I am currently reading:
 7. How Do You Live? - Genzaburō Yoshino
 8. Crugo - Muhammad Zafar Iqbal
 9. A Christmas Carol - Charles Dickens
+10. The Kreutzer Sonata - Leo Tolstoy
 
 # 2025
 1. How the World Works - Noam Chomsky
