@@ -19,6 +19,7 @@ Here is what I am currently reading:
 9. A Christmas Carol - Charles Dickens
 10. The Kreutzer Sonata - Leo Tolstoy
 11. Tratuler Jogot - Muhammad Zafar Iqbal
+12. A Very Easy Death - Simone de Beauvoir
 
 # 2025
 1. How the World Works - Noam Chomsky
