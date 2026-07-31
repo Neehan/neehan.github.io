@@ -1,6 +1,7 @@
 ---
 permalink: /reading/
 title: "Reading"
+description: "Books Adib Hasan has read, with notes — philosophy, history, and science."
 author_profile: true
 ---
 They say reading books is like taking your brain to the gym. I have been at it for so long that now I have a six-pack on my forehead :)) 

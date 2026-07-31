@@ -11,7 +11,7 @@ When normal people imagine powerlifters, or any gymrats, they think of godzilla-
     <img src="https://blog.priceplow.com/wp-content/uploads/cbum-olympia-stage.jpg" alt="CBum" width="500"/>
 </div>
 
-I want to make a distinction that this man is *not* a powerlifter. He is a **bodybuilder** -- a different breed of gymrats with acute symptoms of [Narcissistic Personality Disorder](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). It's hard to find to a good picture of a powerlifter because they only pose for their Deadlift PRs. And they look miserable. 
+I want to make a distinction that this man is *not* a powerlifter. He is a [legendary](https://en.wikipedia.org/wiki/Chris_Bumstead) **bodybuilder**. Bodybuilders are a different breed of gymrats, with acute symptoms of [Narcissistic Personality Disorder](https://en.wikipedia.org/wiki/Narcissistic_personality_disorder) and [heart problems](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9781327/). It's hard to find to a good picture of a powerlifter because they only pose for their Deadlift PRs. And they look miserable. 
 
 <div style="text-align: center;">
     <img src="https://fitnessvolt.com/wp-content/uploads/2020/12/powerlifting-rules.jpg" alt="DL" width="500"/>
