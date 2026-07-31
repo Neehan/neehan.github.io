@@ -1,6 +1,7 @@
 ---
 permalink: /portfolio/
 title: "Portfolio"
+description: "Math textbook, tools, and side projects by Adib Hasan."
 author_profile: true
 ---
 
