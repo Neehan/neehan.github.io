@@ -17,9 +17,9 @@ Here is a running list of lessons that I have learned over the years from my mis
 
 ## Work Principles
 
-1. Don't reinvent the wheel. Ask the best human (or AI) expert to identify existing solutions.
+1. Don't reinvent the wheel. Ask the best human (or AI) expert to identify the existing solutions.
 2. Never micromanage, and never allow yourself to be micromanaged.
-3. Be aware of your blind spots and collaborate people who complement your weaknesses.
+3. Be aware of your blind spots and collaborate with people who complement your weaknesses.
 4. People think and work differently. Create a space for them to explain their perspectives.
 
 ## Machine Learning
