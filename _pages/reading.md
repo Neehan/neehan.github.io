@@ -21,6 +21,7 @@ Here is what I am currently reading:
 10. The Kreutzer Sonata - Leo Tolstoy
 11. Tratuler Jogot - Muhammad Zafar Iqbal
 12. A Very Easy Death - Simone de Beauvoir
+13. Pedro Páramo - Juan Rulfo
 
 # 2025
 1. How the World Works - Noam Chomsky
