@@ -17,7 +17,7 @@ $$
 
 This conjecture, now known as the [Prime Number Theorem](https://en.wikipedia.org/wiki/Prime_number_theorem), is notoriously difficult to prove—the first proof appeared nearly a century after it was stated.
 
-While proving the exact asymptotic is hard, establishing that \\(\pi(n)\in O\left( \frac{n}{\log n} \right)\\) is much simpler. In this post, I present bounds showing that for \\(n\ge 12\\),
+While proving the exact asymptotic is hard, establishing that \\(\pi(n)\in \Omega\left( \frac{n}{\log n} \right)\\) is much simpler. In this post, I present bounds showing that for \\(n\ge 12\\),
 
 $$
 (1+2\log 4)\frac{n}{\log n}\ge \pi(n)\ge \frac{\log 2}{2}\frac{n}{\log n}

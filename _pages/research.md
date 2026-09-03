@@ -65,7 +65,7 @@ Using this approach, my agents have discovered 150+ vulnerabilities in widely us
       <h3 class="paper-title">AutoFyn Technical Report: Non-Parametric Expert Iteration for Long-Horizon Agents</h3>
       <p class="paper-authors"><strong>Adib Hasan</strong>, Daniel Schaffield, Akashnil Dutta, Tarik Adnan Moon</p>
       <p class="paper-venue">Preprint, 2026</p>
-      <p class="paper-links"><a href="https://github.com/SignalPilot-Labs/AutoFyn/blob/production/results/autofyn_technical_report.pdf">paper</a> / <a href="https://github.com/SignalPilot-Labs/autoFyn/">code</a></p>
+      <p class="paper-links"><a href="/files/autofyn_technical_report.pdf">paper</a> / <a href="https://github.com/SignalPilot-Labs/autoFyn/">code</a> / <a href="/blog/autofyn/">blog post</a></p>
     </div>
   </article>
 </section>
