@@ -94,7 +94,17 @@ Using this approach, my agents have discovered 150+ vulnerabilities in widely us
 </section>
 
 <section class="research-section">
-  <h2>Graph Algorithms</h2>
+  <h2>Algorithms and Data Structures</h2>
+  <article class="paper-card">
+    <div class="paper-visual paper-visual--image"><img src="/images/learned_binary_heap_paper.png" alt="Learned binary heap architecture and performance results"></div>
+    <div class="paper-details">
+      <h3 class="paper-title">Towards Learned Binary Heaps</h3>
+      <p class="paper-authors"><strong>Adib Hasan</strong>, Angelos Pelecanos</p>
+      <p class="paper-venue">MIT 6.890: Learning-Augmented Algorithms, 2019</p>
+      <p class="paper-links"><a href="/files/6_890_Project.pdf">paper</a> / <a href="https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6">blog post</a></p>
+    </div>
+  </article>
+
   <article class="paper-card">
     <div class="paper-visual paper-visual--image"><img src="/images/graphette_paper.png" alt="Graph and bit-vector representations used by Graphettes"></div>
     <div class="paper-details">
