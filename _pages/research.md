@@ -71,7 +71,7 @@ Using this approach, my agents have discovered 150+ vulnerabilities in widely us
 </section>
 
 <section class="research-section">
-  <h2>Robustness Against Adversarial Distribution Shift</h2>
+  <h2>Robustness Against Adverse Distribution Shift</h2>
   <article class="paper-card">
     <div class="paper-visual paper-visual--image"><img src="/images/vita_paper.png" alt="Overview of VITA variational pretraining and crop-yield fine-tuning"></div>
     <div class="paper-details">
