@@ -41,6 +41,8 @@ My contribution is turning these insights into one operational package. AutoFyn 
 
 ## Results
 
+![AutoFyn performance on IMO 2026 and Spider 2.0 dbt](/images/autofyn_paper.png)
+
 We tested the same loop in security, mathematics, and data science.
 
 In security audits, AutoFyn found more than 150 vulnerabilities across thirteen widely used open-source projects. These include Next.js, MetaMask, pnpm, Warp, LiteLLM, Langflow, Open WebUI, and RAGFlow. We submitted 43 advisories from these findings. Sixteen had been confirmed by maintainers when we wrote the report.
