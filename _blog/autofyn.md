@@ -23,6 +23,8 @@ Within each round, specialized agents explore different approaches, make a plan,
 
 The verified result is distilled back into persistent state. Successful approaches become part of the incumbent solution. Failed approaches remain marked as failures. Repeated mistakes become rules for later rounds. The live context is then discarded and the process starts again.
 
+![The AutoFyn loop: fresh context, multi-agent search, independent review, external verification, and persistent memory](/images/autofyn_loop.png)
+
 ## Expert Iteration Without Weight Updates
 
 This loop is inspired by [Expert Iteration](https://arxiv.org/abs/1705.08439). In classical Expert Iteration, an apprentice proposes actions, a stronger search procedure acts as the expert, and the apprentice is trained on the expert's results. The updated apprentice then guides a better search in the next iteration.
