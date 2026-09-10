@@ -9,7 +9,7 @@ tags:
   - software
 ---
 
-[Paper](/files/autofyn_technical_report.pdf) \| [GitHub](https://github.com/SignalPilot-Labs/AutoFyn)
+[Paper](https://arxiv.org/abs/2609.05446) \| [GitHub](https://github.com/SignalPilot-Labs/AutoFyn)
 
 Frontier LLMs can often solve a difficult problem in one attempt. Yet they are much less reliable at working on the same problem for a whole day. The main obstacle is not only the model's intelligence. It is also how the agent uses context and learns from failed attempts.
 
