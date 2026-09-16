@@ -22,6 +22,7 @@ Here is what I am currently reading:
 11. Tratuler Jogot - Muhammad Zafar Iqbal
 12. A Very Easy Death - Simone de Beauvoir
 13. Pedro Páramo - Juan Rulfo
+14. If Anyone Builds It, Everyone Dies - Eliezer Yudkowsky & Nate Soares
 
 # 2025
 1. How the World Works - Noam Chomsky
