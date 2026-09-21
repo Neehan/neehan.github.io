@@ -10,7 +10,7 @@ redirect_from:
 
 Hi, I'm Adib Hasan. I build [long-horizon agents](https://github.com/SignalPilot-Labs/AutoFyn) that improve through [expert iteration in context space](/research/).
 
-I completed my bachelor's in Math & EECS and MEng in EECS at MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). Before that, I spent two years as a **quant developer** managing multi-million dollar crypto portfolios and leading a team of four. You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
+I completed my bachelor's in Math & EECS and MEng in EECS at MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). Before that, I spent two years as a **quant developer** managing crypto portfolios and leading a team of four. You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
 
 I grew up in Bangladesh, where I spent much of high school training for the International Mathematical Olympiad. I compiled a collection of my olympiad preparation notes from those years [here](https://adibhasan.com/files/adib_olympiad_prep.pdf).
 
