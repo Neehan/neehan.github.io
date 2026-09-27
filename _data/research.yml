@@ -1,0 +1,73 @@
+- title: "Test Time Scaling"
+  papers:
+    - title: "When Does Longer Reasoning Help? Predicting Mathematical Reasoning Through Discovery and Execution"
+      authors: ["Adib Hasan", "Lay Jain", "Thanic Nur Samin"]
+      venue: "Preprint, 2026"
+      image: "/images/de_framework_overview.png"
+      image_alt: "Discovery–Execution framework: measure discovery and execution, then predict success across compute allocations"
+      links:
+        - label: "code"
+          url: "https://github.com/Neehan/DE-Framework"
+        - label: "dataset"
+          url: "https://huggingface.co/datasets/notadib/AOBench"
+        - label: "blog post"
+          url: "/blog/discovery-execution/"
+    - title: "AutoFyn Technical Report: Non-Parametric Expert Iteration for Long-Horizon Agents"
+      authors: ["Adib Hasan", "Daniel Schaffield", "Akashnil Dutta", "Tarik Adnan Moon"]
+      venue: "Preprint, 2026"
+      image: "/images/autofyn_paper.png"
+      image_alt: "AutoFyn interface running a long-horizon security audit"
+      links:
+        - label: "paper"
+          url: "https://arxiv.org/abs/2609.05446"
+        - label: "code"
+          url: "https://github.com/SignalPilot-Labs/autoFyn/"
+        - label: "blog post"
+          url: "/blog/autofyn/"
+- title: "Robustness Against Adverse Distribution Shift"
+  papers:
+    - title: "VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting"
+      authors: ["Adib Hasan", "Mardavij Roozbehani", "Munther Dahleh"]
+      venue: "AAAI Conference on Artificial Intelligence (AAAI), 2026"
+      image: "/images/vita_paper.png"
+      image_alt: "Overview of VITA variational pretraining and crop-yield fine-tuning"
+      note: "— Oral Presentation (Top 5%)"
+      links:
+        - label: "paper"
+          url: "https://arxiv.org/abs/2508.03589"
+        - label: "code"
+          url: "https://github.com/Neehan/VITA"
+        - label: "blog post"
+          url: "/blog/vita/"
+        - label: "slides"
+          url: "https://github.com/Neehan/VITA/blob/main/docs/Variational_Transformer_slides.pdf"
+    - title: "Pruning for Protection: Increasing Jailbreak Resistance in Aligned LLMs Without Fine-Tuning"
+      authors: ["Adib Hasan", "Ileana Rugina", "Alex Wang"]
+      venue: "BlackboxNLP Workshop at EMNLP, 2024"
+      image: "/images/pruning_for_protection_paper.png"
+      image_alt: "Refusal rates of pruned and unpruned language models"
+      links:
+        - label: "paper"
+          url: "https://arxiv.org/abs/2401.10862"
+        - label: "dataset"
+          url: "https://huggingface.co/datasets/notadib/harmful-tasks"
+- title: "Algorithms and Data Structures"
+  papers:
+    - title: "Towards Learned Binary Heaps"
+      authors: ["Adib Hasan", "Angelos Pelecanos"]
+      venue: "MIT 6.890: Learning-Augmented Algorithms, 2019"
+      image: "/images/learned_binary_heap_paper.png"
+      image_alt: "Learned binary heap architecture and performance results"
+      links:
+        - label: "paper"
+          url: "/files/6_890_Project.pdf"
+        - label: "blog post"
+          url: "https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6"
+    - title: "Graphettes: Constant-time determination of graphlet and orbit identity including (possibly disconnected) graphlets up to size 8"
+      authors: ["Adib Hasan", "Po-Chien Chung", "Wayne Hayes"]
+      venue: "PLoS ONE, 2017"
+      image: "/images/graphette_paper.png"
+      image_alt: "Graph and bit-vector representations used by Graphettes"
+      links:
+        - label: "paper"
+          url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0181570"
