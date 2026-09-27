@@ -60,6 +60,15 @@ Using this approach, my agents have discovered 150+ vulnerabilities in widely us
 <section class="research-section">
   <h2>Test Time Scaling</h2>
   <article class="paper-card">
+    <div class="paper-visual paper-visual--image"><img src="/images/de_framework_overview.png" alt="Discovery–Execution framework: measure discovery and execution, then predict success across compute allocations"></div>
+    <div class="paper-details">
+      <h3 class="paper-title">When Does Longer Reasoning Help? Predicting Mathematical Reasoning Through Discovery and Execution</h3>
+      <p class="paper-authors"><strong>Adib Hasan</strong>, Lay Jain, Thanic Nur Samin</p>
+      <p class="paper-venue">Preprint, 2026</p>
+      <p class="paper-links"><a href="https://github.com/Neehan/DE-Framework">code</a> / <a href="https://huggingface.co/datasets/notadib/AOBench">dataset</a> / <a href="/blog/discovery-execution/">blog post</a></p>
+    </div>
+  </article>
+  <article class="paper-card">
     <div class="paper-visual paper-visual--image"><img src="/images/autofyn_paper.png" alt="AutoFyn interface running a long-horizon security audit"></div>
     <div class="paper-details">
       <h3 class="paper-title">AutoFyn Technical Report: Non-Parametric Expert Iteration for Long-Horizon Agents</h3>
@@ -77,7 +86,7 @@ Using this approach, my agents have discovered 150+ vulnerabilities in widely us
     <div class="paper-details">
       <h3 class="paper-title">VITA: Variational Pretraining of Transformers for Climate-Robust Crop Yield Forecasting</h3>
       <p class="paper-authors"><strong>Adib Hasan</strong>, Mardavij Roozbehani, Munther Dahleh</p>
-      <p class="paper-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026 <span class="paper-note">— Oral (Top 5%)</span></p>
+      <p class="paper-venue">AAAI Conference on Artificial Intelligence (AAAI), 2026 <span class="paper-note">— Oral Presentation (Top 5%)</span></p>
       <p class="paper-links"><a href="https://arxiv.org/abs/2508.03589">paper</a> / <a href="https://github.com/Neehan/VITA">code</a> / <a href="/blog/vita/">blog post</a> / <a href="https://github.com/Neehan/VITA/blob/main/docs/Variational_Transformer_slides.pdf">slides</a></p>
     </div>
   </article>
