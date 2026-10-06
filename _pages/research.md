@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: true
 ---
 
-I’m interested in test-time scaling and reasoning, especially how to build AI agents that solve hard problems and remain effective over long periods. My preferred approach is to start with strong theoretical foundations and then test their limits through experiments.
+I’m interested in test-time scaling and reasoning, especially how to build AI agents that can solve hard problems and remain effective over long periods. My preferred approach is to build strong mathematical foundations and then test the limits of the theory through experiments.
 
 Two of my most recent projects are AutoFyn and Discovery–Execution.
 
