@@ -11,7 +11,7 @@ tags:
   - agents
 ---
 
-[GitHub](https://github.com/Neehan/DE-Framework) \| [Dataset](https://huggingface.co/datasets/notadib/AOBench)
+[Paper](https://arxiv.org/abs/2610.05322) \| [GitHub](https://github.com/Neehan/DE-Framework) \| [Dataset](https://huggingface.co/datasets/notadib/AOBench)
 
 [![Discovery–Execution framework: measure discovery and execution, then predict success across compute allocations](/images/de_framework_overview.png)](/images/de_framework_overview.png)
 

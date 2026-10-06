@@ -6,6 +6,8 @@
       image: "/images/de_framework_overview.png"
       image_alt: "Discovery–Execution framework: measure discovery and execution, then predict success across compute allocations"
       links:
+        - label: "paper"
+          url: "https://arxiv.org/abs/2610.05322"
         - label: "code"
           url: "https://github.com/Neehan/DE-Framework"
         - label: "dataset"
