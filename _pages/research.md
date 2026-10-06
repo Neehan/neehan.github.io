@@ -5,12 +5,18 @@ permalink: /research/
 author_profile: true
 ---
 
-I’m interested in test-time scaling and reasoning, especially how to make AI agents solve harder problems by working on them longer. This includes building agents that remain effective over many hours, understanding what limits their progress, and predicting when more compute will help. I like combining strong theoretical foundations with systems and experiments that test the underlying assumptions.
+I’m interested in test-time scaling and reasoning, especially how to build AI agents that solve hard problems and remain effective over long periods. My preferred approach is to start with strong theoretical foundations and then test their limits through experiments.
 
-Recently, I built an autonomous agent system called [AutoFyn](/blog/autofyn/) that has discovered 150+ vulnerabilities in major open-source projects, including MetaMask, LiteLLM, and pnpm. I also co-developed [Discovery–Execution](/blog/discovery-execution/), a framework for predicting reasoning performance across compute allocations. Earlier, my master’s work at MIT focused on robustness under distribution shift. This included [VITA](/blog/vita/), selected for an oral presentation at AAAI 2026.
+Two of my most recent projects are AutoFyn and Discovery–Execution.
+
+[AutoFyn](/blog/autofyn/) is an autonomous agent system inspired by reinforcement learning principles. It discovered 150+ vulnerabilities in major open-source projects, including MetaMask, LiteLLM, and pnpm, and topped the [Spider 2.0 DBT benchmark](https://spider2-sql.github.io/) for data science tasks.
+
+[Discovery–Execution](/blog/discovery-execution/) is a framework for predicting how much AI models benefit from longer reasoning, before running those longer attempts. It showed promising results across multiple model families.
+
+Earlier, my master’s work at MIT focused on robustness under distribution shift. This work included [VITA](/blog/vita/), which was selected for an oral presentation at AAAI 2026.
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">My papers are below, and also on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">You can find my papers below and on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 <style>

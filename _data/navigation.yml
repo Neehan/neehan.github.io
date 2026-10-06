@@ -4,11 +4,11 @@ main:
   - title: "Research"
     url: /research/
 
-  - title: "Portfolio"
-    url: /portfolio/
-
   - title: "Blog"
     url: /blog/
+
+  - title: "Portfolio"
+    url: /portfolio/
 
   - title: "Reading"
     url: /reading/
