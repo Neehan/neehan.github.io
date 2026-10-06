@@ -63,4 +63,4 @@ Two quick benchmarks from the Spider dataset highlight the low-latency indexing 
 2. With reranker:
 ![Spider benchmark with reranker](https://raw.githubusercontent.com/Neehan/schema-search/refs/heads/main/img/spider_benchmark_with_reranker.png)
 
-Find the source, config templates, and integration examples on GitHub: [Neehan/schema-search](https://github.com/Neehan/schema-search).
+The [code](https://github.com/Neehan/schema-search) includes configuration templates and integration examples.

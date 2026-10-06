@@ -11,11 +11,11 @@ tags:
   - agents
 ---
 
-[Paper](https://arxiv.org/abs/2610.05322) \| [GitHub](https://github.com/Neehan/DE-Framework) \| [Dataset](https://huggingface.co/datasets/notadib/AOBench)
+[Paper](https://arxiv.org/abs/2610.05322) \| [code](https://github.com/Neehan/DE-Framework) \| [Dataset](https://huggingface.co/datasets/notadib/AOBench)
 
 [![Discovery–Execution framework: measure discovery and execution, then predict success across compute allocations](/images/de_framework_overview.png)](/images/de_framework_overview.png)
 
-*Short independent attempts and sketch-conditioned runs estimate discovery and execution, which together predict success when the same compute budget is split across different numbers of attempts.*
+*Figure 1: Short independent attempts and sketch-conditioned runs estimate discovery and execution, which together predict success under alternate compute allocations.*
 
 Suppose an AI Agent has been working on a hard math problem for a while without solving it. Should we let it keep thinking, or start a fresh attempt? A longer attempt can finish an argument that is already on the right track. A fresh attempt may find an alternate approach that the first one missed.
 
@@ -23,7 +23,7 @@ We studied whether this tradeoff can be forecasted before running the longer att
 
 ## Finding the Idea and Finishing the Proof
 
-Anyone who has worked on olympiad combinatorics problems knows the distinction that it might take an hour looking for the right invariant, but, once it's found the proof takes five minutes. On another problem, you know that you have to do Vieta jumping, but making the argument rigorous takes most of the work. These two show different bottlenecks of *strategy discovery* and *conditional execution*. Two models can have the same success rate under a short budget while facing different bottlenecks. Hence, the success rate alone does not tell us how much longer reasoning will help.
+Anyone who has worked on olympiad combinatorics problems knows the distinction that it might take an hour looking for the right invariant, but, once it's found the proof takes five minutes. On another number theory problem, you know that you have to do Vieta jumping, but making the argument rigorous takes most of the work. These two show different bottlenecks of *strategy discovery* and *conditional execution*. Two models can have the same success rate under a short budget while facing different bottlenecks. Hence, the success rate alone does not tell us how much longer reasoning will help.
 
 This intuition can be made rigorous with the following setup. Let $p(k)$ be the probability of first discovering a viable strategy in block $k$, and let $\varepsilon(\ell)$ be the probability of completing it within $\ell$ blocks, counting the discovery block. Then
 
@@ -67,7 +67,14 @@ $$
 \widehat s(K)=\sum_{k=1}^{K}\widehat\alpha(1-\widehat\alpha)^{k-1}\widehat\varepsilon(K-k+1).
 $$
 
-When fresh success exceeds measured first-block execution, the constrained fit also adjusts the execution estimate. With only three sketch-conditioned runs per problem, these estimates can be noisy. Our regularized version, R-DE, uses shared Beta and Dirichlet priors for discovery and execution timing, fitted across problems separately for each model. All fitting uses only these measurement runs; the longer unaided runs and alternate allocations are held out.
+When fresh success exceeds measured first-block execution, the constrained fit also adjusts the execution estimate. With only three sketch-conditioned runs per problem, these estimates can be noisy. Our regularized version, R-DE, uses shared Beta and Dirichlet priors for discovery and execution timing:
+
+$$
+\alpha\sim\operatorname{Beta}(a,b),\qquad
+\boldsymbol{\pi}\sim\operatorname{Dirichlet}(\boldsymbol{d}).
+$$
+
+Here, $\boldsymbol{\pi}$ contains the probabilities of first completing execution in each block, plus the probability of not completing within the budget. The prior parameters $a$, $b$, and $\boldsymbol{d}$ are fitted across problems separately for each model. All fitting uses only these measurement runs; the longer unaided runs and alternate allocations are held out.
 
 ## What We Found
 
@@ -75,7 +82,7 @@ We introduce AOBench: 35 hard, non-geometry problems from 2026 olympiads, each w
 
 [![Measured sketch-conditioned and unaided success, R-DE predictions, and prediction errors across four models](/images/de_framework_paper.png)](/images/de_framework_paper.png)
 
-*Top: success with a strategy sketch (orange), unaided success (gray), and R-DE predictions (dashed red). Bottom: observed minus predicted solved counts; closer to zero is better. SG is the simple geometric baseline, R-SG its regularized version, and SCT transfers the sketch curve's gains directly to unaided success.*
+*Figure 2: Top: success with a strategy sketch (orange), unaided success (gray), and R-DE predictions (dashed red). Bottom: observed minus predicted solved counts; closer to zero is better. SG is the simple geometric baseline, R-SG its regularized version, and SCT transfers the sketch curve's gains directly to unaided success.*
 
 GPT-5.5 solves 162 of 171 sketch-conditioned trajectories within one block, increasing to only 168 after eight. Once it has the idea, execution is nearly saturated. Our DE Framework predicts that in such cases a simple geometric model, which treats each block as another chance of success, predicts its scaling curve well.
 
@@ -87,7 +94,7 @@ The same measurements also predict success when we split the compute budget betw
 
 [![Observed and R-DE-predicted success curves for two parallel attempts, by model and dataset](/images/de_framework_allocation.png)](/images/de_framework_allocation.png)
 
-*Solid curves show observed success and dashed curves show R-DE predictions for $N=2$. Colors separate AOBench, IMO-ProofBench, and their combined results. The horizontal axis counts the total budget across both attempts.*
+*Figure 3: Solid curves show observed success and dashed curves show R-DE predictions for $N=2$. Colors separate AOBench, IMO-ProofBench, and their combined results. The horizontal axis counts the total budget across both attempts.*
 
 Across the four models, R-DE's prediction RMSE for this allocation is 3.76 solved trials, compared with 5.84 for the simple geometric baseline.
 
