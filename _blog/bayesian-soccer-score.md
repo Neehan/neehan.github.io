@@ -15,7 +15,7 @@ tags:
 
 In this blogpost, I develop a probabilistic framework for predicting soccer match outcomes by modeling team goal-scoring rates as an autoregressive time series with Gaussian drift. The model treats each team's latent strength as evolving stochastically over time, with observations generated via a Poisson likelihood. Rather than fitting a neural network to learn these dynamics, I specify an interpretable Bayesian hierarchical model with explicit priors on drift variance and covariate effects. This design prioritizes posterior interpretability and uncertainty quantification over raw predictive performance.
 
-**Full implementation:** [Colab notebook](https://colab.research.google.com/drive/1b-o\_ACHLYiweYk\_Ynp\_qxcWvZ2Am7-At) [code](https://github.com/notadib/soccer-wc-pred)
+**Full implementation:** [Colab notebook](https://colab.research.google.com/drive/1b-o\_ACHLYiweYk\_Ynp\_qxcWvZ2Am7-At) [Code](https://github.com/notadib/soccer-wc-pred)
 
 ## Problem Formulation
 
