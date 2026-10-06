@@ -5,13 +5,13 @@ permalink: /research/
 author_profile: true
 ---
 
-I’m interested in test-time scaling and reasoning, especially how to build AI agents that can solve hard problems and remain effective over long periods. My preferred approach is to build strong mathematical foundations and then test the limits of the theory through experiments.
+I’m interested in test-time scaling and reasoning, especially how to build AI agents that can solve hard problems and remain effective over long periods. My preferred approach is to build strong mathematical foundations and then test limitations of theory through experiments.
 
 Two of my most recent projects are AutoFyn and Discovery–Execution.
 
 [AutoFyn](/blog/autofyn/) is an autonomous agent system inspired by reinforcement learning principles. It discovered 150+ vulnerabilities in major open-source projects, including MetaMask, LiteLLM, and pnpm, and topped the [Spider 2.0 DBT benchmark](https://spider2-sql.github.io/) for data science tasks.
 
-[Discovery–Execution](/blog/discovery-execution/) is a framework for predicting how much AI models benefit from longer reasoning, before running those longer attempts. It showed promising results across multiple model families. The paper was accepted at the NeurIPS MATH-AI Workshop 2026.
+[Discovery–Execution](/blog/discovery-execution/) is a framework for predicting how much AI models benefit from longer reasoning, before running those longer attempts. It showed promising results across multiple model families.
 
 Earlier, my master’s work at MIT focused on robustness under distribution shift. This work included [VITA](/blog/vita/), which was selected for an oral presentation at AAAI 2026.
 
