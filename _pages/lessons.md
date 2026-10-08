@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "To Be Human"
+title: "My Tiny Gaussian Random Walk"
 permalink: /lessons/
 author_profile: true
 ---
