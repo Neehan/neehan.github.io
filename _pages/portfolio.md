@@ -21,7 +21,7 @@ author_profile: true
 * **Schema Search MCP Server (2025)**: Searches database schemas using natural language. ([blogpost](/blog/schema-search/), [code](https://github.com/Neehan/schema-search))
 * **Bayesian Soccer Score Predictor (2022)**: Predicts soccer match outcomes using Bayesian inference. ([blogpost](/blog/bayesian-soccer-score/))
 * **Essay Mate (2024)**: A free GPT-based college admissions essay reviewer. ([link](https://chatgpt.com/g/g-673c242ba900819183752398e7a8833b-essay-mate))
-* **LaTeXbangla (2016)**: Adds Bangla font support to LaTeX projects. ([blogpost](/blog/latexbangla/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
+* **LaTeXbangla (2016)**: Adds Bangla font support to LaTeX projects. ([blogpost](/blog/latexbangla-1-0/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
 
 ## Books
 
