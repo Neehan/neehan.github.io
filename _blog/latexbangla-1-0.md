@@ -1,6 +1,6 @@
 ---
-title: "LaTeXbangla 1.0: Ten Years Later"
-excerpt: "I released LaTeXbangla 0.2 in 2016 to make writing Bangla in LaTeX easier. Ten years later, version 1.0 brings it up to date with simpler font setup and the same familiar commands."
+title: "LaTeXbangla 1.1: Ten Years Later"
+excerpt: "I released LaTeXbangla 0.2 in 2016 to make writing Bangla in LaTeX easier. Ten years later, version 1.1 brings it up to date with simpler font setup and the same familiar commands."
 collection: blog
 date: 2026-10-23
 tags:
@@ -17,9 +17,9 @@ In 2016, when I was still in high school, I wrote LaTeXbangla out of frustration
 
 Then I mostly left the package alone. To my surprise, it became the standard for typesetting mathematical content in Bangla, with numerous mathematics books published using it. Meanwhile, LaTeX and Polyglossia moved on, and some of my old workarounds stopped working. People [reported](https://tex.stackexchange.com/questions/99606/how-to-write-bengali-in-latex/335214#335214) problems with numbering and citations. An update was overdue.
 
-Today, ten years later, I am releasing version 1.0 of LaTeXbangla on GitHub, with a CTAN update to follow. The idea is still the same: choose a Bangla font, then write ordinary LaTeX. A font lets you display Bangla characters, but a Bangla document also needs numbering, headings, lists, and references to work together. LaTeXbangla handles that setup and switches between Bangla and English fonts as you type.
+Today, ten years later, I am releasing version 1.1 of LaTeXbangla on GitHub, with a CTAN update to follow. The idea is still the same: choose a Bangla font, then write ordinary LaTeX. A font lets you display Bangla characters, but a Bangla document also needs numbering, headings, lists, and references to work together. LaTeXbangla handles that setup and switches between Bangla and English fonts as you type.
 
-For example, with Kalpurush installed, compile this with XeLaTeX:
+For example, with Kalpurush installed, compile this with XeLaTeX or LuaLaTeX:
 
 ```latex
 \documentclass{article}
