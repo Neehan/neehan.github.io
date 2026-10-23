@@ -13,7 +13,7 @@ tags:
 
 ![LaTeXbangla: Writing Bangla & Assamese with ordinary LaTeX](/images/latexbangla-logo.png)
 
-[Code](https://github.com/Neehan/LaTeXbangla) \| [Manual](https://github.com/Neehan/LaTeXbangla/blob/master/latexbangla/latexbangla.pdf) \| [Bangla example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/bangla.pdf) \| [Assamese example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/assamese.pdf)
+[Overleaf demo](https://www.overleaf.com/project/6adbaac1d48d9344680c2fe1/share#6b9d2d41b2de0b80c2de0d11c68ce7c79f33cbe1edef7ec7) \| [Code](https://github.com/Neehan/LaTeXbangla) \| [Manual](https://github.com/Neehan/LaTeXbangla/blob/master/latexbangla/latexbangla.pdf) \| [Bangla example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/bangla.pdf) \| [Assamese example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/assamese.pdf)
 
 In 2016, when I was still in high school, I wrote LaTeXbangla out of frustration. I wanted to LaTeX some math notes in Bangla, but the existing options were limited and I was spending more time configuring fontspec than math. Polyglossia's Bangla support was rough at the time, so I put together a package to handle the common problems. A few years later, I used it to write a [mathematics book](https://www.rokomari.com/book/180324/combinatorics-hatekhori) in Bangla.
 
