@@ -30,7 +30,7 @@ Ten years later, LaTeXbangla is now at version 2.0. These are the changes I care
 
 The idea is still the same: choose a Bangla font and write ordinary LaTeX. LaTeXbangla takes care of numbering, headings, lists, and references, and switches between Bangla and English fonts as you type.
 
-Overleaf may take a while to include this update; meanwhile, on a compatible TeX Live version, upload the contents of the [package folder](https://github.com/Neehan/LaTeXbangla/tree/master/latexbangla) beside your main `.tex` file, keep the `code/` subfolder intact, and use `\usepackage{latexbangla}`.
+Overleaf may take a while to include this update. Meanwhile, make a copy of this [demo project](https://www.overleaf.com/project/6adbaac1d48d9344680c2fe1/share#6b9d2d41b2de0b80c2de0d11c68ce7c79f33cbe1edef7ec7) and start writing.
 
 For example, with Kalpurush installed, compile this with XeLaTeX or LuaLaTeX:
 
