@@ -11,7 +11,7 @@ tags:
   - releases
 ---
 
-![LaTeXbangla: Writing Bangla & Assamese with ordinary LaTeX](/images/latexbangla-logo.png)
+![LaTeXbangla: Writing Bangla & Assamese with ordinary LaTeX](https://raw.githubusercontent.com/Neehan/LaTeXbangla/master/latexbangla/logo.png)
 
 [Overleaf demo](https://www.overleaf.com/project/6adbaac1d48d9344680c2fe1/share#6b9d2d41b2de0b80c2de0d11c68ce7c79f33cbe1edef7ec7) \| [Code](https://github.com/Neehan/LaTeXbangla) \| [Manual](https://github.com/Neehan/LaTeXbangla/blob/master/latexbangla/latexbangla.pdf) \| [Bangla example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/bangla.pdf) \| [Assamese example](https://github.com/Neehan/LaTeXbangla/blob/master/examples/assamese.pdf)
 
