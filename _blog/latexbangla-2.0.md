@@ -42,11 +42,24 @@ For example, with Kalpurush installed, compile this with XeLaTeX or LuaLaTeX:
 
 \begin{document}
 \section{পিথাগোরাসের উপপাদ্য}
-The Pythagorean theorem থেকে আমরা পাই,
-\[৩^২+৪^২=২৫.\]
-\textbf{অতিভুজের দৈর্ঘ্য ৫ একক।}
+সমকোণী ত্রিভুজের দুই লম্ব বাহুর দৈর্ঘ্য $a$ ও $b$,
+এবং অতিভুজের দৈর্ঘ্য $c$ হলে, \textit{Pythagorean theorem} অনুযায়ী,\footnote{সমকোণের বিপরীত বাহুটিই অতিভুজ বা hypotenuse।}
+\[a^2+b^2=c^2.\]
+
+A diagonal is the shortest route across a rectangular garden—
+বাগানের এক কোণ থেকে বিপরীত কোণে যাওয়ার সরাসরি পথ।
+দুই লম্ব বাহুর দৈর্ঘ্য ৩ ও ৪ একক হলে,
+\begin{enumerate}
+  \item বাহু দুটির দৈর্ঘ্যের বর্গের যোগফল $৩^{২}+৪^{২}=২৫$।
+  \item অতিভুজের দৈর্ঘ্য $c=\sqrt{২৫}=৫$ একক।
+\end{enumerate}
+
+\textbf{মনে রাখি: a right angle is essential.}
+সূত্রটি শুধু সমকোণী ত্রিভুজের জন্য প্রযোজ্য।
 \end{document}
 ```
+
+[![The example rendered with Bangla and English text, equations, a numbered list and a footnote](https://raw.githubusercontent.com/Neehan/LaTeXbangla/master/img/example.png)](https://raw.githubusercontent.com/Neehan/LaTeXbangla/master/img/example.png)
 
 The English text keeps its own font, the section number becomes Bangla, and `\textbf` works even when the Bangla font has no bold face. Typed digits keep their script: `12` stays `12`, and `১২` stays `১২`, in both text and mathematics. You can also choose your math font independently.
 
@@ -57,5 +70,7 @@ If you want different fonts for body text, sans-serif text, and typewriter text,
 The old numbering and citation problems are fixed, and more of the language support now comes from Polyglossia. The [manual](https://github.com/Neehan/LaTeXbangla/blob/master/latexbangla/latexbangla.pdf) is available in English, Bangla, and Assamese, with code beside its rendered output so you can see what each example does.
 
 If you used the old version, the manual has a migration section to help you update your documents. If you are starting a new one, try the [example](https://github.com/Neehan/LaTeXbangla/tree/master/examples).
+
+The book I mentioned earlier also left me with a book template. I’ve now cleaned it up and released it as [BOOKbangla](https://github.com/Neehan/BOOKbangla), a companion class for Bangla and Assamese books built on memoir and LaTeXbangla. It gives you chapter designs, worked examples and exercises with hints, while keeping memoir’s customization options available. The [example book](https://github.com/Neehan/BOOKbangla/blob/master/examples/bangla/main.pdf) includes a full chapter from *কম্বিনেটরিকসে হাতেখড়ি*. You can make a copy of the [BOOKbangla Overleaf demo](https://www.overleaf.com/project/6adc6a64e207c9e858a5c4ba/share#f620335030ef2a824fafcc0cfb1f6e2548f3d2154965545f) to start your own book.
 
 Thanks for Reading!
