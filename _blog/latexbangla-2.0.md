@@ -61,6 +61,8 @@ A diagonal is the shortest route across a rectangular garden—
 
 [![The example rendered with Bangla and English text, equations, a numbered list and a footnote](https://raw.githubusercontent.com/Neehan/LaTeXbangla/master/img/example.png)](https://raw.githubusercontent.com/Neehan/LaTeXbangla/master/img/example.png)
 
+*Figure 1: Output of the LaTeXbangla example above.*
+
 The English text keeps its own font, the section number becomes Bangla, and `\textbf` works even when the Bangla font has no bold face. Typed digits keep their script: `12` stays `12`, and `১২` stays `১২`, in both text and mathematics. You can also choose your math font independently.
 
 For an Assamese document, load `\usepackage[language=assamese]{latexbangla}` and keep the same font commands. Document labels and reference names become Assamese, and alphabetic lists follow the Assamese sequence. You still write ordinary LaTeX; the package takes care of the language-specific details.
@@ -71,6 +73,14 @@ The old numbering and citation problems are fixed, and more of the language supp
 
 If you used the old version, the manual has a migration section to help you update your documents. If you are starting a new one, try the [example](https://github.com/Neehan/LaTeXbangla/tree/master/examples).
 
-The book I mentioned earlier also left me with a book template. I’ve now cleaned it up and released it as [BOOKbangla](https://github.com/Neehan/BOOKbangla), a companion class for Bangla and Assamese books built on memoir and LaTeXbangla. It gives you chapter designs, worked examples and exercises with hints, while keeping memoir’s customization options available. The [example book](https://github.com/Neehan/BOOKbangla/blob/master/examples/bangla/main.pdf) includes a full chapter from *কম্বিনেটরিকসে হাতেখড়ি*. You can make a copy of the [BOOKbangla Overleaf demo](https://www.overleaf.com/project/6adc6a64e207c9e858a5c4ba/share#f620335030ef2a824fafcc0cfb1f6e2548f3d2154965545f) to start your own book.
+## BOOKbangla
+
+The book I mentioned earlier also left me with a book template. I’ve now cleaned it up and released it as [BOOKbangla](https://github.com/Neehan/BOOKbangla), a companion class for Bangla and Assamese books built on memoir and LaTeXbangla.
+
+[![The opening page of the pigeonhole principle chapter, showing BOOKbangla’s classic chapter heading, quotation, section heading and illustration](/images/bookbangla-chapter.png)](https://github.com/Neehan/BOOKbangla/blob/master/examples/bangla/main.pdf)
+
+*Figure 2: The opening of a chapter from কম্বিনেটরিকসে হাতেখড়ি, using BOOKbangla’s classic chapter style. Click the image to read the full example book.*
+
+It gives you chapter designs, worked examples and exercises with hints, while keeping memoir’s customization options available. The example includes a full chapter from my book, so you can see how these fit together across real pages. To start your own, make a copy of the [BOOKbangla Overleaf demo](https://www.overleaf.com/project/6adc6a64e207c9e858a5c4ba/share#f620335030ef2a824fafcc0cfb1f6e2548f3d2154965545f).
 
 Thanks for Reading!
