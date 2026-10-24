@@ -22,6 +22,7 @@ author_profile: true
 * **Bayesian Soccer Score Predictor (2022)**: Predicts soccer match outcomes using Bayesian inference. ([blogpost](/blog/bayesian-soccer-score/))
 * **Essay Mate (2024)**: A free GPT-based college admissions essay reviewer. ([link](https://chatgpt.com/g/g-673c242ba900819183752398e7a8833b-essay-mate))
 * **LaTeXbangla (2016)**: Adds Bangla font support to LaTeX projects. ([blogpost](/blog/latexbangla-2.0/), [CTAN link](https://ctan.org/pkg/latexbangla?lang=en))
+* **BOOKbangla (2026)**: A memoir-based LaTeX class for Bangla and Assamese books, with chapter designs, worked examples and exercises. ([blogpost](/blog/latexbangla-2.0/), [code](https://github.com/Neehan/BOOKbangla))
 
 ## Books
 
