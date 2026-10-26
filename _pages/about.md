@@ -16,4 +16,4 @@ I grew up in Bangladesh, where I spent much of high school training for the Inte
 
 Beyond work, I cook like a grandma ([proof](https://www.instagram.com/le.spicemaster/)), read [dead philosophers](/reading/), and lift [heavy objects calmly yet furiously](/powerlifting/). 
 
-I also co-authored a [math textbook](/portfolio/) and built a free [college admissions GPT](https://chatgpt.com/g/g-673c242ba900819183752398e7a8833b-essay-mate). Both make high school students cry, but for completely different reasons.
+I also co-authored a [math textbook](/portfolio/) and built [Essay Mate](/admission/essay-mate), a free ChatGPT plugin for college application essay feedback. Both make high school students cry, but for completely different reasons.
