@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: true
 ---
 
-I’m interested in developing a theory of how AI systems reason and using it to improve how they learn. I like to develop mathematical frameworks, test their predictions through experiments, and revise them when the evidence disagrees.
+I’m interested in developing a theory of how AI systems reason and using it to improve how they learn. I like to build mathematical frameworks from first principles, test their predictions through experiments, and revise them when the evidence disagrees.
 
 Two of my most recent projects are AutoFyn and Discovery–Execution.
 
