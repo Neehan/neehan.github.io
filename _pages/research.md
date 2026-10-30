@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: true
 ---
 
-I’m interested in test-time scaling and reasoning, especially how to build AI agents that can solve hard problems and remain effective over long periods. My preferred approach is to build strong mathematical foundations and then test their limitations through experiments.
+I’m interested in developing a theory of how AI systems reason and using it to improve how they learn. I like to build mathematical models, test their predictions through experiments, and revise them when the evidence disagrees.
 
 Two of my most recent projects are AutoFyn and Discovery–Execution.
 
@@ -72,3 +72,7 @@ Earlier, my master’s work at MIT focused on robustness under distribution shif
   {% endfor %}
 </section>
 {% endfor %}
+
+## Academic service
+
+Reviewer, AAAI 2027.

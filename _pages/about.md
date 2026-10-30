@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Adib Hasan, a research engineer building [long-horizon AI agents](https://github.com/SignalPilot-Labs/AutoFyn). In my spare time, I do independent research on [reasoning and test-time scaling](/research/).
+Hi, I'm Adib Hasan, a research engineer building [long-horizon AI agents](/blog/autofyn/). In my spare time, I do [independent research](/research/) to understand how AI systems reason and improve how they learn.
 
 I completed my bachelor's in Math & EECS and MEng in EECS at MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). Before that, I spent two years as a **quant developer** managing large crypto portfolios and leading a team of four. You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
 
