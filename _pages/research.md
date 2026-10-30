@@ -72,7 +72,3 @@ Earlier, my master’s work at MIT focused on robustness under distribution shif
   {% endfor %}
 </section>
 {% endfor %}
-
-## Academic service
-
-Reviewer, AAAI 2027.

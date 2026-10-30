@@ -11,6 +11,10 @@ author_profile: true
 * **AutoFyn (2026)**: An autonomous agent system inspired by reinforcement learning principles. ([blogpost](/blog/autofyn/), [code](https://github.com/SignalPilot-Labs/AutoFyn))
 * **ML Augmented Binary Heap (2019)**: Uses machine learning to speed up binary heap operations. ([blogpost](/blog/ml-augmented-heap/), [Medium post](https://medium.com/@thankful_rose_ferret_864/how-we-sped-up-the-binary-heap-with-machine-learning-e10b3204e4e6))
 
+## Academic Service
+
+* **Reviewer**, AAAI 2027.
+
 ## Datasets
 
 * **AOBench (2026)**: 35 hard olympiad problems with human-checked proofs and strategy sketches. ([dataset](https://huggingface.co/datasets/notadib/AOBench), [paper](https://arxiv.org/abs/2610.05322))

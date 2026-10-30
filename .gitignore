@@ -5,3 +5,6 @@ _site/
 Gemfile.lock
 
 CLAUDE.md
+AGENT.md
+
+.vscode/
