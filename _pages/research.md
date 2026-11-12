@@ -16,7 +16,7 @@ Two of my most recent projects are AutoFyn and Discovery–Execution.
 
 Earlier, my master’s work at MIT focused on robustness under distribution shift. This work included [VITA](/blog/vita/), which was selected for an oral presentation at AAAI 2026.
 
-My independent research has been supported by [Yotta Labs’ Academic Research Support Program](https://www.yottalabs.ai/post/academic-research-credit-support-program-launch).
+My independent research has been supported by [Yotta Labs’ Academic Research Support Program](https://www.yottalabs.ai/research-credit).
 
 {% if site.author.googlescholar %}
   <div class="wordwrap">You can find my papers below and on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>

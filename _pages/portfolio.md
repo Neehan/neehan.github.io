@@ -21,7 +21,7 @@ Selected research and engineering projects. See [Research](/research/) for paper
 
 ## Research Support & Grants
 
-* **[Yotta Labs Academic Research Support Program](https://www.yottalabs.ai/post/academic-research-credit-support-program-launch)**: GPU compute credits for independent research.
+* **[Yotta Labs Academic Research Support Program](https://www.yottalabs.ai/research-credit)**: GPU compute credits for independent research.
 
 ## Academic Service
 
