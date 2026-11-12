@@ -1,6 +1,7 @@
 ---
 permalink: /powerlifting/
 title: "What is Powerlifting?"
+description: "Adib Hasan’s take on powerlifting, with personal squat, bench press, and deadlift records."
 author_profile: true
 ---
 Powerlifting is a sport where insecure people stroke their fragile egos by lifting weights that are clearly too heavy for them. Most powerlifters are under the impression that a three-plate bench press will earn them respect on the streets, but in reality, the general population couldn't care less.

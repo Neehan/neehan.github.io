@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Research"
+description: "Research by Adib Hasan on AI reasoning, long-horizon agents, and robustness under distribution shift."
 permalink: /research/
 author_profile: true
 ---
@@ -14,6 +15,8 @@ Two of my most recent projects are AutoFyn and Discovery–Execution.
 [Discovery–Execution](/blog/discovery-execution/) is a framework for predicting how much AI models benefit from longer reasoning before running those longer attempts. It was accepted in the MATH-AI Workshop at NeurIPS 2026.
 
 Earlier, my master’s work at MIT focused on robustness under distribution shift. This work included [VITA](/blog/vita/), which was selected for an oral presentation at AAAI 2026.
+
+My independent research has been supported by [Yotta Labs’ Academic Research Support Program](https://www.yottalabs.ai/post/academic-research-credit-support-program-launch).
 
 {% if site.author.googlescholar %}
   <div class="wordwrap">You can find my papers below and on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>

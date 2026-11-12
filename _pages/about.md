@@ -1,14 +1,14 @@
 ---
 permalink: /
 title: "About me"
-description: "Adib Hasan builds long-horizon agents that improve through expert iteration. MIT Math & EECS, former quant developer, and IMO medalist."
+description: "Adib Hasan is a research engineer and independent researcher studying AI reasoning and building long-horizon agents."
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-Hi, I'm Adib Hasan, a research engineer building [long-horizon AI agents](/blog/autofyn/). In my spare time, I do [independent research](/research/) to understand how AI systems reason and improve how they learn.
+Hi, I'm Adib Hasan, a research engineer building [long-horizon AI agents](/blog/autofyn/). I also pursue [independent research](/research/) on developing a theory of reasoning and improving how AI systems learn to reason.
 
 I completed my bachelor's in Math & EECS and MEng in EECS at MIT, where I was advised by [Dr. Mardavij Roozbehani](https://idss.mit.edu/staff/mardavij-roozbehani/) and [Prof. Munther Dahleh](https://idss.mit.edu/staff/munther-dahleh/). Before that, I spent two years as a **quant developer** managing large crypto portfolios and leading a team of four. You can find more on my [LinkedIn](https://linkedin.com/in/adib-hasan).
 

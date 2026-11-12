@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "My Tiny Gaussian Random Walk"
+description: "Adib Hasan’s running collection of lessons on life, work, and machine learning."
 permalink: /lessons/
 author_profile: true
 ---
